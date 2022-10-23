@@ -9,6 +9,7 @@ This project is motivated by our research and will be extended by further featur
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![Tests](https://img.shields.io/badge/Tests-passed-<COLOR>.svg)](https://shields.io/)
+[![Coverage](https://img.shields.io/badge/coverage-99%25-<COLOR>.svg)](https://shields.io/)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 ### Quick links
@@ -37,28 +38,7 @@ This project is motivated by our research and will be extended by further featur
 
 ## Test PLCreX
 [![Tests](https://img.shields.io/badge/Tests-passed-<COLOR>.svg)](https://shields.io/)
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="99" height="20">
-    <linearGradient id="b" x2="0" y2="100%">
-        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
-        <stop offset="1" stop-opacity=".1"/>
-    </linearGradient>
-    <mask id="a">
-        <rect width="99" height="20" rx="3" fill="#fff"/>
-    </mask>
-    <g mask="url(#a)">
-        <path fill="#555" d="M0 0h63v20H0z"/>
-        <path fill="#4c1" d="M63 0h36v20H63z"/>
-        <path fill="url(#b)" d="M0 0h99v20H0z"/>
-    </g>
-    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-        <text x="31.5" y="15" fill="#010101" fill-opacity=".3">coverage</text>
-        <text x="31.5" y="14">coverage</text>
-        <text x="80" y="15" fill="#010101" fill-opacity=".3">99%</text>
-        <text x="80" y="14">99%</text>
-    </g>
-</svg>
-
+[![Coverage](https://img.shields.io/badge/coverage-99%25-<COLOR>.svg)](https://shields.io/)
 
 
 Run the following command for some local tests: 
@@ -75,7 +55,7 @@ plcrex\__init__.py              2      0   100%
 plcrex\_iec_checker.py          5      0   100%
 plcrex\_st2tree.py             14      0   100%
 plcrex\_xml_checker.py          7      0   100%
-plcrex\cli.py                  48      1    98%   row 63
+plcrex\cli.py                  48      1    98%   63
 tests\__init__.py               0      0   100%
 tests\test_help.py              6      0   100%
 tests\test_iec_checker.py      33      0   100%
@@ -208,7 +188,7 @@ Options:
 Success!
 ````
 
-######Example <font color="red">FAILED</font>
+###### Example <font color="red">FAILED</font>
 >`(venv) C:\Python\plcrex_project>python -m plcrex xml-checker ".\tests\plcopen_examples\TC001_failed.xml" -v201`
 ```xml
 Traceback (most recent call last):
