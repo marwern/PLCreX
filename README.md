@@ -117,7 +117,7 @@ The [IEC Checker](https://github.com/jubnzv/iec-checker) is an external open sou
     - CP13: POUs shall not call themselves directly or indirectly
     - CP25: Data type conversion should be explicit
     - CP28: Time and physical measures comparisons shall not be equality or inequality
-    - L10: Usage of CONTINUE and EXIT instruction should be avoid
+    - L10: Usage of CONTINUE and EXIT instruction should be avoided
     - L17: Each IF instruction should have an ELSE clause
   + Declaration analysis for derived types
   + Intraprocedural control flow analysis: detection of unreachable code blocks inside the POUs
