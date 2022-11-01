@@ -52,23 +52,23 @@ start
           and
             equalitiy
               adding
-                multiply_with
-                  constant	20
-                  variable	IN1
                 adding
+                  multiply_with
+                    constant	20
+                    variable	IN1
                   multiply_with
                     constant	6
                     variable	IN2
-                  variable	IN3
+                variable	IN3
               multiply_with
                 constant	100
                 constant	2
             equalitiy
               adding
-                variable	IN1
                 adding
+                  variable	IN1
                   variable	IN2
-                  variable	IN3
+                variable	IN3
               constant	100
           variable	IN4
       statement
@@ -117,10 +117,10 @@ start
             TON2
             equalitiy
               adding
-                variable	IN1
                 adding
+                  variable	IN1
                   variable	IN2
-                  variable	IN3
+                variable	IN3
               and
                 constant	42
                 variable	SR1
