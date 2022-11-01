@@ -1,8 +1,9 @@
 coverage==6.5.0
 coverage-badge==v1.1.0
 colorama==0.4.5
+dicttoxml2==2.1.0
 lark==1.1.3
 pydot==1.4.2
-pytest==6.2.4
+pytest==7.2.0
 typer==0.3.2
 xmlschema==2.1.1

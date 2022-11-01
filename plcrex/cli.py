@@ -17,7 +17,7 @@
 #
 
 from typing import Optional
-from plcrex import __app_name__, __version__, _st2tree, _iec_checker, _xml_checker
+from plcrex import __app_name__, __version__, _st2tree, _iec_checker, _xml_checker, _fbd2st
 from pathlib import Path
 import typer
 import colorama
@@ -47,6 +47,19 @@ def iec_checker(
             typer.echo("\n"+typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no ST/xml file found")
+    raise typer.Exit()
+
+
+@app.command("fbd2st")
+def fbd2st(
+        src: Path,
+        run_tests: bool = typer.Option(False, "-static-tests", help="run static tests")):
+    if src.is_file():
+        if src.suffix == '.xml':
+            _fbd2st.translation(src, run_tests)
+            typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
+        else:
+            raise RuntimeError("no xml file found")
     raise typer.Exit()
 
 
