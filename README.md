@@ -28,18 +28,24 @@ This project is motivated by our research and will be extended by further featur
 * [Licenses](#licenses)
 
 
-### Setup PLCreX
+## Setup PLCreX
 1. Download or clone repository
-2. Create a virtual environment in the project root directory: 
+2. Download IEC-Checker (executable) from the last [PLCreX Release](https://github.com/marwern/PLCreX/tags) or instead from official [IEC Checker repository](https://github.com/jubnzv/iec-checker)
+3. Change `IEC_Checker_exe` path in `./config.ini` according to your local path (optional, but tests will fail without exe)
+```
+[IEC-Checker]
+IEC_Checker_exe = .\bin\iec_checker_Windows_x86_64_v0.4.exe
+```
+4. Create a virtual environment in the project root directory: 
     >`C:\Python\plcrex_project>python -m venv venv`
-3. Activate virtual environment:
+5. Activate virtual environment:
    >`C:\Python\plcrex_project>venv\Scripts\activate.bat`
-4. Install the dependencies (`requirements.txt`):
+6. Install the dependencies (`requirements.txt`):
    >`(venv) C:\Python\plcrex_project>python -m pip install -r requirements.txt`
 
 
 
-### Test PLCreX
+## Test PLCreX
 [![Tests](https://img.shields.io/badge/Tests-passed-<COLOR>.svg)](https://shields.io/)
 [![Coverage](https://img.shields.io/badge/coverage-99%25-<COLOR>.svg)](https://shields.io/)
 
