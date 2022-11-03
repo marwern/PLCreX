@@ -62,7 +62,7 @@ Name                        Stmts   Miss  Cover   Missing
 ---------------------------------------------------------
 plcrex\__init__.py              2      0   100%
 plcrex\_fbd2st.py             231      0   100%
-plcrex\_iec_checker.py          5      0   100%
+plcrex\_iec_checker.py         11      1    91%   32
 plcrex\_st2tree.py             14      0   100%
 plcrex\_xml_checker.py          7      0   100%
 plcrex\cli.py                  56      1    98%   94
@@ -74,7 +74,7 @@ tests\test_st2tree.py          21      0   100%
 tests\test_version.py          11      0   100%
 tests\test_xml_checker.py      19      0   100%
 ---------------------------------------------------------
-TOTAL                         430      1    99%
+TOTAL                         436      2    99%
 ```
 
 
@@ -478,5 +478,5 @@ This section summarizes the changes since the last release.
 Contributors are welcome. Please use GitHub Issues and start the subject with the appropriate cause (Feature Request := "[Feature Request] ... ", Change Requests := "[Change Request] ... ", and Bugs := "[Bug] ... ") to track the implementation progress. For ideas, I recommend using GitHub Discussions (Categorie:Ideas) first. Depending on the discussion, I/you can create a feature request, change request or bug. I think this keeps the repository well structured. Thanks!
 
 # Licenses
-- PLCreX v0.2.1 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+- PLCreX [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 - IEC Checker v0.4  [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)

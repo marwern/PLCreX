@@ -18,8 +18,16 @@
 
 from pathlib import Path
 from subprocess import call
+import configparser
 
+cfg = configparser.ConfigParser()
+cfg.read('config.ini')
+
+iec_checker_path = Path(cfg['IEC-Checker']['IEC_Checker_exe'])
 
 def execution(src: Path, option: str = '--quiet'):
-    call([r'.\bin\iec_checker_Windows_x86_64_v0.4.exe', src, option])
+    if iec_checker_path.is_file():
+        call([rf'{iec_checker_path}', src, option])
+    else:
+        raise RuntimeError(rf"no .exe found at {iec_checker_path}")
     return
