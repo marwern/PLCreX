@@ -446,4 +446,4 @@ def translation(src: Path,
 
 
     if run_tests:
-        _iec_checker.execution(fr'.\exports\st\{Path(src).name}.st', '--verbose')
+        _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}.st'), '--verbose')
