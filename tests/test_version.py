@@ -1,5 +1,5 @@
 #
-# This file is part of PLCreX (https://github.com/marwern/plcrex).
+# This file is part of PLCreX (https://github.com/marwern/PLCreX).
 #
 # Copyright (c) 2022 Marcel Werner.
 #
