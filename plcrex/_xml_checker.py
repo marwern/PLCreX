@@ -19,7 +19,8 @@
 from pathlib import Path
 import xmlschema
 
-def validate(xml_file: Path, validation_file:str):
+
+def validate(xml_file: Path, validation_file: str):
     xsd_file = fr".\data\{validation_file}"
 
     # create validation scheme

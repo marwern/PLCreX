@@ -22,29 +22,35 @@ from plcrex import cli
 
 runner = CliRunner()
 
+
 def test_help():
     result = runner.invoke(cli.app, ["fbd2st", "--help"])
     assert result.exit_code == 0
+
 
 def test_with_static_tests():
     result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC004.xml", "-static-tests"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
+
 def test_without_static_tests_fb():
     result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FB.xml"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
+
 
 def test_without_static_tests_prg():
     result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_PRG.xml"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
+
 def test_without_static_tests_f():
     result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FUN.xml"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
+
 
 def test_wrong_file():
     result = runner.invoke(cli.app, ["fbd2st", r".\tests\other_examples\TC001_wrong_file.txt"])

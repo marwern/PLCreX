@@ -19,6 +19,7 @@
 from lark import Lark, tree
 from pathlib import Path
 
+
 def translation(
         src: Path,
         txt: bool = False,

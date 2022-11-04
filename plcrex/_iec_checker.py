@@ -25,6 +25,7 @@ cfg.read('config.ini')
 
 iec_checker_path = Path(cfg['IEC-Checker']['IEC_Checker_exe'])
 
+
 def execution(src: Path, option: str = '--quiet'):
     if iec_checker_path.is_file():
         call([rf'{iec_checker_path}', src, option])
