@@ -23,7 +23,8 @@ from plcrex import _iec_checker, _xml_checker
 
 
 def translation(src: Path,
-                run_tests: bool = False):
+                run_tests: bool = False,
+                backward_strategy: bool = False):
     pp = pprint.PrettyPrinter(indent=2)
 
     # open PLCopen xml file
@@ -44,7 +45,7 @@ def translation(src: Path,
         if var_type == "localVars":
             tmp_var_type = "local"
         elif var_type == "inputVars":
-            tmp_var_type = "input_variable"
+            tmp_var_type = "input"
         elif var_type == "outputVars":
             tmp_var_type = "output"
 
@@ -129,7 +130,7 @@ def translation(src: Path,
 
                 # Inputs
                 for i2 in i1.iter('{http://www.plcopen.org/xml/tc6_0201}inputVariables'):
-                    # for each input_variable
+                    # for each input
                     for i3 in i2.iter('{http://www.plcopen.org/xml/tc6_0201}variable'):
                         for i4 in i3.iter('{http://www.plcopen.org/xml/tc6_0201}connection'):
                             if i4.get('formalParameter'):
@@ -162,7 +163,7 @@ def translation(src: Path,
 
                 # Inputs
                 for i2 in i1.iter('{http://www.plcopen.org/xml/tc6_0201}inputVariables'):
-                    # for each input_variable
+                    # for each input
                     for i3 in i2.iter('{http://www.plcopen.org/xml/tc6_0201}variable'):
                         for i4 in i3.iter('{http://www.plcopen.org/xml/tc6_0201}connection'):
                             if i4.get('formalParameter'):
@@ -262,7 +263,8 @@ def translation(src: Path,
                                 # non instantiated function block
                                 if inst.get("instanceName") is None:
                                     print("..connected to other POU/FB output port")
-                                    tmp = inst["typeName"] + inst["localId"] + '_' + input_variable["formalParameter_port"]
+                                    tmp = inst["typeName"] + inst["localId"] + '_' + input_variable[
+                                        "formalParameter_port"]
                                 # instantiated function block
                                 else:
                                     print("..connected to other POU/FB output port")
@@ -304,14 +306,16 @@ def translation(src: Path,
                         if input_variable["refLocalId"] == inst["localId"]:
                             # connected to instantiated function block
                             if inst.get("instanceName"):
-                                tmp = input_variable["formalParameter"] + ' := ' + inst["instanceName"] + '.' + input_variable[
-                                    "formalParameter_port"]
+                                tmp = input_variable["formalParameter"] + ' := ' + inst["instanceName"] + '.' + \
+                                      input_variable[
+                                          "formalParameter_port"]
                                 print(tmp)
                                 arguments.append(tmp)
 
                             # connected to non instantiated function block
                             elif inst.get("typeName"):
-                                tmp = input_variable["formalParameter"] + ' := ' + inst["typeName"] + inst.get("localId") + '_' + \
+                                tmp = input_variable["formalParameter"] + ' := ' + inst["typeName"] + inst.get(
+                                    "localId") + '_' + \
                                       input_variable["formalParameter_port"]
                                 print(tmp)
                                 arguments.append(tmp)
@@ -333,7 +337,7 @@ def translation(src: Path,
             if outVar.get("dir") == "outVariable":
 
                 tmp_finding = False
-                # find connected input_variable variable
+                # find connected input
                 for inVar in interfaces_with_ids:
                     if inVar.get("dir") == "inVariable":
                         # check if connection has been found
@@ -367,11 +371,13 @@ def translation(src: Path,
 
     def write_add_variables():
         print('\n*** add new local variables ***')
-        for var in variables_to_declare:
-            tmp = var.get("typeName") + var.get("localId") + '_' + var.get("formalParameter") + ' : ' + var.get(
-                "type") + ';'
-            st_file.write('\t\t' + tmp + '\n')
-            print(tmp)
+
+        if not backward_strategy:
+            for var in variables_to_declare:
+                tmp = var.get("typeName") + var.get("localId") + '_' + var.get("formalParameter") + ' : ' + var.get(
+                    "type") + ';'
+                st_file.write('\t\t' + tmp + '\n')
+                print(tmp)
         st_file.write('\t' + "END_VAR\n\n")
 
     def get_pou_name():
@@ -388,6 +394,52 @@ def translation(src: Path,
             elif pou_type == 'function':
                 pou_type_plc = "FUNCTION"
         return pou_type_plc
+
+    # add stored statements (forward/backward translation strategy)
+    def write_refactored_statements():
+        if not backward_strategy:
+            for stat in stats:
+                st_file.write('\t' + stat + '\n')
+
+        # add stored statements (backward translation strategy)
+        else:
+            print('\n*** add stored statements (backward translation strategy) ***')
+
+            print("\n".join(stats))
+            stats_new_str = "\n".join(stats)
+
+            print("\n*** inline method refactoring ***")
+            stats_refactored = []
+            for var in variables_to_declare:
+                tmp_var_name = var.get("typeName") + var.get("localId") + '_' + var.get("formalParameter")
+
+                # for each statement get assignment to new variables, where stats_new_str will be updated in each loop
+                for stat1 in stats_new_str.splitlines():
+                    tmp1 = stat1.split(" := ", 1)
+                    if len(tmp1) >= 2:
+                        if tmp_var_name == tmp1[0]:
+                            print(tmp_var_name + "|--->" + tmp1[1])
+                            # replace all occurrence in statements
+                            stats_new_str = stats_new_str.replace(tmp_var_name, tmp1[1][:-1])
+                            print(stats_new_str)
+
+                # remove statement, when <A> := <A>;
+                print("\n*** remove statements, when <A> := <A>; ***")
+                stats_new_list = stats_new_str.splitlines()
+                stats_refactored = []
+                for e in stats_new_list:
+                    if e.split(" := ")[0] == e.split(" := ")[1][:-1]:
+                        print(">>ignore: " + e)
+                    else:
+                        print(">>add: " + e)
+                        stats_refactored.append(e)
+
+            if len(variables_to_declare) == 0:
+                for stat in stats:
+                    st_file.write('\t' + stat + '\n')
+            else:
+                for stat in stats_refactored:
+                    st_file.write('\t' + stat + '\n')
 
     # create ST file
     with open(fr'.\exports\st\{Path(src).name}.st', 'w') as st_file:
@@ -426,9 +478,8 @@ def translation(src: Path,
         # write additional local variables
         write_add_variables()
 
-        # add stored statements
-        for stat in stats:
-            st_file.write('\t' + stat + '\n')
+        # add stored statements (forward/backward translation strategy)
+        write_refactored_statements()
 
         # EOF
         st_file.write("END_" + get_pou_name())

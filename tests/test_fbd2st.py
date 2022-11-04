@@ -52,6 +52,30 @@ def test_without_static_tests_f():
     assert f"Success!" in result.stdout
 
 
+def test_with_static_tests_bw():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC004.xml", "-static-tests", "-bw"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_fb_bw():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FB.xml", "-bw"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_prg_bw():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_PRG.xml", "-bw"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_f_bw():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FUN.xml", "-bw"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
 def test_wrong_file():
     result = runner.invoke(cli.app, ["fbd2st", r".\tests\other_examples\TC001_wrong_file.txt"])
     assert result.exit_code == 1

@@ -15,13 +15,9 @@ PROGRAM TC005
 		i3 : TIME := T#5s;
 		o4 : BOOL;
 		TON0 : TON;
-		AND1_OUT : BOOL;
-		XOR3_OUT : BOOL;
 	END_VAR
 
-	AND1_OUT := AND(i1,i2);
-	XOR3_OUT := XOR(AND1_OUT,TON0.Q);
-	TON0(IN := AND1_OUT,PT := i3);
-	o1 := XOR3_OUT;
+	TON0(IN := AND(i1,i2),PT := i3);
+	o1 := XOR(AND(i1,i2),TON0.Q);
 	o4 := TON0.Q;
 END_PROGRAM

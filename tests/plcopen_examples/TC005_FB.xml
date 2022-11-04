@@ -106,7 +106,7 @@
                 </variable>
               </outputVariables>
             </block>
-            <block localId="3" typeName="XOR" executionOrderId="2" height="60" width="53">
+            <block localId="3" typeName="XOR" executionOrderId="3" height="60" width="53">
               <position x="550" y="24"/>
               <inputVariables>
                 <variable formalParameter="IN1">
@@ -197,7 +197,7 @@
               </connectionPointIn>
               <expression>o2</expression>
             </outVariable>
-            <block localId="12" typeName="TON" instanceName="TON0" executionOrderId="4" height="60" width="39">
+            <block localId="12" typeName="TON" instanceName="TON0" executionOrderId="2" height="60" width="39">
               <position x="423" y="113"/>
               <inputVariables>
                 <variable formalParameter="IN">
