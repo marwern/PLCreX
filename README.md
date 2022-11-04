@@ -24,7 +24,7 @@ This project is motivated by our research and will be extended by further featur
   * [PLCopen XML Exchange Validator](#plcopen-xml-exchange-validator)
   * [FBD-to-ST Transpiler](#fbd-to-st-transpiler)
   * [ST Parser](#st-parser)
-* [Collaboration](#collaboration)
+* [Issues and Contributing Guidelines](#issues-and-contributing-guidelines)
 * [Licenses](#licenses)
 
 
@@ -474,8 +474,10 @@ This section summarizes the changes since the last release.
 - [x] Tests: FBD-to-ST compiler
 -->
 
-# Collaboration
-Contributors are welcome. Please use GitHub Issues and start the subject with the appropriate cause (Feature Request := "[Feature Request] ... ", Change Requests := "[Change Request] ... ", and Bugs := "[Bug] ... ") to track the implementation progress. For ideas, I recommend using GitHub Discussions (Categorie:Ideas) first. Depending on the discussion, I/you can create a feature request, change request or bug. I think this keeps the repository well structured. Thanks!
+# Issues and Contributing Guidelines
+Contributors are welcome. Please use GitHub Issues and use appropriate labels to prioritize tasks and track implementation progress. 
+
+Pull requests should link to a specific issue in the comment. I think this keeps the repository well structured. Thanks a lot!
 
 # Licenses
 - PLCreX [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
