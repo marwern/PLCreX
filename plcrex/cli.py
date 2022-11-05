@@ -52,10 +52,12 @@ def iec_checker(
 def fbd2st(
         src: Path,
         run_tests: bool = typer.Option(False, "-static-tests", help="run static tests"),
-        backward_transl: bool = typer.Option(False, "-bw", help="activate backward translation")):
+        backward_transl: bool = typer.Option(False, "-bw", help="activate backward translation"),
+        txt: bool = typer.Option(False, "-txt", help="Enable ST Tree *.txt export"),
+        dot: bool = typer.Option(False, "-dot", help="Enable ST Tree *.dot export")):
     if src.is_file():
         if src.suffix == '.xml':
-            _fbd2st.translation(src, run_tests, backward_transl)
+            _fbd2st.translation(src, run_tests, backward_transl, txt, dot)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")

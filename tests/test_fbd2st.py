@@ -76,6 +76,53 @@ def test_without_static_tests_f_bw():
     assert f"Success!" in result.stdout
 
 
+def test_with_static_tests_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC004.xml", "-static-tests", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_fb_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FB.xml", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_prg_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_PRG.xml", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_f_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FUN.xml", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_with_static_tests_bw_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC004.xml", "-static-tests", "-bw", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_fb_bw_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FB.xml", "-bw", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_prg_bw_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_PRG.xml", "-bw", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+
+def test_without_static_tests_f_bw_dot():
+    result = runner.invoke(cli.app, ["fbd2st", r".\tests\plcopen_examples\TC005_FUN.xml", "-bw", "-dot"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
 def test_wrong_file():
     result = runner.invoke(cli.app, ["fbd2st", r".\tests\other_examples\TC001_wrong_file.txt"])
     assert result.exit_code == 1

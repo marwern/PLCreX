@@ -15,20 +15,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-
+from plcrex import _xml_checker, _st2tree, _iec_checker
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import pprint
-from plcrex import _iec_checker, _xml_checker
+
 
 
 def translation(src: Path,
                 run_tests: bool = False,
-                backward_strategy: bool = False):
+                backward_strategy: bool = False,
+                txt: bool = False,
+                dot: bool = False):
     pp = pprint.PrettyPrinter(indent=2)
+    txt_dot = txt or dot
 
     # open PLCopen xml file
     root = ET.parse(src).getroot()
+
 
     def write_interface():
         print('\n*** add interfaces / local variables without IDs ***')
@@ -296,7 +300,10 @@ def translation(src: Path,
                     # check if POU/FB input_variable port is connected to interface / local variables
                     for inst in interfaces_with_ids:
                         if input_variable["refLocalId"] == inst["localId"]:
-                            tmp = input_variable["formalParameter"] + ' := ' + inst["expression"]
+                            if txt_dot:
+                                tmp = inst["expression"]
+                            else:
+                                tmp = input_variable["formalParameter"] + ' := ' + inst["expression"]
                             print(tmp)
                             arguments.append(tmp)
 
@@ -306,17 +313,27 @@ def translation(src: Path,
                         if input_variable["refLocalId"] == inst["localId"]:
                             # connected to instantiated function block
                             if inst.get("instanceName"):
-                                tmp = input_variable["formalParameter"] + ' := ' + inst["instanceName"] + '.' + \
-                                      input_variable[
-                                          "formalParameter_port"]
+                                if txt_dot:
+                                    tmp = inst["instanceName"] + '.' + \
+                                          input_variable[
+                                              "formalParameter_port"]
+                                else:
+                                    tmp = input_variable["formalParameter"] + ' := ' + inst["instanceName"] + '.' + \
+                                          input_variable[
+                                              "formalParameter_port"]
                                 print(tmp)
                                 arguments.append(tmp)
 
                             # connected to non instantiated function block
                             elif inst.get("typeName"):
-                                tmp = input_variable["formalParameter"] + ' := ' + inst["typeName"] + inst.get(
-                                    "localId") + '_' + \
-                                      input_variable["formalParameter_port"]
+                                if txt_dot:
+                                    tmp = inst["typeName"] + inst.get(
+                                        "localId") + '_' + \
+                                          input_variable["formalParameter_port"]
+                                else:
+                                    tmp = input_variable["formalParameter"] + ' := ' + inst["typeName"] + inst.get(
+                                        "localId") + '_' + \
+                                          input_variable["formalParameter_port"]
                                 print(tmp)
                                 arguments.append(tmp)
                                 variables_to_declare.append({
@@ -428,8 +445,13 @@ def translation(src: Path,
                 stats_new_list = stats_new_str.splitlines()
                 stats_refactored = []
                 for e in stats_new_list:
-                    if e.split(" := ")[0] == e.split(" := ")[1][:-1]:
-                        print(">>ignore: " + e)
+                    if " := " in e:
+                        if e.split(" := ")[0] == e.split(" := ")[1][:-1]:
+                            print(">>ignore: " + e)
+                        else:
+                            print(">>add: " + e)
+                            stats_refactored.append(e)
+                    # is only needed if backward translation is selected because then smart view (without :=) is active
                     else:
                         print(">>add: " + e)
                         stats_refactored.append(e)
@@ -442,12 +464,13 @@ def translation(src: Path,
                     st_file.write('\t' + stat + '\n')
 
     # create ST file
-    with open(fr'.\exports\st\{Path(src).name}.st', 'w') as st_file:
+    with open(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st', 'w') as st_file:
         interfaces = []  # interfaces without localIds
         interfaces_with_ids = []  # interfaces with localIds
         block_comp = []  # block components
         stats = []  # statements to write
         variables_to_declare = []  # additional variables to declare
+        txt_dot = txt or dot # reduce variable when ST2Tree shall be called
 
         # validate xml file
         _xml_checker.validate(src, "tc6_xml_v201.xsd")
@@ -486,10 +509,14 @@ def translation(src: Path,
         print('\n***\n\n')
 
     # read ST file
-    written_file = open(fr'.\exports\st\{Path(src).name}.st', 'r')
+    written_file = open(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st', 'r')
     print(written_file.read())
 
     print('\n*** FBD-to-ST translation finished ***\n\n')
 
+
     if run_tests:
-        _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}.st'), '--verbose')
+        _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st'), '--verbose')
+
+    if txt_dot:
+        _st2tree.translation(Path(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st'), txt, dot)
