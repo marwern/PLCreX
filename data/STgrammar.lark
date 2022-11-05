@@ -102,7 +102,7 @@ inequality: _expression "<>" _expression
 // ********************************************************************************
 // General expressions
 // ********************************************************************************
-_expression: equalitiy
+_expression: equality
 	| variable ("[" INT "]")?
     | variable"."macro_out
 	| macro
