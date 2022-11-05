@@ -188,7 +188,7 @@ return_statement: "RETURN" ";"
 // ********************************************************************************
 // Additional Terminals and rules
 // ********************************************************************************
-MS_DURATION: "t#"NUMBER"ms"
+MS_DURATION: "T#"NUMBER"s"
 FALSE: "FALSE"
 TRUE: "TRUE"
 DDEL1: "("
