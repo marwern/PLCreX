@@ -95,7 +95,7 @@ greater_than: _expression ">" _expression
 // ********************************************************************************
 // Equality
 // ********************************************************************************
-equalitiy: _expression "=" _expression
+equality: _expression "=" _expression
 inequality: _expression "<>" _expression
 
 
