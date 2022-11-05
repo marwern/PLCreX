@@ -11,6 +11,9 @@ This project is motivated by our research and will be extended by further featur
 [![Tests](https://img.shields.io/badge/Tests-passed-<COLOR>.svg)](https://shields.io/)
 [![Coverage](https://img.shields.io/badge/coverage-99%25-<COLOR>.svg)](https://shields.io/)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+<a href="https://trackgit.com">
+<img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/la4bpfzw3tpls64tzxdl" alt="trackgit-views" />
+</a>
 
 
 
@@ -513,3 +516,4 @@ Pull requests should link to a specific issue in the comment. I think this keeps
 # Licenses
 - PLCreX [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 - IEC Checker v0.4  [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+
