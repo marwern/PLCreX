@@ -21,18 +21,16 @@ import xml.etree.ElementTree as ET
 import pprint
 
 
-
 def translation(src: Path,
-                run_tests: bool = False,
-                backward_strategy: bool = False,
-                txt: bool = False,
-                dot: bool = False):
+                iec_check: bool = False,
+                bwd: bool = False,
+                formal: bool = False,
+                st_parser: bool = False):
     pp = pprint.PrettyPrinter(indent=2)
-    txt_dot = txt or dot
+    informal = not formal
 
     # open PLCopen xml file
     root = ET.parse(src).getroot()
-
 
     def write_interface():
         print('\n*** add interfaces / local variables without IDs ***')
@@ -300,7 +298,7 @@ def translation(src: Path,
                     # check if POU/FB input_variable port is connected to interface / local variables
                     for inst in interfaces_with_ids:
                         if input_variable["refLocalId"] == inst["localId"]:
-                            if txt_dot:
+                            if informal:
                                 tmp = inst["expression"]
                             else:
                                 tmp = input_variable["formalParameter"] + ' := ' + inst["expression"]
@@ -313,7 +311,7 @@ def translation(src: Path,
                         if input_variable["refLocalId"] == inst["localId"]:
                             # connected to instantiated function block
                             if inst.get("instanceName"):
-                                if txt_dot:
+                                if informal:
                                     tmp = inst["instanceName"] + '.' + \
                                           input_variable[
                                               "formalParameter_port"]
@@ -326,7 +324,7 @@ def translation(src: Path,
 
                             # connected to non instantiated function block
                             elif inst.get("typeName"):
-                                if txt_dot:
+                                if informal:
                                     tmp = inst["typeName"] + inst.get(
                                         "localId") + '_' + \
                                           input_variable["formalParameter_port"]
@@ -389,7 +387,7 @@ def translation(src: Path,
     def write_add_variables():
         print('\n*** add new local variables ***')
 
-        if not backward_strategy:
+        if not bwd:
             for var in variables_to_declare:
                 tmp = var.get("typeName") + var.get("localId") + '_' + var.get("formalParameter") + ' : ' + var.get(
                     "type") + ';'
@@ -414,12 +412,12 @@ def translation(src: Path,
 
     # add stored statements (forward/backward translation strategy)
     def write_refactored_statements():
-        if not backward_strategy:
+        if not bwd:
             for stat in stats:
                 st_file.write('\t' + stat + '\n')
 
         # add stored statements (backward translation strategy)
-        else:
+        elif bwd:
             print('\n*** add stored statements (backward translation strategy) ***')
 
             print("\n".join(stats))
@@ -464,13 +462,13 @@ def translation(src: Path,
                     st_file.write('\t' + stat + '\n')
 
     # create ST file
-    with open(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st', 'w') as st_file:
+    with open(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st', 'w') as st_file:
         interfaces = []  # interfaces without localIds
         interfaces_with_ids = []  # interfaces with localIds
         block_comp = []  # block components
         stats = []  # statements to write
         variables_to_declare = []  # additional variables to declare
-        txt_dot = txt or dot # reduce variable when ST2Tree shall be called
+        informal = not formal
 
         # validate xml file
         _xml_checker.validate(src, "tc6_xml_v201.xsd")
@@ -509,14 +507,14 @@ def translation(src: Path,
         print('\n***\n\n')
 
     # read ST file
-    written_file = open(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st', 'r')
+    written_file = open(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st', 'r')
     print(written_file.read())
 
     print('\n*** FBD-to-ST translation finished ***\n\n')
 
+    # bwd formal iec st2tree
+    if iec_check:
+        _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st'), '--verbose')
 
-    if run_tests:
-        _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st'), '--verbose')
-
-    if txt_dot:
-        _st2tree.translation(Path(fr'.\exports\st\{Path(src).name}_{backward_strategy}_{txt_dot}.st'), txt, dot)
+    if st_parser:
+        _st2tree.translation(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st'), True, True)

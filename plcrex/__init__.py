@@ -17,4 +17,4 @@
 #
 
 __app_name__ = "PLCreX"
-__version__ = "0.0.2 (draft)"
+__version__ = "0.2.x"
