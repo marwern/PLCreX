@@ -3,6 +3,8 @@ Setup
 
 .. setup:
 
+setup
+----
 
 1. Download or clone PLCreX repository
 2. Download IEC-Checker (.exe) from last `PLCreX Release <https://github.com/marwern/PLCreX/tags>`_ or official `IEC Checker repository <https://github.com/jubnzv/iec-checker>`_

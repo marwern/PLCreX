@@ -3,6 +3,8 @@ Test
 
 .. test:
 
+test
+----
 
 Run the following command for some local tests:
 
