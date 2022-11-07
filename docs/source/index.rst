@@ -21,4 +21,9 @@ Contents
 
 .. toctree::
     :caption: Features
-    test
+    plcrex_help
+    plcrex_version
+    xml_checker
+    iec_checker
+    st2tree
+    fbd2st
