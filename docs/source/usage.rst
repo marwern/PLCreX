@@ -26,9 +26,9 @@ Setup
 
     C:\Python\plcrex_project>venv\Scripts\activate.bat
 	
-6. Install the dependencies (`requirements.txt`):
+6. Install the dependencies (``requirements.txt``):
 
-.. code-block:: console
+.. code-block:: bash
 
     (venv) C:\Python\plcrex_project>python -m pip install -r requirements.txt
 
@@ -40,16 +40,21 @@ Setup
 Test
 ----------------
 
-Run the following command for some local tests: 
-.. code-block:: console
+Run the following command for some local tests:
+
+.. code-block:: bash
+
 	(venv) C:\Python\plcrex_project>python -m pytest ./tests/
 
 Run the following command for some local tests and coverage report:
-.. code-block:: console
+
+.. code-block:: bash
+
 	(venv) C:\Python\plcrex_project>coverage run -m pytest ./tests/
 	(venv) C:\Python\plcrex_project>coverage report -m
 
 .. code-block:: console
+
 	Name                        Stmts   Miss  Cover   Missing
 	---------------------------------------------------------
 	plcrex\__init__.py              2      0   100%
