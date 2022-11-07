@@ -6,16 +6,18 @@ Test
 
 Run the following command for some local tests:
 
-.. code-block:: bash
+.. code-block:: console
 
 	(venv) C:\Python\plcrex_project>python -m pytest ./tests/
 
 Run the following commands for some local tests and coverage report:
 
-.. code-block:: bash
+.. code-block:: console
 
 	(venv) C:\Python\plcrex_project>coverage run -m pytest ./tests/
 	(venv) C:\Python\plcrex_project>coverage report -m
+
+Results:
 
 .. code-block:: console
 
@@ -36,3 +38,6 @@ Run the following commands for some local tests and coverage report:
 	tests\test_xml_checker.py      19      0   100%
 	---------------------------------------------------------
 	TOTAL                         480      2    99%
+
+.. warning::
+    If no IEC Checker (.exe) is available, ``test_iec_checker.py`` will fail. The test must be excluded accordingly.
