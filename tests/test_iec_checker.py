@@ -29,41 +29,35 @@ def test_help():
 
 
 def test_help_iec_checker():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", "--help_iec_checker"])
+    result = runner.invoke(cli.app, ["iec-checker", "--help_iec_checker", r".\tests\st_examples\TC001.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
-def test_v_st():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", "-v"])
+def test_verbose_st():
+    result = runner.invoke(cli.app, ["iec-checker", "--verbose", r".\tests\st_examples\TC001.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
-def test_v_st_default():
+def test_quiet_st():
     result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
-def test_q_st():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", "-q"])
-    assert result.exit_code == 0
-    assert f"Success!" in result.stdout
-
-
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\other_examples\TC001_wrong_file.txt", "-q"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\other_examples\TC001_wrong_file.txt"])
     assert result.exit_code == 1
 
 
-def test_v_xml():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", "-v"])
+def test_verbose_xml():
+    result = runner.invoke(cli.app, ["iec-checker", "--verbose", r".\tests\plcopen_examples\TC001.xml"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
-def test_q_xml():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", "-q"])
+def test_quiet_xml():
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout

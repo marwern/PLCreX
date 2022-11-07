@@ -29,23 +29,23 @@ def test_help():
 
 
 def test_dot_txt():
-    result = runner.invoke(cli.app, ["st2tree", r".\tests\st_examples\TC081.st", "-dot", "-txt"])
+    result = runner.invoke(cli.app, ["st2tree", r".\tests\st_examples\TC081.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_dot():
-    result = runner.invoke(cli.app, ["st2tree", r".\tests\st_examples\TC081.st", "-dot"])
+    result = runner.invoke(cli.app, ["st2tree", "--no-txt", r".\tests\st_examples\TC081.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_txt():
-    result = runner.invoke(cli.app, ["st2tree", r".\tests\st_examples\TC081.st", "-txt"])
+    result = runner.invoke(cli.app, ["st2tree", "--no-dot", r".\tests\st_examples\TC081.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["st2tree", r".\tests\other_examples\TC001_wrong_file.txt", "-txt"])
+    result = runner.invoke(cli.app, ["st2tree", r".\tests\other_examples\TC001_wrong_file.txt"])
     assert result.exit_code == 1

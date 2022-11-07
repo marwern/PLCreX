@@ -29,21 +29,21 @@ def test_help():
 
 
 def test_v201_passed():
-    result = runner.invoke(cli.app, ["xml-checker", r".\tests\plcopen_examples\TC001.xml", "-v201"])
+    result = runner.invoke(cli.app, ["xml-checker", "--v201", r".\tests\plcopen_examples\TC001.xml"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_v201_failed():
-    result = runner.invoke(cli.app, ["xml-checker", r".\tests\plcopen_examples\TC001_failed.xml", "-v201"])
+    result = runner.invoke(cli.app, ["xml-checker", "--v201", r".\tests\plcopen_examples\TC001_failed.xml"])
     assert result.exit_code == 1
 
 
 def test_v10_failed():
-    result = runner.invoke(cli.app, ["xml-checker", r".\tests\plcopen_examples\TC001.xml", "-v10"])
+    result = runner.invoke(cli.app, ["xml-checker", r".\tests\plcopen_examples\TC001.xml"])
     assert result.exit_code == 1
 
 
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["xml-checker", r".\tests\other_examples\TC001_wrong_file.txt", "-v201"])
+    result = runner.invoke(cli.app, ["xml-checker", r".\tests\other_examples\TC001_wrong_file.txt"])
     assert result.exit_code == 1
