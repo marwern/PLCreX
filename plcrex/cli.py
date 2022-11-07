@@ -27,20 +27,16 @@ app = typer.Typer()
 @app.command("iec-checker")
 def iec_checker(
         src: Path,
-        verbose: bool = typer.Option(False, "-v", help="call iec-checker with '--verbose' OPTION"),
-        qui: bool = typer.Option(False, "-q", help="call iec-checker with '--quiet' OPTION"),
+        verbose: bool = typer.Option(False, help="print full log"),
         help_: bool = typer.Option(False, "--help_iec_checker", help="call iec-checker help")):
     if src.is_file():
         if src.suffix == '.st' or src.suffix == '.xml':
             # call iec-checker with ONE supported OPTIONS (only a subset is covered)
-            if help_ and not (qui or verbose):
+            if help_:
                 _iec_checker.execution(src, '--help')
-            elif qui and not (help_ or verbose):
+            elif not verbose:
                 _iec_checker.execution(src, '--quiet')
-            elif verbose and not (qui or help_):
-                _iec_checker.execution(src, '--verbose')
-            else:
-                # default: verbose
+            elif verbose:
                 _iec_checker.execution(src, '--verbose')
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
@@ -51,13 +47,13 @@ def iec_checker(
 @app.command("fbd2st")
 def fbd2st(
         src: Path,
-        run_tests: bool = typer.Option(False, "-static-tests", help="run static tests"),
-        backward_transl: bool = typer.Option(False, "-bw", help="activate backward translation"),
-        txt: bool = typer.Option(False, "-txt", help="Enable ST Tree *.txt export"),
-        dot: bool = typer.Option(False, "-dot", help="Enable ST Tree *.dot export")):
+        iec_check: bool = typer.Option(False, help="run IEC Checker"),  # "-static-tests",
+        formal: bool = typer.Option(False, help="formal parameter list"),
+        backward: bool = typer.Option(False, help="use backward translation"),  # "-bw",
+        st_parser: bool = typer.Option(False, help="run ST parser with exports")):
     if src.is_file():
         if src.suffix == '.xml':
-            _fbd2st.translation(src, run_tests, backward_transl, txt, dot)
+            _fbd2st.translation(src, iec_check, backward, formal, st_parser)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")
@@ -67,8 +63,8 @@ def fbd2st(
 @app.command("st2tree")
 def st2tree(
         src: Path,
-        txt: bool = typer.Option(False, "-txt", help="Enable *.txt export"),
-        dot: bool = typer.Option(False, "-dot", help="Enable *.dot export")):
+        txt: bool = typer.Option(True, help="tree export as *.txt"),
+        dot: bool = typer.Option(True, help="tree export as *.dot")):
     if src.is_file():
         if src.suffix == '.st':
             _st2tree.translation(src, txt, dot)
@@ -81,15 +77,14 @@ def st2tree(
 @app.command("xml-checker")
 def xml_checker(
         src: Path,
-        v201: bool = typer.Option(False, "-v201", help="use tc6_xml_v201.xsd"),
-        v10: bool = typer.Option(False, "-v10", help="use tc6_xml_v10.xsd")):
+        v201: bool = typer.Option(False, help="use tc6_xml_v201.xsd")):
     if src.is_file():
         if src.suffix == '.xml':
-            if v201 and not v10:
+            if v201:
                 # tc6_xml_v201.xsd (https: // plcopen.org / downloads / plcopen-xml-version-201-xsd-file-0)
                 _xml_checker.validate(src, "tc6_xml_v201.xsd")
                 typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
-            elif v10 and not v201:
+            else:
                 # tc6_xml_v10.xsd (Beremiz v1.2)
                 _xml_checker.validate(src, "tc6_xml_v10.xsd")
                 typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
