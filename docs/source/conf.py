@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'PLCreX'
+copyright = '2022, Marcel Werner'
+author = 'Marcel Werner'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.2'
+version = '0.2.x'
 
 # -- General configuration
 
