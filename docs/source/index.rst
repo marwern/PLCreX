@@ -17,6 +17,6 @@ Contents
 --------
 
 .. toctree::
-    :caption: Usage
+    index
     setup
     test

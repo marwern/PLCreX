@@ -13,23 +13,11 @@ Setup
     [IEC-Checker]
     IEC_Checker_exe = .\bin\iec_checker_Windows_x86_64_v0.4.exe
 
-4. Create a virtual environment in the project root directory:
+4. Create a virtual environment in the project root directory: ``C:\Python\plcrex_project>python -m venv venv``
 
-.. code-block:: bash
+5. Activate virtual environment: ``C:\Python\plcrex_project>venv\Scripts\activate.bat``
 
-    C:\Python\plcrex_project>python -m venv venv
-
-5. Activate virtual environment:
-
-.. code-block:: bash
-
-    C:\Python\plcrex_project>venv\Scripts\activate.bat
-
-6. Install the dependencies (``requirements.txt``):
-
-.. code-block:: bash
-
-    (venv) C:\Python\plcrex_project>python -m pip install -r requirements.txt
+6. Install the dependencies (``requirements.txt``): ``(venv) C:\Python\plcrex_project>python -m pip install -r requirements.txt``
 
 .. note::
     Step 2 and 3 are optional, but the tests and some of the PLCreX features will not work without IEC Checker.
