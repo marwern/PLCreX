@@ -17,13 +17,6 @@ Contents
 --------
 
 .. toctree::
-    :maxdepth: 2
-    :caption: Usage
-    setup
-    test
-
-.. toctree::
-    :maxdepth: 2
     :caption: Usage
     setup
     test

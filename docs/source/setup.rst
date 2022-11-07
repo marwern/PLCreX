@@ -32,5 +32,5 @@ Setup
     (venv) C:\Python\plcrex_project>python -m pip install -r requirements.txt
 
 .. note::
-	Step 2 and 3 are optional, but the tests and some of the PLCreX features will not work without IEC Checker.
+    Step 2 and 3 are optional, but the tests and some of the PLCreX features will not work without IEC Checker.
 
