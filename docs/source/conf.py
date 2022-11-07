@@ -21,9 +21,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.napoleon',
-    'recommonmark',
-    'sphinx_markdown_tables'
+    'sphinx.ext.napoleon'
 ]
 
 intersphinx_mapping = {

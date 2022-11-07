@@ -15,14 +15,10 @@ Contents
 --------
 
 .. toctree::
-    :caption: General Information
-    :hidden:
     setup
     test
 
 .. toctree::
-    :caption: Features
-    :hidden:
     plcrex_help
     plcrex_version
     xml_checker
