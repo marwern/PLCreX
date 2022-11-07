@@ -46,7 +46,7 @@ Run the following command for some local tests:
 
 	(venv) C:\Python\plcrex_project>python -m pytest ./tests/
 
-Run the following command for some local tests and coverage report:
+Run the following commands for some local tests and coverage report:
 
 .. code-block:: bash
 
