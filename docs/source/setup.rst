@@ -1,9 +1,8 @@
-Usage
+Setup
 =====
 
 .. setup:
-Setup
-------------
+
 
 1. Download or clone PLCreX repository
 2. Download IEC-Checker (.exe) from last `PLCreX Release <https://github.com/marwern/PLCreX/tags>`_ or official `IEC Checker repository <https://github.com/jubnzv/iec-checker>`_
@@ -25,7 +24,7 @@ Setup
 .. code-block:: bash
 
     C:\Python\plcrex_project>venv\Scripts\activate.bat
-	
+
 6. Install the dependencies (``requirements.txt``):
 
 .. code-block:: bash
@@ -34,6 +33,4 @@ Setup
 
 .. note::
 	Step 2 and 3 are optional, but the tests and some of the PLCreX features will not work without IEC Checker.
-   
-
 
