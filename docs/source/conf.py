@@ -1,8 +1,8 @@
 # Configuration file for the Sphinx documentation builder.
 
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath("../"))
+import os
+import sys
+sys.path.insert(0, os.path.abspath("../"))
 
 # -- Project information
 
@@ -30,7 +30,6 @@ intersphinx_mapping = {
 intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # -- Options for HTML output
 
