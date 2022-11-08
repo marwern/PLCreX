@@ -11,6 +11,8 @@ reuse features for existing IEC 61131-3
 `Program Organization Units <https://en.wikipedia.org/wiki/IEC_61131-3#Program_organization_unit_(POU)>`_ (POUs),
 implemented in IEC 61131-3 Function Block Diagrams (FBDs) and Structured Text (ST).
 
+.. note::
+    The PLCreX GitHub-Repository is located at `github.com/marwern/PLCreX <https://github.com/marwern/PLCreX>`_
 
 ..
     ..  toctree::
