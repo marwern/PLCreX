@@ -15,3 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
+
+__app_name__ = "PLCreX"
+__version__ = "0.2.x"
+__owner__ = "Marcel C. Werner"
+__copyright__ = "2022, " + __owner__

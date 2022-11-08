@@ -21,14 +21,16 @@
 #
 import os
 import sys
-from plcrex import __app_name__, __version__
+from docs.source import __app_name__, __version__, __owner__, __copyright__
 sys.path.insert(0, os.path.abspath("../"))
+
+
 
 # -- Project information
 
 project = __app_name__
-copyright = '2022, Marcel Werner'
-author = 'Marcel Werner'
+copyright = __copyright__
+author = __owner__
 
 release = __version__
 version = __version__

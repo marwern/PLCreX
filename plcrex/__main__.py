@@ -16,7 +16,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex import cli, __app_name__
+from plcrex import cli
+from docs.source import __app_name__
 
 
 def main():
