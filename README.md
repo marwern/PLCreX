@@ -12,6 +12,8 @@ This project is motivated by our research and will be extended by further featur
 ---
 **Quick links**
 
+* Documentation: 
+
 1. [Install PLCreX](#install-plcrex)
 2. [Test PLCreX](#test-plcrex)
    * [Print PLCreX Help](#print-plcrex-help)
