@@ -33,7 +33,7 @@ PLCreX is a Command Line Interface (CLI) application and can be used as follows:
 
 PLCreX Help
 ----
-You can print the help of PLCreX with ``[OPTIONS] = {--help}``:
+You can print the help of PLCreX with ``[OPTIONS]`` ``--help``:
 
 .. code-block:: console
 
@@ -43,7 +43,7 @@ You can print the help of PLCreX with ``[OPTIONS] = {--help}``:
 
 PLCreX Version
 ----
-You can print the version of PLCreX with ``[OPTIONS] = {--version/-v}``:
+You can print the version of PLCreX with ``[OPTIONS]`` ``--version``/``-v``:
 
 .. code-block:: console
 
