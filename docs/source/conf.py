@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.abspath("../"))
 
 
 __app_name__ = "PLCreX"
-__version__ = "0.2.x"
+__version__ = "0.3.0"
 __owner__ = "Marcel C. Werner"
 __copyright__ = "2022, " + __owner__
 
