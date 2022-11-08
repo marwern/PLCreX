@@ -4,14 +4,16 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath("../"))
 
+from plcrex import __app_name__, __version__
+
 # -- Project information
 
-project = 'PLCreX'
+project = __app_name__
 copyright = '2022, Marcel Werner'
 author = 'Marcel Werner'
 
-release = '0.2'
-version = '0.2.x'
+release = __version__
+version = __version__
 
 # -- General configuration
 
