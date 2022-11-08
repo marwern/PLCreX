@@ -11,16 +11,27 @@ reuse features for existing IEC 61131-3
 `Program Organization Units <https://en.wikipedia.org/wiki/IEC_61131-3#Program_organization_unit_(POU)>`_ (POUs),
 implemented in IEC 61131-3 Function Block Diagrams (FBDs) and Structured Text (ST).
 
-Contents
---------
 
-.. toctree::
+..
+    ..  toctree::
+        :glob:
+        :titlesonly:
+
+        *
+
+
+..  toctree::
+    :caption: Getting Started
+    :maxdepth: 1
+
     setup
     test
 
-.. toctree::
-    plcrex_help
-    plcrex_version
+..  toctree::
+    :caption: Features & Examples
+    :maxdepth: 1
+
+    features
     xml_checker
     iec_checker
     st2tree

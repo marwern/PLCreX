@@ -1,107 +1,105 @@
 # PLCreX - a modular IEC 61131-3 PLC analysis CLI application
 
+[![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg) 
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+
 PLCreX is a modular CLI application for IEC 61131-3 Programmable Logic Controllers ([PLCs](https://en.wikipedia.org/wiki/Programmable_logic_controller)), designed to support on topics such '**re**view', '**re**design', '**re**use', '**re**liability', and more.
 
 This project is motivated by our research and will be extended by further features step by step. Together with integrated external tools, PLCreX represents a collection of numerous analysis and reuse features for existing IEC 61131-3 Program Organization Units ([POUs](https://en.wikipedia.org/wiki/IEC_61131-3#Program_organization_unit_(POU))), implemented in IEC 61131-3 Function Block Diagrams (FBDs) and Structured Text (ST).
 
+---
+**Quick links**
 
-[![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg) 
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
-[![Tests](https://img.shields.io/badge/Tests-passed-<COLOR>.svg)](https://shields.io/)
-[![Coverage](https://img.shields.io/badge/coverage-99%25-<COLOR>.svg)](https://shields.io/)
-[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+1. [Install PLCreX](#install-plcrex)
+2. [Test PLCreX](#test-plcrex)
+   * [Print PLCreX Help](#print-plcrex-help)
+   * [Print PLCreX Version](#print-plcrex-version)
+3. [Features](#features) 
+   * [IEC Checker](#iec-checker)
+   * [PLCopen XML Exchange Validator](#plcopen-xml-exchange-validator)
+   * [FBD-to-ST Transpiler](#fbd-to-st-transpiler)
+   * [ST Parser](#st-parser)
+4. [Issues and Contributing Guidelines](#issues-and-contributing-guidelines)
+5. [Licenses](#licenses)
+---
 
-
-
-### Quick links
-* [Setup PLCreX](#setup-plcrex)
-* [Test PLCreX](#test-plcrex)
-* [Features](#features)
-  * [Print PLCreX Help](#print-plcrex-help)
-  * [Print PLCreX Version](#print-plcrex-version)
-  * [IEC Checker](#iec-checker)
-  * [PLCopen XML Exchange Validator](#plcopen-xml-exchange-validator)
-  * [FBD-to-ST Transpiler](#fbd-to-st-transpiler)
-  * [ST Parser](#st-parser)
-* [Issues and Contributing Guidelines](#issues-and-contributing-guidelines)
-* [Licenses](#licenses)
-
-
-## Setup PLCreX
+## Install PLCreX
 1. Download or clone repository
-2. Download IEC-Checker (executable) from the last [PLCreX Release](https://github.com/marwern/PLCreX/tags) or instead from official [IEC Checker repository](https://github.com/jubnzv/iec-checker)
-3. Change `IEC_Checker_exe` path in `./config.ini` according to your local path (optional, but tests will fail without exe)
-```
-[IEC-Checker]
-IEC_Checker_exe = .\bin\iec_checker_Windows_x86_64_v0.4.exe
-```
-4. Create a virtual environment in the project root directory: 
+2. [optional, but tests will fail without exe] Download IEC-Checker (.exe) from last [PLCreX Release](https://github.com/marwern/PLCreX/tags) or official [IEC Checker repository](https://github.com/jubnzv/iec-checker) and change `IEC_Checker_exe` path in `./config.ini` according to your local path
+    ```console
+    [IEC-Checker]
+    IEC_Checker_exe = .\bin\iec_checker_Windows_x86_64_v0.4.exe
+    ```
+3. Create a virtual environment in the project root directory: 
     >`C:\Python\plcrex_project>python -m venv venv`
-5. Activate virtual environment:
+4. Activate virtual environment:
    >`C:\Python\plcrex_project>venv\Scripts\activate.bat`
-6. Install the dependencies (`requirements.txt`):
+5. Install the dependencies (`requirements.txt`):
    >`(venv) C:\Python\plcrex_project>python -m pip install -r requirements.txt`
 
 
-
+---
 ## Test PLCreX
 [![Tests](https://img.shields.io/badge/Tests-passed-<COLOR>.svg)](https://shields.io/)
 [![Coverage](https://img.shields.io/badge/coverage-99%25-<COLOR>.svg)](https://shields.io/)
 
 
-Run the following command for some local tests (and coverage report): 
->`(venv) C:\Python\plcrex_project>python -m pytest ./tests/`
+1. Run the following command for some local tests: 
+    >`(venv) C:\Python\plcrex_project>python -m pytest ./tests/`
 
->`(venv) C:\Python\plcrex_project>coverage run -m pytest ./tests/`
+2. [optional] Run the following command for some local tests and coverage report: 
+    >`(venv) C:\Python\plcrex_project>coverage run -m pytest ./tests/`
 
->`(venv) C:\Python\plcrex_project>coverage report -m`
+    >`(venv) C:\Python\plcrex_project>coverage report -m`
 
-```
-Name                        Stmts   Miss  Cover   Missing
----------------------------------------------------------
-plcrex\__init__.py              2      0   100%
-plcrex\_fbd2st.py             261      0   100%
-plcrex\_iec_checker.py         11      1    91%   33
-plcrex\_st2tree.py             14      0   100%
-plcrex\_xml_checker.py          7      0   100%
-plcrex\cli.py                  54      1    98%   93
-tests\__init__.py               0      0   100%
-tests\test_fbd2st.py           41      0   100%
-tests\test_help.py              6      0   100%
-tests\test_iec_checker.py      33      0   100%
-tests\test_st2tree.py          21      0   100%
-tests\test_version.py          11      0   100%
-tests\test_xml_checker.py      19      0   100%
----------------------------------------------------------
-TOTAL                         480      2    99%
-```
+    ###### Output
+    ```
+    Name                        Stmts   Miss  Cover   Missing
+    ---------------------------------------------------------
+    plcrex\__init__.py              2      0   100%
+    plcrex\_fbd2st.py             275      0   100%
+    plcrex\_iec_checker.py         11      1    91%   33
+    plcrex\_st2tree.py             14      0   100%
+    plcrex\_xml_checker.py          7      0   100%
+    plcrex\cli.py                  52      1    98%   90
+    tests\__init__.py               0      0   100%
+    tests\test_fbd2st.py           93      0   100%
+    tests\test_help.py              6      0   100%
+    tests\test_iec_checker.py      29      0   100%
+    tests\test_st2tree.py          21      0   100%
+    tests\test_version.py          11      0   100%
+    tests\test_xml_checker.py      19      0   100%
+    ---------------------------------------------------------
+    TOTAL                         540      2    99%
+    ```
 
 
-
+---
 # Features
 The current version of PLCreX includes the features shown below, of which external tools are referenced accordingly. Due to the architecture of PLCreX it is quite easy to integrate external tools and updates. This means, topics related to external tools, like feature requests, bugs, discussions, etc. should be raised in the respective project and not in PLCreX.
 
 ![Overview](https://user-images.githubusercontent.com/92115516/198993824-9993836e-e9de-4013-a244-ce3566e5b8f4.svg)
 
+---
+**Features Quick links**
   * [Print PLCreX Help](#print-plcrex-help)
   * [Print PLCreX Version](#print-plcrex-version)
   * [Static Analysis (IEC Checker)](#iec-checker)
   * [XML Validator (PLCopen XML Exchange Validator)](#plcopen-xml-exchange-validator)
   * [FBD-to-ST Transpiler](#fbd-to-st-transpiler)
   * [ST Parser](#st-parser)
-
+---
+  
 ## Print PLCreX Help
-<!--- Print PLCreX `--help` by command:--->
 >`(venv) C:\Python\plcrex_project>python -m plcrex --help`
 
-
 ## Print PLCreX Version
-<!--- Print PLCreXs' *version* by command: --->
 >`(venv) C:\Python\plcrex_project>python -m plcrex --version`
 
-
-# IEC Checker
+---
+## IEC Checker
 The [IEC Checker](https://github.com/jubnzv/iec-checker) is an external open source tool for static code analysis of IEC 61131-3 POUs. It is integrated in this project with following features:
 
   + [PLCOpen Guidelines](https://plcopen.org/software-construction-guidelines) checks:
@@ -151,7 +149,8 @@ Print IEC Checker `--help` to see all implemented features:
 Success!
 ````
 
-# PLCopen XML Exchange Validator
+---
+## PLCopen XML Exchange Validator
 The [PLCopen XML Exchange Validator](https://plcopen.org/technical-activities/xml-exchange) validates on basis of `tc6_xml_v201.xsd` and `tc6_xml_v10.xsd` whether the PLCopen XML exchange format meets the PLCopen specification.
 
 Print PLCopen XML Exchange Validator `--help` to see all implemented features:
@@ -184,7 +183,8 @@ Schema:
         ...
 ````
 
-# FBD-to-ST Transpiler
+---
+## FBD-to-ST Transpiler
 The FBD-to-ST Transpiler translates FBDs stored in PLCopen XML format into equivalent ST POUs. The user can additionally run a static code analysis with [IEC Checker](#iec-checker).
 
 ##### Restrictions
@@ -308,7 +308,8 @@ FUNCTION_BLOCK TC005
 END_FUNCTION_BLOCK
 ```
 
-# ST Parser
+---
+## ST Parser
 The ST parser includes an executable grammar for IEC 61131-3 ST POUs as well as the possibility to save the resulting syntax tree visually or as plain text and reuse it for subsequent analysis. The embedded grammar includes the following constructs:
 + IEC 61131-3 POU-Types: `Program, Functionblock, Function`
 + Sections (each available only once): `VAR_INPUT, VAR, VAR_OUTPUT, VAR_IN_OUT, VAR_EXTERNAL`
@@ -325,20 +326,9 @@ Print ST Parser `--help` to see all implemented features:
 01| FUNCTION_BLOCK TC081
 02|   VAR_INPUT
 03|     IN1 : INT;
-04|     IN2 : INT;
-05|     IN3 : INT;
-06|     IN4 : BOOL;
-07|   END_VAR
-08|   VAR_OUTPUT
-09|     Wrn : BOOL;
-10|     Err : BOOL;
-11|     Ctr : INT;
-12|     iOut2 : INT;
-13|   END_VAR
-14|   VAR
-15|     SR1 : SR;
-16|     TON1 : TON;
-17|     TON2 : TON;
+
+        ...
+
 18|   END_VAR
 19|   
 20|   SR1(((((20*IN1)+(6*IN2)+IN3))=(100*2)) AND (IN1+IN2+IN3=100),IN4);
@@ -367,131 +357,9 @@ start
           declaration
             variable	IN1
             datatype	INT
-          declaration
-            variable	IN2
-            datatype	INT
-          declaration
-            variable	IN3
-            datatype	INT
-          declaration
-            variable	IN4
-            datatype	BOOL
-      var_output
-        dcllist
-          declaration
-            variable	Wrn
-            datatype	BOOL
-          declaration
-            variable	Err
-            datatype	BOOL
-          declaration
-            variable	Ctr
-            datatype	INT
-          declaration
-            variable	iOut2
-            datatype	INT
-    vdcl
-      var_local
-        dcllist
-          declaration
-            variable	SR1
-            datatype
-              macro_name	SR
-          declaration
-            variable	TON1
-            datatype
-              macro_name	TON
-          declaration
-            variable	TON2
-            datatype
-              macro_name	TON
-    statlist
-      statement
-        macro
-          SR1
-          and
-            equalitiy
-              adding
-                adding
-                  multiply_with
-                    constant	20
-                    variable	IN1
-                  multiply_with
-                    constant	6
-                    variable	IN2
-                variable	IN3
-              multiply_with
-                constant	100
-                constant	2
-            equalitiy
-              adding
-                adding
-                  variable	IN1
-                  variable	IN2
-                variable	IN3
-              constant	100
-          variable	IN4
-      statement
-        macro
-          TON1
-          and
-            equalitiy
-              adding
-                adding
-                  multiply_with
-                    constant	20
-                    variable	IN1
-                  multiply_with
-                    constant	6
-                    variable	IN2
-                variable	IN3
-              multiply_with
-                constant	100
-                constant	2
-            equalitiy
-              adding
-                variable	IN1
-                adding
-                  variable	IN2
-                  variable	IN3
-              constant	100
-          constant	2
-      statement
-        macro
-          TON2
-          equalitiy
-            adding
-              adding
-                variable	IN1
-                variable	IN2
-              variable	IN3
-            and
-              constant	42
-              variable	SR1
-              macro_out	Q
-          constant	3
-      statement
-        immediate_assignment
-          variable	Ctr
-          macro
-            TON2
-            equalitiy
-              adding
-                adding
-                  variable	IN1
-                  variable	IN2
-                variable	IN3
-              and
-                constant	42
-                variable	SR1
-                macro_out	Q
-            constant	3
-            macro_out	ET
-      statement
-        immediate_assignment
-          variable	Err
-          variable	TON1
-          macro_out	Q
+            
+            ...
+            
       statement
         immediate_assignment
           variable	Wrn
@@ -505,11 +373,13 @@ This section summarizes the changes since the last release.
 - [x] Tests: FBD-to-ST compiler
 -->
 
+---
 # Issues and Contributing Guidelines
 Contributors are welcome. Please use GitHub Issues and use appropriate labels to prioritize tasks and track implementation progress. 
 
 Pull requests should link to a specific issue in the comment. I think this keeps the repository well structured. Thanks a lot!
 
+---
 # Licenses
 - PLCreX [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 - IEC Checker v0.4  [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)

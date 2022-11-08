@@ -3,21 +3,18 @@ Test
 
 .. test:
 
-test
-----
-
 Run the following command for some local tests:
 
 .. code-block:: console
 
-	(venv) C:\Python\plcrex_project>python -m pytest ./tests/
+    (venv) C:\Python\plcrex_project>python -m pytest ./tests/
 
 Run the following commands for some local tests and coverage report:
 
 .. code-block:: console
 
-	(venv) C:\Python\plcrex_project>coverage run -m pytest ./tests/
-	(venv) C:\Python\plcrex_project>coverage report -m
+    (venv) C:\Python\plcrex_project>coverage run -m pytest ./tests/
+    (venv) C:\Python\plcrex_project>coverage report -m
 
 Results:
 

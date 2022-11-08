@@ -1,5 +1,5 @@
 # Configuration file for the Sphinx documentation builder.
-
+#
 import os
 import sys
 sys.path.insert(0, os.path.abspath("../"))
@@ -21,7 +21,8 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'sphinx_rtd_theme',
 ]
 
 intersphinx_mapping = {
@@ -36,17 +37,21 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
+    'collapse_navigation': True,
+    'sticky_navigation': True,
     'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False
 }
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown'
-}
+# source_suffix = {
+#   '.rst': 'restructuredtext',
+#    '.md': 'markdown'
+# }
 
 # The master toctree document.
 master_doc = 'index'
@@ -74,8 +79,10 @@ html_static_path = ['_static']
 # This is required for the alabaster theme
 # refs: http://alabaster.readthedocs.io/en/latest/installation.html#sidebars
 html_sidebars = {
-    '**': [
-        'relations.html',  # needs 'show_related': True theme option to display
-        'searchbox.html',
+'**': [
+    'relations.html',  # needs 'show_related': True theme option to display
+    'searchbox.html',
+    'globaltoc.html',
+    'navigation.html',
     ]
 }
