@@ -17,7 +17,7 @@
 #
 
 from plcrex import cli
-from docs.source import __app_name__
+from docs.source.conf import __app_name__
 
 
 def main():

@@ -19,7 +19,7 @@
 from typer.testing import CliRunner
 
 from plcrex import cli
-from docs.source import __app_name__, __version__
+from docs.source.conf import __app_name__, __version__
 
 runner = CliRunner()
 

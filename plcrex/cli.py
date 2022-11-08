@@ -18,7 +18,7 @@
 
 from typing import Optional
 from plcrex import _st2tree, _iec_checker, _xml_checker, _fbd2st
-from docs.source import __app_name__, __version__
+from docs.source.conf import __app_name__, __version__
 from pathlib import Path
 import typer
 

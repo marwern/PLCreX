@@ -21,9 +21,13 @@
 #
 import os
 import sys
-from docs.source import __app_name__, __version__, __owner__, __copyright__
 sys.path.insert(0, os.path.abspath("../"))
 
+
+__app_name__ = "PLCreX"
+__version__ = "0.2.x"
+__owner__ = "Marcel C. Werner"
+__copyright__ = "2022, " + __owner__
 
 
 # -- Project information
