@@ -52,7 +52,7 @@ The following example was implemented manually using `Beremiz <https://github.co
     <img src="https://user-images.githubusercontent.com/92115516/198979137-7562d3c1-1729-4a39-99f3-49c4dfb6ae62.PNG"></img>
 
 
-Command and Result (``--formal``,``--no-backward``, ``--iec-check``, ``--no-st-parser``):
+Command and Result (``--formal``, ``--no-backward``, ``--iec-check``, ``--no-st-parser``):
 
 .. code-block:: console
 
