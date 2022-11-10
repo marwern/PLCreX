@@ -517,4 +517,4 @@ def translation(src: Path,
         _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st'), '--verbose')
 
     if st_parser:
-        _st2tree.translation(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st'), True, True)
+        _st2tree.translation(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st'), True, True, False)

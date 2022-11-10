@@ -11,7 +11,7 @@ analysis of IEC 61131-3 POUs. Print help of IEC Checker with ``COMMAND`` ``iec-c
 
     (venv) C:\Python\plcrex_project>python -m plcrex iec-checker --help
 
-    Usage: PLCreX iec-checker [OPTIONS] SRC
+    Usage: plcrex iec-checker [OPTIONS] SRC
 
     Arguments:
       SRC  [required]

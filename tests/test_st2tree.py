@@ -45,6 +45,10 @@ def test_txt():
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
+def test_beckhoff_txt_dot():
+    result = runner.invoke(cli.app, ["st2tree", "--beckhoff", r".\tests\st_examples\TC079.st"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
 
 def test_wrong_file():
     result = runner.invoke(cli.app, ["st2tree", r".\tests\other_examples\TC001_wrong_file.txt"])

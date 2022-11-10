@@ -20,15 +20,18 @@ Print help of ST Parser with ``COMMAND`` ``st2tree`` and ``[OPTIONS]`` ``--help`
 
     (venv) C:\Python\plcrex_project>python -m plcrex st2tree --help
 
-    Usage: PLCreX st2tree [OPTIONS] SRC
+    Usage: plcrex st2tree [OPTIONS] SRC
 
     Arguments:
       SRC  [required]
 
     Options:
-      --txt / --no-txt  tree export as *.txt  [default: True]
-      --dot / --no-dot  tree export as *.dot  [default: True]
-      --help            Show this message and exit.
+      --txt / --no-txt            tree export as *.txt  [default: True]
+      --dot / --no-dot            tree export as *.dot  [default: True]
+      --beckhoff / --no-beckhoff  use Beckhoff TwinCAT ST grammar  [default:
+                                  False]
+
+      --help                      Show this message and exit.
 
 .. note::
     ``txt`` and ``dot`` are ``true`` by default. If you don't want to generate them, this must be reset with the options

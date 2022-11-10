@@ -12,7 +12,7 @@ FBD-to-ST Transpiler with ``COMMAND`` ``fbd2st`` and
 
     (venv) C:\Python\plcrex_project>python -m plcrex fbd2st --help
 
-    Usage: PLCreX fbd2st [OPTIONS] SRC
+    Usage: plcrex fbd2st [OPTIONS] SRC
 
     Arguments:
       SRC  [required]

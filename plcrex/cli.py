@@ -65,10 +65,11 @@ def fbd2st(
 def st2tree(
         src: Path,
         txt: bool = typer.Option(True, help="tree export as *.txt"),
-        dot: bool = typer.Option(True, help="tree export as *.dot")):
+        dot: bool = typer.Option(True, help="tree export as *.dot"),
+        beckhoff: bool = typer.Option(False, help="use Beckhoff TwinCAT ST grammar")):
     if src.is_file():
         if src.suffix == '.st':
-            _st2tree.translation(src, txt, dot)
+            _st2tree.translation(src, txt, dot, beckhoff)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no ST file found")

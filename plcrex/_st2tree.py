@@ -23,9 +23,14 @@ from pathlib import Path
 def translation(
         src: Path,
         txt: bool = False,
-        dot: bool = False):
-    with open(r'.\data\STgrammar.lark', 'rt') as file:
-        grammar = file.read()
+        dot: bool = False,
+        beckhoff: bool = False):
+    if beckhoff:
+        with open(r'.\data\STgrammar_Beckhoff.lark', 'rt') as file:
+            grammar = file.read()
+    else:
+        with open(r'.\data\STgrammar.lark', 'rt') as file:
+            grammar = file.read()
     parser = Lark(grammar, maybe_placeholders=False, keep_all_tokens=False)
 
     with open(src, 'rt') as file:
