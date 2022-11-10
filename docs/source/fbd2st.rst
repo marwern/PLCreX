@@ -118,7 +118,7 @@ The following example was implemented manually using `Beremiz <https://github.co
 Example: TC005_PRG.xml (formal, backward)
 ----
 
-Command and Result (``--formal``,``--backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--formal``, ``--backward``, ``--no-iec-check``, ``--no-st-parser``):
 
 .. code-block:: console
 
@@ -144,7 +144,7 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_True_Tru
 
 Example: TC005_PRG.xml (non formal, backward)
 ----
-Command and Result (``--no-formal``,``--backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--no-formal``, ``--backward``, ``--no-iec-check``, ``--no-st-parser``):
 
 .. code-block:: console
 
@@ -170,7 +170,7 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_True_Fal
 
 Example: TC005_PRG.xml (non formal, forward)
 ----
-Command and Result (``--no-formal``,``--no-backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--no-formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``):
 
 .. code-block:: console
 
@@ -200,7 +200,7 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_False_Fa
 
 Example: TC005_PRG.xml (formal, forward)
 ----
-Command and Result (``--formal``,``--no-backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``):
 
 .. code-block:: console
 
