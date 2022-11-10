@@ -72,4 +72,4 @@ Pull requests should link to a specific issue in the comment. I think this keeps
 # Licenses
 - PLCreX [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 - IEC Checker v0.4  [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
-- STgrammar_Beckhoff.lark (iec.lark) v0.5.0 [![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+- STgrammar_Beckhoff.lark ([Blark](https://github.com/klauer/blark) v0.5.0) [![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
