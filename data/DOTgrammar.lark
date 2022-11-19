@@ -1,0 +1,29 @@
+// ********************************************************************************
+// Start
+// ********************************************************************************
+start: digraph
+
+// ********************************************************************************
+// Header inlcuding POU name
+// ********************************************************************************
+name: NAME
+digraph: "digraph G {rankdir=LR;graph [pad=\"0.5\", nodesep=\"1\", ranksep=\"4\"]; splines=curved;node [shape=rect fillcolor=white style=filled];subgraph cluster_1{label=\""name"\"; style=rounded;bgcolor=beige;fontsize = 42;" dependencies "}}"
+
+// ********************************************************************************
+// Header inlcuding POU name
+// ********************************************************************************
+dependencies: entry*
+entry: NAME "->" NAME ("," NAME)*
+
+
+// ********************************************************************************
+// Generic statements
+// ********************************************************************************
+%ignore " "
+MULTI_LINE_COMMENT: /\(\*.*?\*\)/s
+SINGLE_LINE_COMMENT: /\s*/ "//" /[^\n]/*
+%ignore WS
+%ignore MULTI_LINE_COMMENT
+%ignore SINGLE_LINE_COMMENT
+%import common.WS
+NAME: /[a-zA-Z_]\w*/
