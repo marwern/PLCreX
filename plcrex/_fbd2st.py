@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-from plcrex import _xml_checker, _st2tree, _iec_checker
+from plcrex import _xml_checker, _st2tree, _iec_checker, _fbd_io_checker
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import pprint
@@ -25,7 +25,8 @@ def translation(src: Path,
                 iec_check: bool = False,
                 bwd: bool = False,
                 formal: bool = False,
-                st_parser: bool = False):
+                st_parser: bool = False,
+                impact_analysis : bool = False):
     pp = pprint.PrettyPrinter(indent=2)
     informal = not formal
 
@@ -358,8 +359,7 @@ def translation(src: Path,
                         # check if connection has been found
                         if outVar.get("refLocalId") == inVar.get("localId"):
                             tmp_finding = True
-                            # TODO
-                            # append stat
+                            stats.append(outVar.get("expression") + ' := ' + inVar.get("expression") + ';')
 
                 # find connected block output (if not connected to input_variable variable)
                 if not tmp_finding:
@@ -462,7 +462,7 @@ def translation(src: Path,
                     st_file.write('\t' + stat + '\n')
 
     # create ST file
-    with open(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st', 'w') as st_file:
+    with open(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}_{impact_analysis}.st', 'w') as st_file:
         interfaces = []  # interfaces without localIds
         interfaces_with_ids = []  # interfaces with localIds
         block_comp = []  # block components
@@ -507,14 +507,17 @@ def translation(src: Path,
         print('\n***\n\n')
 
     # read ST file
-    written_file = open(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st', 'r')
+    written_file = open(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}_{impact_analysis}.st', 'r')
     print(written_file.read())
 
     print('\n*** FBD-to-ST translation finished ***\n\n')
 
     # bwd formal iec st2tree
     if iec_check:
-        _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st'), '--verbose')
+        _iec_checker.execution(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}_{impact_analysis}.st'), '--verbose')
 
     if st_parser:
-        _st2tree.translation(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}.st'), True, True, False)
+        _st2tree.translation(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}_{impact_analysis}.st'), True, True, False)
+
+    if impact_analysis:
+        _fbd_io_checker.data_flow_analysis_st(Path(fr'.\exports\st\{Path(src).name}_{bwd}_{formal}_{iec_check}_{st_parser}_{impact_analysis}.st'))
