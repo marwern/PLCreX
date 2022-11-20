@@ -232,19 +232,25 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_False_Tr
 
 Example: TC006_FBD.xml (non formal, forward, impact analysis)
 ----
+The following example was implemented manually using `Beremiz <https://github.com/beremiz/beremiz>`_.
+
+.. raw:: html
+
+    <img src="https://user-images.githubusercontent.com/92115516/202922634-66930915-c5d1-495a-b9a5-8bac36fe6263.PNG"></img>
+
 Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``, ``--impact-analysis``):
 
 .. code-block:: console
 
-    (venv) C:\Python\plcrex_project>python -m plcrex fbd2st --not-formal --impact-analysis ".\tests\plcopen_examples\TC006_FBD.xml"
+    (venv) C:\Python\plcrex_project>python -m plcrex fbd2st --no-formal --impact-analysis ".\tests\plcopen_examples\TC006_FBD.xml"
 
     Success!
 
-The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_False_True_False_False.st``
+The following ``dot`` file was created: ``./exports/tree/dot/TC006_FBD.xml_True_False_False_False_True.st``
 
 .. raw:: html
 
-    <img src="https://user-images.githubusercontent.com/92115516/202921883-d53c1e11-b734-4eff-8b13-4dbf04bdeff7.png" style="width: 333.5px; height: 348.0px;"></img>
+    <img src="https://user-images.githubusercontent.com/92115516/202922310-3bba478a-bcfb-47cb-950b-e69c8f2f3785.svg"></img>
 
 
 .. note::
