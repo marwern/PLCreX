@@ -18,11 +18,13 @@ FBD-to-ST Transpiler with ``COMMAND`` ``fbd2st`` and
       SRC  [required]
 
     Options:
-      --iec-check / --no-iec-check  run IEC Checker  [default: False]
-      --formal / --no-formal        formal parameter list  [default: False]
-      --backward / --no-backward    use backward translation  [default: False]
-      --st-parser / --no-st-parser  run ST parser with exports  [default: False]
-      --help                        Show this message and exit.
+      --iec-check / --no-iec-check    run IEC Checker  [default: False]
+      --formal / --no-formal          formal parameter list  [default: False]
+      --backward / --no-backward      use backward translation  [default: False]
+      --st-parser / --no-st-parser    run ST parser with exports  [default: False]
+      --impact-analysis / --no-impact-analysis
+                                      chek I/O impact analysis  [default: False]
+      --help                          Show this message and exit.
 
 At this point, another comment is probably helpful. In addition to a subsequent static code
 code analysis with the IEC Checker or optionally the parsing of the resulting ST POU, PLCreX supports
@@ -52,7 +54,7 @@ The following example was implemented manually using `Beremiz <https://github.co
     <img src="https://user-images.githubusercontent.com/92115516/198979137-7562d3c1-1729-4a39-99f3-49c4dfb6ae62.PNG"></img>
 
 
-Command and Result (``--formal``, ``--no-backward``, ``--iec-check``, ``--no-st-parser``):
+Command and Result (``--formal``, ``--no-backward``, ``--iec-check``, ``--no-st-parser``, ``--no-impact-analysis``):
 
 .. code-block:: console
 
@@ -118,7 +120,7 @@ The following example was implemented manually using `Beremiz <https://github.co
 Example: TC005_PRG.xml (formal, backward)
 ----
 
-Command and Result (``--formal``, ``--backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--formal``, ``--backward``, ``--no-iec-check``, ``--no-st-parser``, ``--no-impact-analysis``):
 
 .. code-block:: console
 
@@ -144,7 +146,7 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_True_Tru
 
 Example: TC005_PRG.xml (non formal, backward)
 ----
-Command and Result (``--no-formal``, ``--backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--no-formal``, ``--backward``, ``--no-iec-check``, ``--no-st-parser``, ``--no-impact-analysis``):
 
 .. code-block:: console
 
@@ -170,7 +172,7 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_True_Fal
 
 Example: TC005_PRG.xml (non formal, forward)
 ----
-Command and Result (``--no-formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--no-formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``, ``--no-impact-analysis``):
 
 .. code-block:: console
 
@@ -200,7 +202,7 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_False_Fa
 
 Example: TC005_PRG.xml (formal, forward)
 ----
-Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``):
+Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``, ``--no-impact-analysis``):
 
 .. code-block:: console
 
@@ -227,6 +229,23 @@ The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_False_Tr
             o1 := XOR3_OUT;
             o4 := TON0.Q;
     END_PROGRAM
+
+Example: TC006_FBD.xml (non formal, forward, impact analysis)
+----
+Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``, ``--impact-analysis``):
+
+.. code-block:: console
+
+    (venv) C:\Python\plcrex_project>python -m plcrex fbd2st --not-formal --impact-analysis ".\tests\plcopen_examples\TC006_FBD.xml"
+
+    Success!
+
+The following ``st`` file was created: ``./exports/st/txt/TC005_PRG.xml_False_True_False_False.st``
+
+.. raw:: html
+
+    <img src="https://user-images.githubusercontent.com/92115516/202921883-d53c1e11-b734-4eff-8b13-4dbf04bdeff7.png" style="width: 333.5px; height: 348.0px;"></img>
+
 
 .. note::
     Without database additional local variables needed for forward translation are declared as ``BOOL`` by default,
