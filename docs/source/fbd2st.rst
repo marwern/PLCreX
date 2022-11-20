@@ -246,7 +246,7 @@ Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-
 
     Success!
 
-The following ``dot`` file was created: ``./exports/tree/dot/TC006_FBD.xml_True_False_False_False_True.st``
+The following ``dot`` file was created: ``./exports/tree/dot/TC006_FBD.xml_True_False_False_False_True.st.dot``
 
 .. raw:: html
 
