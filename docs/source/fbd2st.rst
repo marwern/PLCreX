@@ -36,7 +36,7 @@ The differences are shown in the examples below.
 
 .. raw:: html
 
-    <img src="https://user-images.githubusercontent.com/92115516/200553085-4f8f5637-5792-4b80-8155-2045af3736ed.svg"></img>
+    <img src="https://user-images.githubusercontent.com/92115516/202925984-43aeeba4-16c3-438b-9c7c-e0664175f0d0.png"></img>
 
 .. note::
     It should be noted that in the backward translation strategy the semantics can be changed,
@@ -237,6 +237,13 @@ The following example was implemented manually using `Beremiz <https://github.co
 .. raw:: html
 
     <img src="https://user-images.githubusercontent.com/92115516/202922634-66930915-c5d1-495a-b9a5-8bac36fe6263.PNG"></img>
+
+
+The concept is illustrated in the figure below.
+
+.. raw:: html
+
+    <img src="https://user-images.githubusercontent.com/92115516/202925979-b8132c95-1ac9-494d-8598-5079a2ff2798.png"></img>
 
 Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``, ``--impact-analysis``):
 

@@ -8,6 +8,7 @@ PLCreX is a modular CLI application for IEC 61131-3 Programmable Logic Controlle
 
 This project is motivated by our research and will be extended by further features step by step. Together with integrated external tools, PLCreX represents a collection of numerous analysis and reuse features for existing IEC 61131-3 Program Organization Units ([POUs](https://en.wikipedia.org/wiki/IEC_61131-3#Program_organization_unit_(POU))), implemented in IEC 61131-3 Function Block Diagrams (FBDs) and Structured Text (ST).
 
+![Overview](https://user-images.githubusercontent.com/92115516/200553270-435c4607-2786-484a-8917-fe2819fc1595.svg)
 
 ## Quick links
 
@@ -46,13 +47,12 @@ Run the following command for some local tests and coverage report:
 >`(venv) C:\Python\plcrex_project>coverage report -m`
 
 # Features
-The current version of PLCreX includes the features shown below, of which external tools are referenced accordingly.
+The current version of PLCreX includes the features linked below, of which external tools are referenced accordingly.
 Due to the architecture of PLCreX it is quite easy to integrate external tools and updates.
 This means, topics related to external tools, like feature requests, bugs, discussions, etc. should be raised in the respective project and not in PLCreX. 
 See [PLCreX’s documentation](https://plcrex.readthedocs.io/en/latest/) for further details.
 
-![Overview](https://user-images.githubusercontent.com/92115516/200553270-435c4607-2786-484a-8917-fe2819fc1595.svg)
-
+![Presentation325_v3](https://user-images.githubusercontent.com/92115516/202925975-e4d7019b-a9a8-40a6-8f21-be137a4ba1c8.png)
 
 ## Quick links to PLCreX’s documentation
 * [Print PLCreX Help](https://plcrex.readthedocs.io/en/latest/features.html#plcrex-help)
