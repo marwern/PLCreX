@@ -192,3 +192,4 @@ def test_1bwd_0formal_0iec_0st2tree44():
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 # tests to show differences in translation strategies -- END
+

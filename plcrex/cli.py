@@ -51,10 +51,12 @@ def fbd2st(
         iec_check: bool = typer.Option(False, help="run IEC Checker"),  # "-static-tests",
         formal: bool = typer.Option(False, help="formal parameter list"),
         backward: bool = typer.Option(False, help="use backward translation"),  # "-bw",
-        st_parser: bool = typer.Option(False, help="run ST parser with exports")):
+        st_parser: bool = typer.Option(False, help="run ST parser with exports"),
+        impact_analysis: bool = typer.Option(False, help="chek I/O impact analysis")
+):
     if src.is_file():
         if src.suffix == '.xml':
-            _fbd2st.translation(src, iec_check, backward, formal, st_parser)
+            _fbd2st.translation(src, iec_check, backward, formal, st_parser, impact_analysis)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")
