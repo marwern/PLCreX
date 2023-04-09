@@ -59,3 +59,4 @@ Now you know everything to use PLCreX. Have fun with the following features!
     iec_checker
     st2tree
     fbd2st
+    test_case_gen

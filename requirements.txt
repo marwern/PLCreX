@@ -8,3 +8,4 @@ pydot==1.4.2
 pytest==7.2.0
 typer==0.3.2
 xmlschema==2.1.1
+z3-solver==4.12.1.0

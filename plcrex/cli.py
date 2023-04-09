@@ -1,7 +1,7 @@
 #
 # This file is part of PLCreX (https://github.com/marwern/PLCreX).
 #
-# Copyright (c) 2022 Marcel Werner.
+# Copyright (c) 2022-2023 Marcel Werner.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,12 +17,17 @@
 #
 
 from typing import Optional
-from plcrex import _st2tree, _iec_checker, _xml_checker, _fbd2st
+from plcrex import _st2tree, _iec_checker, _xml_checker, _fbd2st, _spec2test
 from docs.source.conf import __app_name__, __version__
 from pathlib import Path
 import typer
 
 app = typer.Typer()
+
+@app.command("test-case-gen")
+def test_case_gen(formula: str):
+    _spec2test.create(formula)
+    typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))				  
 
 
 @app.command("iec-checker")
