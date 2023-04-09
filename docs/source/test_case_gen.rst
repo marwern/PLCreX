@@ -25,7 +25,7 @@ There are two main features: (1) Automatic Equivalence Class Generation: The too
 (2) Test Case Creation: Utilizing the Z3 SMT theorem prover, the generator swiftly constructs test cases for each identified equivalence class, ensuring a wide range of scenarios are covered during testing.
 
 
-.. examples:
+.. tc_example_1:
 
 Example: "x1 & x2"
 ----
@@ -77,6 +77,7 @@ Example: "x1 & x2"
     --- 0.959 seconds ---
 
 
+.. tc_example_2:
 
 Example: "(A & B) | (C == (D & E))"
 ----

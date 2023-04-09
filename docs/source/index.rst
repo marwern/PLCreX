@@ -38,3 +38,4 @@ implemented in IEC 61131-3 Function Block Diagrams (FBDs) and Structured Text (S
     iec_checker
     st2tree
     fbd2st
+    test_case_gen
