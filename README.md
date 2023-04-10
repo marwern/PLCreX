@@ -8,7 +8,7 @@ PLCreX is a modular CLI application for IEC 61131-3 Programmable Logic Controlle
 
 This project is motivated by our research and will be extended by further features step by step. Together with integrated external tools, PLCreX represents a collection of numerous analysis and reuse features for existing IEC 61131-3 Program Organization Units ([POUs](https://en.wikipedia.org/wiki/IEC_61131-3#Program_organization_unit_(POU))), implemented in IEC 61131-3 Function Block Diagrams (FBDs) and Structured Text (ST).
 
-![Overview](https://user-images.githubusercontent.com/92115516/200553270-435c4607-2786-484a-8917-fe2819fc1595.svg)
+![Overview](https://user-images.githubusercontent.com/92115516/230993845-8efdd42a-218d-4c65-af01-8ae3ab71d88d.svg)
 
 ## Quick links
 
@@ -61,6 +61,7 @@ See [PLCreX’s documentation](https://plcrex.readthedocs.io/en/latest/) for fur
 * [XML Validator (PLCopen XML Exchange Validator)](https://plcrex.readthedocs.io/en/latest/xml_checker.html)
 * [FBD-to-ST Transpiler](https://plcrex.readthedocs.io/en/latest/fbd2st.html)
 * [ST Parser](https://plcrex.readthedocs.io/en/latest/st2tree.html)
+* [Test Case Generator](https://plcrex.readthedocs.io/en/latest/test_case_gen.html)
 
 
 # Issues and Contributing Guidelines
