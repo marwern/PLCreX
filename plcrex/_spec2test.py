@@ -31,4 +31,5 @@ def create(formula: str):
     _test_case_gen.create(formula)
     #A | (B & (C | (D==E)))
     #(A & B) | (C == (D & E))
+    #"(A & B) | (C & (D==E) & F)"
 #create("A&B")

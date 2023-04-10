@@ -3,9 +3,11 @@ Equivalence Class / Test Case Generator
 
 .. test_case_gen:
 
-The FBD-to-ST Transpiler translates FBDs stored in PLCopen XML format into ST POUs.
-The user can additionally run a static code analysis with IEC Checker. Print help of
-FBD-to-ST Transpiler with ``COMMAND`` ``test-case-gen`` and
+The Equivalence and Test Case Generator feature is designed to streamline the software testing process.
+By utilizing the powerful SMT theorem prover, Z3, this feature automatically generates possible equivalence classes and test cases based on a given input string.
+There are two main features: (1) Automatic Equivalence Class Generation: The tool efficiently identifies and creates equivalence classes derived from the input string, allowing for a more thorough and systematic testing approach.
+(2) Test Case Creation: Utilizing the Z3 SMT theorem prover, the generator swiftly constructs test cases for each identified equivalence class, ensuring a wide range of scenarios are covered during testing.
+Print help with ``COMMAND`` ``test-case-gen`` and
 ``[OPTIONS]`` ``--help`` to see all features and usage:
 
 .. code-block:: console
@@ -18,12 +20,6 @@ FBD-to-ST Transpiler with ``COMMAND`` ``test-case-gen`` and
 
     Options:
       --help  Show this message and exit.
-
-The Equivalence and Test Case Generator feature is designed to streamline the software testing process.
-By utilizing the powerful SMT theorem prover, Z3, this feature automatically generates possible equivalence classes and test cases based on a given input string.
-There are two main features: (1) Automatic Equivalence Class Generation: The tool efficiently identifies and creates equivalence classes derived from the input string, allowing for a more thorough and systematic testing approach.
-(2) Test Case Creation: Utilizing the Z3 SMT theorem prover, the generator swiftly constructs test cases for each identified equivalence class, ensuring a wide range of scenarios are covered during testing.
-
 
 .. tc_example_1:
 
