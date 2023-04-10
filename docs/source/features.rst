@@ -14,10 +14,10 @@ discussions, etc. should be raised in the respective project and not in PLCreX.
 
         <object data="https://user-images.githubusercontent.com/92115516/198993824-9993836e-e9de-4013-a244-ce3566e5b8f4.svg" type="image/svg+xml"></object>
 
+
 .. raw:: html
 
-    <img src="https://user-images.githubusercontent.com/92115516/200553270-435c4607-2786-484a-8917-fe2819fc1595.svg"></img>
-
+    <img src="https://user-images.githubusercontent.com/92115516/230993845-8efdd42a-218d-4c65-af01-8ae3ab71d88d.svg"></img>
 
 .. cli:
 
