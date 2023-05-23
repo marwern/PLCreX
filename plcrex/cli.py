@@ -57,7 +57,7 @@ def fbd2st(
         formal: bool = typer.Option(False, help="formal parameter list"),
         backward: bool = typer.Option(False, help="use backward translation"),  # "-bw",
         st_parser: bool = typer.Option(False, help="run ST parser with exports"),
-        impact_analysis: bool = typer.Option(False, help="chek I/O impact analysis")
+        impact_analysis: bool = typer.Option(False, help="check I/O impact analysis")
 ):
     if src.is_file():
         if src.suffix == '.xml':

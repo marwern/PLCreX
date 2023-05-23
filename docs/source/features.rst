@@ -3,21 +3,13 @@ Features
 
 .. features:
 
-The current version of PLCreX includes the features shown below,
-of which external tools are referenced accordingly.
-Due to the architecture of PLCreX it is quite easy to integrate external tools and
-updates. This means, topics related to external tools, like feature requests, bugs,
-discussions, etc. should be raised in the respective project and not in PLCreX.
+The current version of PLCreX comes with features shown below. The modular architecture of PLCreX allows easy integration of external tools and updates. This means, topics related to external tools, like feature requests, bugs, discussions, etc. should be raised in the respective project and not in PLCreX.
 
 ..
-    .. raw:: html
-
-        <object data="https://user-images.githubusercontent.com/92115516/198993824-9993836e-e9de-4013-a244-ce3566e5b8f4.svg" type="image/svg+xml"></object>
-
 
 .. raw:: html
 
-    <img src="https://user-images.githubusercontent.com/92115516/230993845-8efdd42a-218d-4c65-af01-8ae3ab71d88d.svg"></img>
+    <img src="https://github.com/marwern/PLCreX/assets/92115516/31957c5f-8db9-4a45-8ee3-4333a47df43e"></img>
 
 .. cli:
 

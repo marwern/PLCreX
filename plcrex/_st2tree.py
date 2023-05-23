@@ -26,10 +26,10 @@ def translation(
         dot: bool = False,
         beckhoff: bool = False):
     if beckhoff:
-        with open(r'.\data\STgrammar_Beckhoff.lark', 'rt') as file:
+        with open(r'.\data\lark\STgrammar_Beckhoff.lark', 'rt') as file:
             grammar = file.read()
     else:
-        with open(r'.\data\STgrammar.lark', 'rt') as file:
+        with open(r'.\data\lark\STgrammar.lark', 'rt') as file:
             grammar = file.read()
     parser = Lark(grammar, maybe_placeholders=False, keep_all_tokens=False)
 

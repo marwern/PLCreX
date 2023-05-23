@@ -21,7 +21,7 @@ import xmlschema
 
 
 def validate(xml_file: Path, validation_file: str):
-    xsd_file = fr".\data\{validation_file}"
+    xsd_file = fr".\data\tc6\{validation_file}"
 
     # create validation scheme
     scheme = xmlschema.XMLSchema(xsd_file)

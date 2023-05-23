@@ -1,11 +1,11 @@
-FBD-to-ST Transpiler
+FBD-to-ST Compiler
 =====
 
 .. fbd2st:
 
-The FBD-to-ST Transpiler translates FBDs stored in PLCopen XML format into ST POUs.
+The FBD-to-ST Compiler translates FBDs stored in PLCopen XML format into ST POUs.
 The user can additionally run a static code analysis with IEC Checker. Print help of
-FBD-to-ST Transpiler with ``COMMAND`` ``fbd2st`` and
+FBD-to-ST Compiler with ``COMMAND`` ``fbd2st`` and
 ``[OPTIONS]`` ``--help`` to see all features and usage:
 
 .. code-block:: console
@@ -32,11 +32,10 @@ the translation from FBD to ST in different formats, which are shown in the foll
 In general we distinguish between a **formal** representation of the parameter list of instantiated POUs,
 for example ``TONx(IN := A, PT := B);`` and a **non formal** representation, ``TONx(A,B);``. Furthermore
 we distinguish between a **forward** translation strategy and a **backward** translation strategy.
-The differences are shown in the examples below.
 
 .. raw:: html
 
-    <img src="https://user-images.githubusercontent.com/92115516/202925984-43aeeba4-16c3-438b-9c7c-e0664175f0d0.png"></img>
+    <img src="https://github.com/marwern/PLCreX/assets/92115516/9fa5e8eb-edd4-4a23-bcd2-c9b03eddd3b0"></img>
 
 .. note::
     It should be noted that in the backward translation strategy the semantics can be changed,
@@ -238,13 +237,6 @@ The following example was implemented manually using `Beremiz <https://github.co
 
     <img src="https://user-images.githubusercontent.com/92115516/202922634-66930915-c5d1-495a-b9a5-8bac36fe6263.PNG"></img>
 
-
-The concept is illustrated in the figure below.
-
-.. raw:: html
-
-    <img src="https://user-images.githubusercontent.com/92115516/202925979-b8132c95-1ac9-494d-8598-5079a2ff2798.png"></img>
-
 Command and Result (``--formal``, ``--no-backward``, ``--no-iec-check``, ``--no-st-parser``, ``--impact-analysis``):
 
 .. code-block:: console
@@ -257,7 +249,7 @@ The following ``dot`` file was created: ``./exports/tree/dot/TC006_FBD.xml_True_
 
 .. raw:: html
 
-    <img src="https://user-images.githubusercontent.com/92115516/202922310-3bba478a-bcfb-47cb-950b-e69c8f2f3785.svg"></img>
+    <img src="https://github.com/marwern/PLCreX/assets/92115516/8e7d3b0c-de0a-4a2b-a2ec-eef988d4175b"></img>
 
 
 .. note::

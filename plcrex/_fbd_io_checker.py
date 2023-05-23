@@ -170,12 +170,12 @@ def data_flow_analysis_st(src: Path):
         Tree(Token('RULE', 'name'), [Token('NAME', 'unknown')]), Tree(Token('RULE', 'dependencies'), [])])])
 
     # ST parser config
-    with open(r'.\data\STgrammar.lark', 'rt') as file:
+    with open(r'.\data\lark\STgrammar.lark', 'rt') as file:
         st_grammar = file.read()
     st_parser = Lark(st_grammar, parser='earley', maybe_placeholders=False, propagate_positions = True)
 
     # DOT parser config
-    with open(r'.\data\DOTgrammar.lark', 'rt') as file:
+    with open(r'.\data\lark\DOTgrammar.lark', 'rt') as file:
         dot_grammar = file.read()
     dot_parser = Lark(dot_grammar, parser='earley', maybe_placeholders=False)
 

@@ -1,7 +1,7 @@
 #
 # This file is part of PLCreX (https://github.com/marwern/PLCreX).
 #
-# Copyright (c) 2022 Marcel Werner.
+# Copyright (c) 2022-2023 Marcel Werner.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -385,6 +385,9 @@ def translation(src: Path,
                             stats.append(tmp_stat)
 
     def write_add_variables():
+
+        #st_file.write('\tVAR\n')# MW: manually added. TODO: investigate!
+
         print('\n*** add new local variables ***')
 
         if not bwd:

@@ -16,20 +16,9 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 import sys
-import os
-
-# Get the absolute path of the directory containing D.pyd
-module_path = os.path.abspath(os.path.dirname(__file__))
-
-# Add the directory to sys.path
-if module_path not in sys.path:
-    sys.path.append(module_path)
+sys.path.insert(0, r".\Lib\test_case_gen\v1")
 
 import _test_case_gen
 
 def create(formula: str):
     _test_case_gen.create(formula)
-    #A | (B & (C | (D==E)))
-    #(A & B) | (C == (D & E))
-    #"(A & B) | (C & (D==E) & F)"
-#create("A&B")
