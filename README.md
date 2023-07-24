@@ -167,7 +167,7 @@ Run ``python -m plcrex [OPTIONS] COMMAND``
           --help              Show this message and exit.
 
 
-# ℹ️ Issues and Contributing Guidelines (wip)
+# ℹ️ Issues and Contributing Guidelines
 Contributors are welcome. Please use GitHub Issues and use appropriate labels to prioritize tasks and track implementation progress. 
 
 Pull requests should link to a specific issue in the comment. We think this keeps the repository well-structured. Thanks a lot!

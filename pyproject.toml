@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plcrex"
+version = "0.0.1"
+requires-python = ">=3.11"
+authors = [
+  { name="Marcel Werner", email="marcel.christian.werner@gmail.com" },
+]
+description = "PLCreX"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+license = {file = "LICENSE"}
+keywords = ["PLC", "SPS", "IEC61131", "FBD", "testing", "development"]
+dependencies = [
+  "coverage==6.5.0",
+  "coverage-badge==1.1.0",
+  "colorama==0.4.5",
+  "configparser==5.3.0",
+  "dicttoxml2==2.1.0",
+  "lark==1.1.4",
+  "pydot==1.4.2",
+  "pytest==7.2.0",
+  "typer==0.3.2",
+  "xmlschema==2.1.1",
+  "z3-solver==4.12.1.0",
+]
+
+[tool.setuptools]
+#packages = ["plcrex"]
+include-package-data = true
+
+[tool.setuptools.packages]
+find = {} # Scan the project directory with the default parameters
+
+[project.urls]
+"Homepage" = "https://github.com/marwern/PLCreX"
+"Bug Tracker" = "https://github.com/marwern/PLCreX/issues"

@@ -24,32 +24,32 @@ runner = CliRunner()
 
 
 def test_help():
-    result = runner.invoke(cli.app, ["st2tree", "--help"])
+    result = runner.invoke(cli.app, ["st2ast", "--help"])
     assert result.exit_code == 0
 
 
 def test_dot_txt():
-    result = runner.invoke(cli.app, ["st2tree", r".\tests\st_examples\TC081.st"])
+    result = runner.invoke(cli.app, ["st2ast", r".\tests\st_examples\TC081.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_dot():
-    result = runner.invoke(cli.app, ["st2tree", "--no-txt", r".\tests\st_examples\TC081.st"])
+    result = runner.invoke(cli.app, ["st2ast", "--no-txt", r".\tests\st_examples\TC081.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_txt():
-    result = runner.invoke(cli.app, ["st2tree", "--no-dot", r".\tests\st_examples\TC081.st"])
+    result = runner.invoke(cli.app, ["st2ast", "--no-dot", r".\tests\st_examples\TC081.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 def test_beckhoff_txt_dot():
-    result = runner.invoke(cli.app, ["st2tree", "--beckhoff", r".\tests\st_examples\TC079.st"])
+    result = runner.invoke(cli.app, ["st2ast", "--beckhoff", r".\tests\st_examples\TC079.st"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["st2tree", r".\tests\other_examples\TC001_wrong_file.txt"])
+    result = runner.invoke(cli.app, ["st2ast", r".\tests\other_examples\TC001_wrong_file.txt"])
     assert result.exit_code == 1

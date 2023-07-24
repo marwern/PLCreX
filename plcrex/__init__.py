@@ -1,7 +1,7 @@
 #
 # This file is part of PLCreX (https://github.com/marwern/PLCreX).
 #
-# Copyright (c) 2022 Marcel Werner.
+# Copyright (c) 2022-2023 Marcel Werner.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,3 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
+
+__app_name__ = "PLCreX"
+__version__ = "0.0.1"
+__owner__ = "Marcel Werner"
+__copyright__ = "2022-2023, " + __owner__

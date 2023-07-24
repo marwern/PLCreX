@@ -15,68 +15,54 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-
-from typing import Optional
-from plcrex import _st2tree, _iec_checker, _xml_checker, _fbd2st, _spec2test
-from docs.source.conf import __app_name__, __version__
-from pathlib import Path
 import typer
+from typing import Optional
+from plcrex.tools.fbd2ia import _fbd2ia
+from plcrex.tools.fbd2st import _fbd2st
+from plcrex.tools.ds2ts import _ds2ts
+from plcrex.tools.st2ast import _st2ast
+from plcrex.tools.xmlval import _xmlval
+from pathlib import Path
+from plcrex import __app_name__, __version__
 
 app = typer.Typer()
 
 @app.command("test-case-gen")
-def test_case_gen(formula: str):
-    _spec2test.create(formula)
+def ds2ts(formula: str):
+    _ds2ts.create(formula)
     typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))				  
-
-
-@app.command("iec-checker")
-def iec_checker(
-        src: Path,
-        verbose: bool = typer.Option(False, help="print full log"),
-        help_: bool = typer.Option(False, "--help_iec_checker", help="call iec-checker help")):
-    if src.is_file():
-        if src.suffix == '.st' or src.suffix == '.xml':
-            # call iec-checker with ONE supported OPTIONS (only a subset is covered)
-            if help_:
-                _iec_checker.execution(src, '--help')
-            elif not verbose:
-                _iec_checker.execution(src, '--quiet')
-            elif verbose:
-                _iec_checker.execution(src, '--verbose')
-            typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
-        else:
-            raise RuntimeError("no ST/xml file found")
-    raise typer.Exit()
-
 
 @app.command("fbd2st")
 def fbd2st(
         src: Path,
-        iec_check: bool = typer.Option(False, help="run IEC Checker"),  # "-static-tests",
         formal: bool = typer.Option(False, help="formal parameter list"),
-        backward: bool = typer.Option(False, help="use backward translation"),  # "-bw",
-        st_parser: bool = typer.Option(False, help="run ST parser with exports"),
+        backward: bool = typer.Option(False, help="use backward translation"),
+        st2ast: bool = typer.Option(False, help="run ST parser with exports"),
         impact_analysis: bool = typer.Option(False, help="check I/O impact analysis")
 ):
     if src.is_file():
         if src.suffix == '.xml':
-            _fbd2st.translation(src, iec_check, backward, formal, st_parser, impact_analysis)
+            _fbd2st.translation(src, backward, formal, st2ast, impact_analysis)
+            if st2ast:
+                _st2ast.translation(Path(fr'.\exports\st\{Path(src).name}_{backward}_{formal}_{st2ast}_{impact_analysis}.st'),
+                            True, True, False)
+            if impact_analysis:
+                _fbd2ia.data_flow_analysis_st(Path(fr'.\exports\st\{Path(src).name}_{backward}_{formal}_{st2ast}_{impact_analysis}.st'))
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")
     raise typer.Exit()
 
 
-@app.command("st2tree")
-def st2tree(
+@app.command("st2ast")
+def st2ast(
         src: Path,
         txt: bool = typer.Option(True, help="tree export as *.txt"),
         dot: bool = typer.Option(True, help="tree export as *.dot"),
         beckhoff: bool = typer.Option(False, help="use Beckhoff TwinCAT ST grammar")):
     if src.is_file():
         if src.suffix == '.st':
-            _st2tree.translation(src, txt, dot, beckhoff)
+            _st2ast.translation(src, txt, dot, beckhoff)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no ST file found")
@@ -84,18 +70,18 @@ def st2tree(
 
 
 @app.command("xml-checker")
-def xml_checker(
+def xmlval(
         src: Path,
         v201: bool = typer.Option(False, help="use tc6_xml_v201.xsd")):
     if src.is_file():
         if src.suffix == '.xml':
             if v201:
                 # tc6_xml_v201.xsd (https: // plcopen.org / downloads / plcopen-xml-version-201-xsd-file-0)
-                _xml_checker.validate(src, "tc6_xml_v201.xsd")
+                _xmlval.validate(src, "tc6_xml_v201.xsd")
                 typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
             else:
                 # tc6_xml_v10.xsd (Beremiz v1.2)
-                _xml_checker.validate(src, "tc6_xml_v10.xsd")
+                _xmlval.validate(src, "tc6_xml_v10.xsd")
                 typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError()
@@ -104,7 +90,7 @@ def xml_checker(
 
 def version_callback(value: bool):
     if value:
-        typer.echo(f"{__app_name__} v{__version__}")
+        typer.echo(f"{__app_name__} R{__version__}")
         raise typer.Exit()
 
 
