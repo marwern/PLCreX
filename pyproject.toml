@@ -4,19 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plcrex"
-version = "0.0.1"
+version = "1.0.0"
 requires-python = ">=3.11"
 authors = [
-  { name="Marcel Werner", email="marcel.christian.werner@gmail.com" },
+  { name="Marcel Werner", email="plcrex.info@gmail.com" },
 ]
 description = "PLCreX"
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3.11",
-    "Operating System :: OS Independent",
+    "Operating System :: Microsoft :: Windows",
 ]
 license = {file = "LICENSE"}
-keywords = ["PLC", "SPS", "IEC61131", "FBD", "testing", "development"]
+keywords = ["PLC", "SPS", "IEC-61131", "FBD", "testing", "development"]
 dependencies = [
   "coverage==6.5.0",
   "coverage-badge==1.1.0",

@@ -18,9 +18,29 @@
 
 from pathlib import Path
 import xmlschema
+import os
+import site
 
 def validate(xml_file: Path, validation_file: str):
-    xsd_file = fr".\plcrex\data\tc6\{validation_file}"
+
+    # Get the list of all global site-packages directories
+    site_packages_dirs = site.getsitepackages()
+
+    # Define the relative path to your file from the site-packages directory
+    rel_path = fr"plcrex\data\tc6\{validation_file}"
+
+    # Iterate over all site-packages directories
+    for dir in site_packages_dirs:
+        # Create an absolute path to the file
+        abs_file_path = os.path.join(dir, rel_path)
+
+        print(abs_file_path)
+
+        # Check if the file exists at this path
+        if os.path.isfile(abs_file_path):
+            # If the file exists
+            xsd_file = abs_file_path
+            break
 
     # create validation scheme
     scheme = xmlschema.XMLSchema(xsd_file)

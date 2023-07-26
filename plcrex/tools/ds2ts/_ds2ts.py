@@ -16,7 +16,6 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.ds2ts.lib import ds2ts_R1_0_0
-
+from plcrex.tools.ds2ts.lib import ds2ts_R1_1_0
 def create(formula: str):
-    ds2ts_R1_0_0.create(formula)
+    ds2ts_R1_1_0.create(formula)

@@ -18,19 +18,59 @@
 
 from lark import Lark, tree
 from pathlib import Path
-
+import os
+import site
 
 def translation(
         src: Path,
+        dir_path: Path,
         txt: bool = False,
         dot: bool = False,
         beckhoff: bool = False):
+
+    # Get the list of all global site-packages directories
+    site_packages_dirs = site.getsitepackages()
+
     if beckhoff:
-        with open(r'.\plcrex\data\grammars\STgrammar_Beckhoff.lark', 'rt') as file:
-            grammar = file.read()
+        # Define the relative path to your file from the site-packages directory
+        rel_path = "plcrex\data\grammars\STgrammar_Beckhoff.lark"
+
+        # Iterate over all site-packages directories
+        for dir in site_packages_dirs:
+            # Create an absolute path to the file
+            abs_file_path = os.path.join(dir, rel_path)
+
+            print(abs_file_path)
+
+            # Check if the file exists at this path
+            if os.path.isfile(abs_file_path):
+                # If the file exists, open it
+                with open(abs_file_path, 'rt') as file:
+                    grammar = file.read()
+                    file.close()
+                break
+        #with open(r'.\plcrex\data\grammars\STgrammar_Beckhoff.lark', 'rt') as file:
+        #    grammar = file.read()
     else:
-        with open(r'.\plcrex\data\grammars\STgrammar.lark', 'rt') as file:
-            grammar = file.read()
+        # Define the relative path to your file from the site-packages directory
+        rel_path = "plcrex\data\grammars\STgrammar.lark"
+
+        # Iterate over all site-packages directories
+        for dir in site_packages_dirs:
+            # Create an absolute path to the file
+            abs_file_path = os.path.join(dir, rel_path)
+
+            print(abs_file_path)
+
+            # Check if the file exists at this path
+            if os.path.isfile(abs_file_path):
+                # If the file exists, open it
+                with open(abs_file_path, 'rt') as file:
+                    grammar = file.read()
+                    file.close()
+                break
+        #with open(r'.\plcrex\data\grammars\STgrammar.lark', 'rt') as file:
+            #grammar = file.read()
     parser = Lark(grammar, maybe_placeholders=False, keep_all_tokens=False)
 
     with open(src, 'rt') as file:
@@ -38,10 +78,10 @@ def translation(
 
         # write (pretty) tree as .txt
         if txt:
-            txt_export = open(fr'.\exports\tree\txt\{Path(src).name}.txt', "w")
+            txt_export = open(fr'{dir_path}\{Path(src).name}.txt', "w")
             txt_export.write(str(parser.parse(source).pretty()))
 
         # write tree as .dot file
         if dot:
-            tree.pydot__tree_to_dot(parser.parse(source), fr'.\exports\tree\dot\{Path(src).name}.dot')
+            tree.pydot__tree_to_dot(parser.parse(source), fr'{dir_path}\{Path(src).name}.dot')
         return

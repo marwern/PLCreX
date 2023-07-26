@@ -1,6 +1,7 @@
 prune docs
 prune tests
 prune venv
+prune PLCreX_outputs
 include plcrex/data/grammars/*.lark
 include plcrex/data/tc6/*.xsd
 include plcrex/tools/ds2ts/lib/*.pyd

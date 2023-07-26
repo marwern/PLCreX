@@ -1,7 +1,7 @@
 #
 # This file is part of PLCreX (https://github.com/marwern/PLCreX).
 #
-# Copyright (c) 2022 Marcel Werner.
+# Copyright (c) 2022-2023 Marcel Werner.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,26 +24,26 @@ runner = CliRunner()
 
 
 def test_help():
-    result = runner.invoke(cli.app, ["xml-checker", "--help"])
+    result = runner.invoke(cli.app, ["xml-val", "--help"])
     assert result.exit_code == 0
 
 
 def test_v201_passed():
-    result = runner.invoke(cli.app, ["xml-checker", "--v201", r".\tests\plcopen_examples\TC001.xml"])
+    result = runner.invoke(cli.app, ["xml-val", "--v201", r".\tests\plcopen_examples\TC001.xml"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_v201_failed():
-    result = runner.invoke(cli.app, ["xml-checker", "--v201", r".\tests\plcopen_examples\TC001_failed.xml"])
+    result = runner.invoke(cli.app, ["xml-val", "--v201", r".\tests\plcopen_examples\TC001_failed.xml"])
     assert result.exit_code == 1
 
 
 def test_v10_failed():
-    result = runner.invoke(cli.app, ["xml-checker", r".\tests\plcopen_examples\TC001.xml"])
+    result = runner.invoke(cli.app, ["xml-val", r".\tests\plcopen_examples\TC001.xml"])
     assert result.exit_code == 1
 
 
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["xml-checker", r".\tests\other_examples\TC001_wrong_file.txt"])
+    result = runner.invoke(cli.app, ["xml-val", r".\tests\other_examples\TC001_wrong_file.txt"])
     assert result.exit_code == 1
