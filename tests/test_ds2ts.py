@@ -24,28 +24,11 @@ runner = CliRunner()
 
 
 def test_help():
-    result = runner.invoke(cli.app, ["xml-val", "--help"])
+    result = runner.invoke(cli.app, ["ds2ts", "--help"])
     assert result.exit_code == 0
 
 
-def test_v201_passed():
-    result = runner.invoke(cli.app, ["xml-val", "--v201", r".\tests\plcopen_examples\TC001.xml"])
+def test_ds2ts_001():
+    result = runner.invoke(cli.app, ["ds2ts", "a&b"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
-
-
-def test_v201_failed():
-    result = runner.invoke(cli.app, ["xml-val", "--v201", r".\tests\plcopen_examples\TC001_failed.xml"])
-    assert result.exit_code == 1
-
-#TODO
-#def test_v10_passed():
-
-def test_v10_failed():
-    result = runner.invoke(cli.app, ["xml-val", r".\tests\plcopen_examples\TC001.xml"])
-    assert result.exit_code == 1
-
-
-def test_wrong_file():
-    result = runner.invoke(cli.app, ["xml-val", r".\tests\other_examples\TC001_wrong_file.txt"])
-    assert result.exit_code == 1

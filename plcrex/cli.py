@@ -23,10 +23,36 @@ from plcrex.tools.fbd2st import _fbd2st
 from plcrex.tools.ds2ts import _ds2ts
 from plcrex.tools.st2ast import _st2ast
 from plcrex.tools.xmlval import _xmlval
+from plcrex.tools.iec_checker import _iec_checker
 from pathlib import Path
 from plcrex import __app_name__, __version__
 
 app = typer.Typer()
+
+
+
+@app.command("iec-checker")
+def iec_checker(
+        src: Path,
+        exe: Path,
+        verbose: bool = typer.Option(False, help="print full log"),
+        help_: bool = typer.Option(False, "--help_iec_checker", help="call iec-checker help")):
+    if src.is_file():
+        if exe.is_file():
+            if src.suffix == '.st' or src.suffix == '.xml':
+                # call iec-checker with ONE supported OPTIONS (only a subset is covered)
+                if help_:
+                    _iec_checker.execution(src, exe, '--help')
+                elif not verbose:
+                    _iec_checker.execution(src, exe, '--quiet')
+                elif verbose:
+                    _iec_checker.execution(src, exe, '--verbose')
+                typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
+            else:
+                raise RuntimeError("no ST/xml file found")
+        else:
+            raise RuntimeError(rf"no .exe found at {exe}")
+    raise typer.Exit()
 
 @app.command("ds2ts")
 def ds2ts(formula: str):
