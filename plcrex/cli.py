@@ -16,7 +16,10 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 import typer
+#from typing_extensions import Annotated
+
 import os
+import pyfiglet
 from typing import Optional
 from plcrex.tools.fbd2ia import _fbd2ia
 from plcrex.tools.fbd2st import _fbd2st
@@ -30,6 +33,10 @@ from plcrex import __app_name__, __version__
 app = typer.Typer()
 
 
+# decorator to print name header before every output
+def header():
+        print(pyfiglet.figlet_format("PLCreX", font="big"))
+        print("A modular IEC 61131-3 PLC analysis CLI application")
 
 @app.command("iec-checker")
 def iec_checker(
@@ -37,6 +44,7 @@ def iec_checker(
         exe: Path,
         verbose: bool = typer.Option(False, help="print full log"),
         help_: bool = typer.Option(False, "--help_iec_checker", help="call iec-checker help")):
+    #header()
     if src.is_file():
         if exe.is_file():
             if src.suffix == '.st' or src.suffix == '.xml':
@@ -56,6 +64,7 @@ def iec_checker(
 
 @app.command("ds2ts")
 def ds2ts(formula: str):
+    #header()
     _ds2ts.create(formula)
     typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))				  
 
@@ -68,6 +77,7 @@ def fbd2st(
         st2ast: bool = typer.Option(False, help="run ST parser with exports"),
         impact_analysis: bool = typer.Option(False, help="check I/O impact analysis")
 ):
+    #header()
     if src.is_file():
         if src.suffix == '.xml':
             dir_path  = Path(fr'{export}\PLCreX_outputs')
@@ -93,6 +103,7 @@ def st2ast(
         txt: bool = typer.Option(True, help="tree export as *.txt"),
         dot: bool = typer.Option(True, help="tree export as *.dot"),
         beckhoff: bool = typer.Option(False, help="use Beckhoff TwinCAT ST grammar")):
+    #header()
     if src.is_file():
         if src.suffix == '.st':
             dir_path  = Path(fr'{export}\PLCreX_outputs')
@@ -110,6 +121,7 @@ def st2ast(
 def xmlval(
         src: Path,
         v201: bool = typer.Option(False, help="use tc6_xml_v201.xsd")):
+    #header()
     if src.is_file():
         if src.suffix == '.xml':
             if v201:
@@ -126,6 +138,7 @@ def xmlval(
 
 
 def version_callback(value: bool):
+    header()
     if value:
         typer.echo(f"{__app_name__} R{__version__}")
         raise typer.Exit()
@@ -133,4 +146,5 @@ def version_callback(value: bool):
 
 @app.callback()
 def main(version: Optional[bool] = typer.Option(None, "--version", "-v", callback=version_callback, is_eager=True)):
+    #header()
     return

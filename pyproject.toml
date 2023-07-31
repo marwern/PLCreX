@@ -9,7 +9,7 @@ requires-python = ">=3.11"
 authors = [
   { name="Marcel Werner", email="plcrex.info@gmail.com" },
 ]
-description = "PLCreX"
+description = "PLCreX - A modular IEC 61131-3 PLC analysis CLI application"
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3.11",
@@ -18,14 +18,17 @@ classifiers = [
 license = {file = "LICENSE"}
 keywords = ["PLC", "SPS", "IEC-61131", "FBD", "testing", "development"]
 dependencies = [
+  "click==8.1.6",
   "coverage==6.5.0",
   "coverage-badge==1.1.0",
   "colorama==0.4.5",
   "dicttoxml2==2.1.0",
-  "lark==1.1.4",
+  "lark==1.1.7",
   "pydot==1.4.2",
+  "pyfiglet==0.7.6",
   "pytest==7.2.0",
-  "typer==0.3.2",
+  "rich==13.5.1",
+  "typer==0.9.0",
   "xmlschema==2.1.1",
   "z3-solver==4.12.2.0",
 ]

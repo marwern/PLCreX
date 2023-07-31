@@ -16,8 +16,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.fbd2st.lib import fbd2st_R1_1_0
+from plcrex.tools.fbd2st.lib import fbd2st_R1_2_0
 from pathlib import Path
 
 def translation(src: Path, dir_path: Path, backward: bool,formal: bool,st2ast: bool,impact_analysis: bool):
-	fbd2st_R1_1_0.translation(src, dir_path, backward, formal, st2ast, impact_analysis)
+	fbd2st_R1_2_0.translation(src, dir_path, backward, formal, st2ast, impact_analysis)

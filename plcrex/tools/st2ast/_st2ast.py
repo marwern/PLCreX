@@ -28,49 +28,38 @@ def translation(
         dot: bool = False,
         beckhoff: bool = False):
 
+    # initialize grammar
+    grammar = ""
+
     # Get the list of all global site-packages directories
     site_packages_dirs = site.getsitepackages()
 
+    # Define the relative path to your file from the site-packages directory
     if beckhoff:
-        # Define the relative path to your file from the site-packages directory
         rel_path = "plcrex\data\grammars\STgrammar_Beckhoff.lark"
-
-        # Iterate over all site-packages directories
-        for dir in site_packages_dirs:
-            # Create an absolute path to the file
-            abs_file_path = os.path.join(dir, rel_path)
-
-            print(abs_file_path)
-
-            # Check if the file exists at this path
-            if os.path.isfile(abs_file_path):
-                # If the file exists, open it
-                with open(abs_file_path, 'rt') as file:
-                    grammar = file.read()
-                    file.close()
-                break
-        #with open(r'.\plcrex\data\grammars\STgrammar_Beckhoff.lark', 'rt') as file:
-        #    grammar = file.read()
     else:
-        # Define the relative path to your file from the site-packages directory
         rel_path = "plcrex\data\grammars\STgrammar.lark"
 
-        # Iterate over all site-packages directories
-        for dir in site_packages_dirs:
-            # Create an absolute path to the file
-            abs_file_path = os.path.join(dir, rel_path)
+    # Iterate over all site-packages directories
+    for dir in site_packages_dirs:
+        # Create an absolute path to the file
+        abs_file_path = os.path.join(dir, rel_path)
 
-            print(abs_file_path)
+        # Check if the file exists at this path
+        if os.path.isfile(abs_file_path):
+            # If the file exists, open it
+            with open(abs_file_path, 'rt') as file:
+                grammar = file.read()
+                file.close()
+            break
 
-            # Check if the file exists at this path
-            if os.path.isfile(abs_file_path):
-                # If the file exists, open it
-                with open(abs_file_path, 'rt') as file:
-                    grammar = file.read()
-                    file.close()
-                break
-        #with open(r'.\plcrex\data\grammars\STgrammar.lark', 'rt') as file:
-            #grammar = file.read()
+    # if plcrex is not installed via pip, use local dir
+    if grammar == "":
+        with open(rel_path, 'rt') as file:
+            print("Developer Lark grammar: ", rel_path)
+            grammar = file.read()
+            file.close()
+
     parser = Lark(grammar, maybe_placeholders=False, keep_all_tokens=False)
 
     with open(src, 'rt') as file:

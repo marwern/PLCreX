@@ -1,7 +1,7 @@
 #
 # This file is part of PLCreX (https://github.com/marwern/PLCreX).
 #
-# Copyright (c) 2022 Marcel Werner.
+# Copyright (c) 2022-2023 Marcel Werner.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,6 +23,9 @@ import site
 
 def validate(xml_file: Path, validation_file: str):
 
+    # initialize xsd_file
+    xsd_file = ""
+
     # Get the list of all global site-packages directories
     site_packages_dirs = site.getsitepackages()
 
@@ -34,13 +37,18 @@ def validate(xml_file: Path, validation_file: str):
         # Create an absolute path to the file
         abs_file_path = os.path.join(dir, rel_path)
 
-        print(abs_file_path)
-
         # Check if the file exists at this path
         if os.path.isfile(abs_file_path):
             # If the file exists
             xsd_file = abs_file_path
             break
+
+    # if plcrex is not installed via pip, use local dir
+    if xsd_file =="":
+        with open(rel_path, 'rt') as file:
+            print("Developer path: ", rel_path)
+            xsd_file = file.read()
+            file.close()
 
     # create validation scheme
     scheme = xmlschema.XMLSchema(xsd_file)

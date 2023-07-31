@@ -18,12 +18,6 @@
 
 from plcrex import cli
 from plcrex import __app_name__
-import tomllib
-
-#with open("pyproject.toml", "rb") as f:
-#    _META = tomllib.load(f)
-
-#NAME = _META["project"]["name"]
 
 def main():
     cli.app(prog_name=__app_name__)

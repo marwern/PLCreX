@@ -14,7 +14,7 @@ PLCreX is a modular command-line interface (CLI) application tailored for IEC 61
 
 <!-- [📄 PLCreX’s documentation](https://plcrex.readthedocs.io/en/latest/) [![Documentation Status](https://readthedocs.org/projects/plcrex/badge/?version=latest)](https://plcrex.readthedocs.io/en/latest/?badge=latest) -->
 
-* 📄 PLCreX’s documentation (work-in-progress)
+* [📄 PLCreX Wiki](#https://github.com/marwern/PLCreX/wiki)
 * [🛠 Getting Started](#-getting-started)
 * [💻 Commands](#-commands)
 * [📜 Publications](#-publications)
@@ -26,14 +26,14 @@ PLCreX is a modular command-line interface (CLI) application tailored for IEC 61
 ### Prerequisites
 * [Python](https://www.python.org/downloads/): 3.11
 * Operating System: Windows
-* [optional] Download iec-checker (Static analysis of IEC 61131-3 programs) 🔗 [.releases](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)
+* [optional] Download [iec-checker](https://github.com/jubnzv/iec-checker/releases/tag/v0.4) (static analysis of IEC 61131-3 programs)
 
 ###  Installation via PyPI
 Run ``pip install plcrex`` to get PLCreX using PyPI
 
-### Installation via Github
+### Installation via GitHub
 1. Download or clone PLCreX repository
-2. Run ``install.bat`` to automatically create a virtual environment (venv) and installation of dependencies
+2. Run ``install-windows.bat`` to automatically create a virtual environment (venv) and installation of dependencies
 3. [optional] Run ``coverage run -m pytest ./tests/ --verbose`` for local tests
 4. [optional] Run ``coverage report -m`` to check test results
 
@@ -66,11 +66,12 @@ Run ``pip install plcrex`` to get PLCreX using PyPI
          ------------------------------------------------------------------------
          TOTAL                                        322      1    99%
 
+| ⚠ If no IEC Checker (.exe) is available, ``test_iec_checker.py`` will fail. |
+|-----------------------------------------------------------------------------|
 
+## 💻 Commands
 
-# 💻 Commands
-
-Usage: ``python -m plcrex PLCreX [OPTIONS] COMMAND [ARGS]``  
+Usage: ``python -m plcrex [OPTIONS] COMMAND [ARGS]``  
 
 <table>
 <tr>
@@ -155,18 +156,8 @@ Usage: ``python -m plcrex PLCreX [OPTIONS] COMMAND [ARGS]``
 </tr>
 </table>
 
-# 📜 Publications
 
-* M.C. Werner and K. Schneider, "Formal Methods-based Optimization of Dataflow Models with Translation to Synchronous Models", Forum on Specification and Design Languages (FDL), 2023
-  
-* M.C. Werner and K. Schneider, From IEC 61131-3 Function Block Diagrams to Sequentially Constructive Statecharts, Forum on Specification and Design Languages (FDL), 2022
-
-* M.C. Werner and K. Schneider, Translation of Continuous Function Charts to Imperative Synchronous Quartz Programs, Formal Methods and Models for Codesign (MEMOCODE), 2021
-
-* M.C. Werner and K. Schneider, Reengineering Programmable Logic Controllers Using Synchronous Programming Languages, Forum on Specification and Design Languages (FDL), 2020
-
-
-# ℹ️ Licenses
+## ℹ️ Licenses
 <table>
    <tr>
       <td>
@@ -203,21 +194,10 @@ Usage: ``python -m plcrex PLCreX [OPTIONS] COMMAND [ARGS]``
    </tr>
    <tr>
       <td>
-         ds2ts_R1_1_0.cp311-win_amd64.pyd
+         ds2ts_R1_2_0.cp311-win_amd64.pyd
       </td>
       <td>
-         1.1.0
-      </td>
-      <td>
-         -
-      </td>
-   </tr>
-   <tr>
-      <td>
-         fbd2ia_R1_1_0.cp311-win_amd64.pyd
-      </td>
-      <td>
-         1.1.0
+         1.2.0
       </td>
       <td>
          -
@@ -225,10 +205,21 @@ Usage: ``python -m plcrex PLCreX [OPTIONS] COMMAND [ARGS]``
    </tr>
    <tr>
       <td>
-         fbd2st_R1_1_0.cp311-win_amd64.pyd
+         fbd2ia_R1_2_0.cp311-win_amd64.pyd
       </td>
       <td>
-         1.1.0
+         1.2.0
+      </td>
+      <td>
+         -
+      </td>
+   </tr>
+   <tr>
+      <td>
+         fbd2st_R1_2_0.cp311-win_amd64.pyd
+      </td>
+      <td>
+         1.2.0
       </td>
       <td>
          -

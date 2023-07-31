@@ -16,7 +16,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-__app_name__ = "PLCreX"
-__version__ = "0.0.1"
+__app_name__ = "plcrex"
+__version__ = "1.1.0-rc1"
 __owner__ = "Marcel Werner"
 __copyright__ = "2022-2023, " + __owner__
