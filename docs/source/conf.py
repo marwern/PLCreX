@@ -21,18 +21,22 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath("../"))
+import tomllib
 
-from plcrex import __app_name__, __version__, __owner__, __copyright__
+with open("../pyproject.toml", "rb") as f:
+    _META = tomllib.load(f)
+
+NAME = _META["name"]
+VERSION = _META["version"]
+AUTHORS = _META["authors"]
+
+#sys.path.insert(0, os.path.abspath("../"))
 
 # -- Project information
-
-project = __app_name__
-copyright = __copyright__
-author = __owner__
-
-release = __version__
-version = __version__
+__app_name__ = NAME
+__version__ = VERSION
+__owner__ = AUTHORS
+__copyright__ = "2023, " + __owner__
 
 # -- General configuration
 
