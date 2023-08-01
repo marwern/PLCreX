@@ -23,7 +23,7 @@ import os
 import sys
 import tomllib
 
-with open("../pyproject.toml", "rb") as f:
+with open("../../pyproject.toml", "rb") as f:
     _META = tomllib.load(f)
 
 NAME = _META["project"]["name"]
