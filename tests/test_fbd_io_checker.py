@@ -24,6 +24,6 @@ runner = CliRunner()
 
 
 def test_1bwd_0formal_0iec_0st2ast44_1impact_analysis():
-    result = runner.invoke(cli.app, ["fbd2st", "--bwd", "--no-formal", "--impact-analysis", r".\tests\plcopen_examples\TC006_FBD.xml", "."])
+    result = runner.invoke(cli.app, ["impact-analysis", r".\tests\plcopen_examples\TC006_FBD.xml", "."])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout

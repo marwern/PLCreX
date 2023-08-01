@@ -20,6 +20,8 @@ import typer
 
 import os
 import pyfiglet
+from termcolor import colored
+import colorama
 from typing import Optional
 from plcrex.tools.fbd2ia import _fbd2ia
 from plcrex.tools.fbd2st import _fbd2st
@@ -29,14 +31,18 @@ from plcrex.tools.xmlval import _xmlval
 from plcrex.tools.iec_checker import _iec_checker
 from pathlib import Path
 from plcrex import __app_name__, __version__
+from rich.console import Console
 
-app = typer.Typer()
-
+console = Console()
+app = typer.Typer(add_completion=False)
+colorama.init()
 
 # decorator to print name header before every output
 def header():
-        print(pyfiglet.figlet_format("PLCreX", font="big"))
-        print("A modular IEC 61131-3 PLC analysis CLI application")
+    print("\n")
+    #console.print(pyfiglet.figlet_format(" PLCreX ", font="slant"), style="magenta on bright_yellow")
+    print(colored(pyfiglet.figlet_format("PLCreX", font="slant"), 'green'))
+
 
 @app.command("iec-checker")
 def iec_checker(
@@ -62,20 +68,19 @@ def iec_checker(
             raise RuntimeError(rf"no .exe found at {exe}")
     raise typer.Exit()
 
-@app.command("ds2ts")
+@app.command("test-case-gen")
 def ds2ts(formula: str):
     #header()
     _ds2ts.create(formula)
     typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))				  
 
-@app.command("fbd2st")
+@app.command("fbd-to-st")
 def fbd2st(
         src: Path,
         export: Path,
         bwd: bool = typer.Option(False, help="use backward translation"),
         formal: bool = typer.Option(False, help="formal parameter list"),
-        st2ast: bool = typer.Option(False, help="run ST parser with exports"),
-        impact_analysis: bool = typer.Option(False, help="check I/O impact analysis")
+        st2ast: bool = typer.Option(False, help="run ST parser with exports")
 ):
     #header()
     if src.is_file():
@@ -84,19 +89,32 @@ def fbd2st(
             # Ensure the directory exists
             os.makedirs(dir_path, exist_ok=True)
 
-            _fbd2st.translation(src, dir_path, bwd, formal, st2ast, impact_analysis)
+            _fbd2st.translation(src, dir_path, bwd, formal, st2ast, False)
             if st2ast:
-                _st2ast.translation(Path(fr'{dir_path}\{Path(src).name}_{bwd}_{formal}_{st2ast}_{impact_analysis}.st'), dir_path,
+                _st2ast.translation(Path(fr'{dir_path}\{Path(src).name}_{bwd}_{formal}_{st2ast}_{False}.st'), dir_path,
                             True, True, False)
-            if impact_analysis:
-                _fbd2ia.data_flow_analysis_st(Path(fr'{dir_path}\{Path(src).name}_{bwd}_{formal}_{st2ast}_{impact_analysis}.st'), dir_path)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")
     raise typer.Exit()
 
+@app.command("impact-analysis")
+def impact_anal(
+        src: Path,
+        export: Path):
+    if src.is_file():
+        if src.suffix == '.xml':
+            dir_path  = Path(fr'{export}\PLCreX_outputs')
+            # Ensure the directory exists
+            os.makedirs(dir_path, exist_ok=True)
+            _fbd2st.translation(src, dir_path, True, False, False, True)
+            _fbd2ia.data_flow_analysis_st(Path(fr'{dir_path}\{Path(src).name}_{True}_{False}_{False}_{True}.st'), dir_path)
+            typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
+        else:
+            raise RuntimeError("no xml file found")
+    raise typer.Exit()
 
-@app.command("st2ast")
+@app.command("st-parser")
 def st2ast(
         src: Path,
         export: Path,
@@ -117,7 +135,7 @@ def st2ast(
     raise typer.Exit()
 
 
-@app.command("xml-val")
+@app.command("xml-validator")
 def xmlval(
         src: Path,
         v201: bool = typer.Option(False, help="use tc6_xml_v201.xsd")):

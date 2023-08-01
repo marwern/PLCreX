@@ -24,11 +24,11 @@ runner = CliRunner()
 
 
 def test_help():
-    result = runner.invoke(cli.app, ["ds2ts", "--help"])
+    result = runner.invoke(cli.app, ["test-case-gen", "--help"])
     assert result.exit_code == 0
 
 
 def test_ds2ts_001():
-    result = runner.invoke(cli.app, ["ds2ts", "a&b"])
+    result = runner.invoke(cli.app, ["test-case-gen", "a&b"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
