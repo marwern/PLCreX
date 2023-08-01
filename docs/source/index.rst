@@ -27,3 +27,4 @@ PLCreX is a modular command-line interface (CLI) application tailored for IEC 61
     st2tree
     fbd2st
     test_case_gen
+    test

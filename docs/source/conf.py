@@ -23,19 +23,19 @@ import os
 import sys
 import tomllib
 
-with open("../../pyproject.toml", "rb") as f:
-    _META = tomllib.load(f)
+#with open("../../pyproject.toml", "rb") as f:
+#    _META = tomllib.load(f)
 
-NAME = _META["project"]["name"]
-VERSION = _META["project"]["version"]
-AUTHOR = _META["project"]["authors"][0]["name"]
+#NAME = _META["project"]["name"]
+#VERSION = _META["project"]["version"]
+#AUTHOR = _META["project"]["authors"][0]["name"]
 
 #sys.path.insert(0, os.path.abspath("../"))
 
 # -- Project information
-__app_name__ = NAME
-__version__ = VERSION
-__owner__ = AUTHOR
+__app_name__ = "PLCreX"
+__version__ = "1.1.0-rc1"
+__owner__ = "Marcel C. Werner"
 __copyright__ = "2023, " + __owner__
 
 # -- General configuration
