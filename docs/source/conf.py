@@ -86,7 +86,7 @@ source_suffix = ['.rst', '.md']
 # }
 
 # The master toctree document.
-master_doc = 'home'
+master_doc = 'index'
 
 pdf_documents = [(master_doc, u'plcrex-doc', u'PLCreX', author),]
 
