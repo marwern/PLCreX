@@ -61,7 +61,7 @@ extensions = [
 templates_path = ['_templates']
 
 # -- Options for HTML output
-html_theme = 'sphinx_rtd_theme' #sphinx_pdj_theme #press #sphinx_rtd_theme
+html_theme = 'press' #sphinx_pdj_theme #press #sphinx_rtd_theme
 
 
 #needed for alabaster theme
