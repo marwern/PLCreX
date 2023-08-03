@@ -16,30 +16,29 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-
-# Configuration file for the Sphinx documentation builder.
-#
 import os
 import sys
 import tomllib
+import time
 
-#with open("../../pyproject.toml", "rb") as f:
-#    _META = tomllib.load(f)
+with open("../../pyproject.toml", "rb") as f:
+    _META = tomllib.load(f)
 
-#NAME = _META["project"]["name"]
-#VERSION = _META["project"]["version"]
-#AUTHOR = _META["project"]["authors"][0]["name"]
+PROJ_NAME = _META["project"]["name"]
+VERSION = _META["project"]["version"]
+AUTHOR = _META["project"]["authors"][0]["name"]
 
-#sys.path.insert(0, os.path.abspath("../"))
+sys.path.insert(0, os.path.abspath("../"))
 
 # -- Project information
-__app_name__ = "PLCreX"
-__version__ = "1.1.0-rc1"
-__owner__ = "Marcel C. Werner"
-__copyright__ = "2023, " + __owner__
+project = "PLCreX" #PROJ_NAME
+copyright = f'{time.strftime("%Y")}, {AUTHOR}'
+version = VERSION
+release = VERSION
+author = AUTHOR
+show_authors = True
 
 # -- General configuration
-
 extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
@@ -48,31 +47,34 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.napoleon',
     'sphinx_rtd_theme',
+    'myst_parser',
+    'rst2pdf.pdfbuilder'
 ]
 
-intersphinx_mapping = {
-    'python': ('https://docs.python.org/3/', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
-}
-intersphinx_disabled_domains = ['std']
+
+#intersphinx_mapping = {
+#    'python': ('https://docs.python.org/3/', None),
+#    'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
+#}
+#intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
 
 # -- Options for HTML output
+html_theme = 'sphinx_rtd_theme' #sphinx_pdj_theme #press #sphinx_rtd_theme
 
-html_theme = 'sphinx_rtd_theme'
-html_theme_options = {
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False
-}
+
+#needed for alabaster theme
+#html_theme_options = {
+#    'collapse_navigation': True,
+#    'sticky_navigation': True,
+#    'navigation_depth': 4,
+#    'includehidden': True,
+#    'titles_only': False
+#}
 
 # The markdown parser
-source_parsers = {
-   '.md': 'recommonmark.parser.CommonMarkParser',
-}
+#source_parsers = {'.md': 'recommonmark.parser.CommonMarkParser'}
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -84,13 +86,15 @@ source_suffix = ['.rst', '.md']
 # }
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'home'
+
+pdf_documents = [(master_doc, u'plcrex-doc', u'PLCreX', author),]
+
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
 # -- Options for HTML output ----------------------------------------------
-
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -101,18 +105,18 @@ epub_show_urls = 'footnote'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = []
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
 # This is required for the alabaster theme
 # refs: http://alabaster.readthedocs.io/en/latest/installation.html#sidebars
-html_sidebars = {
-'**': [
-    'relations.html',  # needs 'show_related': True theme option to display
-    'searchbox.html',
-    'globaltoc.html',
-    'navigation.html',
-    ]
-}
+#html_sidebars = {
+#'**': [
+#    'relations.html',  # needs 'show_related': True theme option to display
+#    'searchbox.html',
+#    'globaltoc.html',
+#    'navigation.html',
+#    ]
+#}

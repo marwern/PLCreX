@@ -39,11 +39,16 @@ colorama.init()
 
 # decorator to print name header before every output
 def header():
-    print("\n")
-    #console.print(pyfiglet.figlet_format(" PLCreX ", font="slant"), style="magenta on bright_yellow")
-    print(colored(pyfiglet.figlet_format("PLCreX", font="slant"), 'green'))
-
-
+    #print(colored(pyfiglet.figlet_format("PLCreX", font="ANSI Shadow", width=600), 'green'))
+    #"Patorjk's Cheese" font by patorjk (patorjk@gmail.com) and x98.
+    #ANSI Shadow.flf is not part of pyfiglet v0.7.6
+    print(colored("""
+     ██████╗ ██╗      ██████╗██████╗ ███████╗██╗  ██╗
+     ██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝╚██╗██╔╝
+     ██████╔╝██║     ██║     ██████╔╝█████╗   ╚███╔╝
+     ██╔═══╝ ██║     ██║     ██╔══██╗██╔══╝   ██╔██╗
+     ██║     ███████╗╚██████╗██║  ██║███████╗██╔╝ ██╗
+     ╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝""", 'green'))
 @app.command("iec-checker")
 def iec_checker(
         src: Path,
@@ -158,9 +163,9 @@ def xmlval(
 def version_callback(value: bool):
     header()
     if value:
+        #header()
         typer.echo(f"{__app_name__} R{__version__}")
         raise typer.Exit()
-
 
 @app.callback()
 def main(version: Optional[bool] = typer.Option(None, "--version", "-v", callback=version_callback, is_eager=True)):
