@@ -84,8 +84,7 @@ def fbd2st(
         src: Path,
         export: Path,
         bwd: bool = typer.Option(False, help="use backward translation"),
-        formal: bool = typer.Option(False, help="formal parameter list"),
-        st2ast: bool = typer.Option(False, help="run ST parser with exports")
+        formal: bool = typer.Option(False, help="formal parameter list")
 ):
     #header()
     if src.is_file():
@@ -94,10 +93,7 @@ def fbd2st(
             # Ensure the directory exists
             os.makedirs(dir_path, exist_ok=True)
 
-            _fbd2st.translation(src, dir_path, bwd, formal, st2ast, False)
-            if st2ast:
-                _st2ast.translation(Path(fr'{dir_path}\{Path(src).name}_{bwd}_{formal}_{st2ast}_{False}.st'), dir_path,
-                            True, True, False)
+            _fbd2st.translation(src, dir_path, bwd, formal, True, False)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")

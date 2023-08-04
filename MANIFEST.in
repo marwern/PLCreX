@@ -1,3 +1,4 @@
+prune bin
 prune docs
 prune tests
 prune venv

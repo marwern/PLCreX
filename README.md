@@ -1,20 +1,19 @@
-# PLCreX - a modular IEC 61131-3 PLC analysis CLI application
+# PLCreX - Analysis of IEC 61131-3 Programmable Logic Controllers
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Tests](https://img.shields.io/badge/Tests-passed-<COLOR>.svg)](https://shields.io/)
 [![Coverage](https://img.shields.io/badge/coverage-99%25-<COLOR>.svg)](https://shields.io/)
+[![Documentation Status](https://readthedocs.org/projects/plcrex/badge/?version=latest)](https://plcrex.readthedocs.io/en/latest/?badge=latest)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
 PLCreX is a modular command-line interface (CLI) application tailored for IEC 61131-3 Programmable Logic Controllers ([PLCs](https://en.wikipedia.org/wiki/Programmable_logic_controller)). It's designed with a focus on issues such as **re**view, **re**design, **re**use, and **re**liability, among others. This project is driven by our ongoing research and we're committed to progressively integrating new features. PLCreX serves as a comprehensive suite of analysis and reuse capabilities for existing IEC 61131-3 Program Organization Units ([POUs](https://en.wikipedia.org/wiki/IEC_61131-3#Program_organization_unit_(POU))) implemented in Function Block Diagrams (FBDs) or Structured Text (ST).
 
-![diagram-20230730](https://github.com/marwern/PLCreX/assets/92115516/05e44b6c-d023-48f8-b6fa-2a18ccfcea06)
+<img src="./docs/fig/overview.png" />
 
 ## Quick links
 
-<!-- [📄 PLCreX’s documentation](https://plcrex.readthedocs.io/en/latest/) [![Documentation Status](https://readthedocs.org/projects/plcrex/badge/?version=latest)](https://plcrex.readthedocs.io/en/latest/?badge=latest) -->
-
-* [📄 PLCreX's documentation](https://plcrex.readthedocs.io/en/)
+* [📄 PLCreX’s documentation](https://plcrex.readthedocs.io/en/latest/)
 * [🛠 Getting Started](#-getting-started)
 * [💻 Commands](#-commands)
 * [ℹ️ Licenses](#-licenses)
@@ -107,7 +106,6 @@ Run ``pip install plcrex`` to get PLCreX using PyPI
       ┌─ Options ─────────────────────────────────────────────────────────────────────────────┐
       │ --bwd       --no-bwd         use backward translation [default: no-bwd]               │
       │ --formal    --no-formal      formal parameter list [default: no-formal]               │
-      │ --st2ast    --no-st2ast      run ST parser with exports [default: no-st2ast]          │
       │ --help                       Show this message and exit.                              │
       └───────────────────────────────────────────────────────────────────────────────────────┘
 
