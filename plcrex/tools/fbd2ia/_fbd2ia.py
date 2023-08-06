@@ -16,8 +16,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.fbd2ia.lib import fbd2ia_R1_2_0
+from plcrex.tools.fbd2ia.lib import fbd2ia_R1_3_1
 from pathlib import Path
 
-def data_flow_analysis_st(src: Path, dir_path: Path):
-	fbd2ia_R1_2_0.data_flow_analysis_st(src, dir_path)
+def data_flow_analysis_st(src: Path, dir_path: Path, filename: str):
+	fbd2ia_R1_3_1.data_flow_analysis_st(src, dir_path, filename)

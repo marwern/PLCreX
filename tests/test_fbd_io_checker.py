@@ -22,8 +22,17 @@ from plcrex import cli
 
 runner = CliRunner()
 
+def test_help():
+    result = runner.invoke(cli.app, ["impact-analysis", "--help"])
+    assert result.exit_code == 0
 
-def test_1bwd_0formal_0iec_0st2ast44_1impact_analysis():
-    result = runner.invoke(cli.app, ["impact-analysis", r".\tests\plcopen_examples\TC006_FBD.xml", "."])
+
+def test_wrong_file():
+    result = runner.invoke(cli.app, ["impact-analysis", r".\tests\other_examples\TC001_wrong_file.txt", ".", "test_wrong_file"])
+    assert result.exit_code == 1
+
+#test_bwd_noformal_io_analysis
+def test_bwd_noformal_io_analysis():
+    result = runner.invoke(cli.app, ["impact-analysis", r".\tests\plcopen_examples\TC006_FBD.xml", ".", "test_bwd_noformal_io_analysis"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout

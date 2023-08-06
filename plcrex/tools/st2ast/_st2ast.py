@@ -20,10 +20,12 @@ from lark import Lark, tree
 from pathlib import Path
 import os
 import site
+import typer
 
 def translation(
         src: Path,
         dir_path: Path,
+        filename: str,
         txt: bool = False,
         dot: bool = False,
         beckhoff: bool = False):
@@ -55,8 +57,9 @@ def translation(
 
     # if plcrex is not installed via pip, use local dir
     if grammar == "":
+        typer.echo(typer.style("* * Developer Mode * *", fg=typer.colors.YELLOW, bold=True))
         with open(rel_path, 'rt') as file:
-            print("Developer Lark grammar: ", rel_path)
+            #print("Developer Lark grammar: ", rel_path)
             grammar = file.read()
             file.close()
 
@@ -67,10 +70,12 @@ def translation(
 
         # write (pretty) tree as .txt
         if txt:
-            txt_export = open(fr'{dir_path}\{Path(src).name}.txt', "w")
+            #txt_export = open(fr'{dir_path}\{Path(src).name}.txt', "w")
+            txt_export = open(fr'{dir_path}\{filename}.txt', "w")
             txt_export.write(str(parser.parse(source).pretty()))
 
         # write tree as .dot file
         if dot:
-            tree.pydot__tree_to_dot(parser.parse(source), fr'{dir_path}\{Path(src).name}.dot')
+            #tree.pydot__tree_to_dot(parser.parse(source), fr'{dir_path}\{Path(src).name}.dot')
+            tree.pydot__tree_to_dot(parser.parse(source), fr'{dir_path}\{filename}.dot')
         return

@@ -29,27 +29,27 @@ def test_help():
 
 
 def test_dot_txt():
-    result = runner.invoke(cli.app, ["st-parser", r".\tests\st_examples\TC081.st", "."])
+    result = runner.invoke(cli.app, ["st-parser", r".\tests\st_examples\TC081.st", ".", "test_dot_txt"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_dot():
-    result = runner.invoke(cli.app, ["st-parser", "--no-txt", r".\tests\st_examples\TC081.st", "."])
+    result = runner.invoke(cli.app, ["st-parser", r".\tests\st_examples\TC081.st", ".", "test_dot", "--no-txt"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_txt():
-    result = runner.invoke(cli.app, ["st-parser", "--no-dot", r".\tests\st_examples\TC081.st", "."])
+    result = runner.invoke(cli.app, ["st-parser", r".\tests\st_examples\TC081.st", ".", "test_txt", "--no-dot"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 def test_beckhoff_txt_dot():
-    result = runner.invoke(cli.app, ["st-parser", "--beckhoff", r".\tests\st_examples\TC079.st", "."])
+    result = runner.invoke(cli.app, ["st-parser", r".\tests\st_examples\TC079.st", ".", "test_beckhoff_txt_dot", "--beckhoff"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["st-parser", r".\tests\other_examples\TC001_wrong_file.txt", "."])
+    result = runner.invoke(cli.app, ["st-parser", r".\tests\other_examples\TC001_wrong_file.txt", ".", "test_wrong_file"])
     assert result.exit_code == 1

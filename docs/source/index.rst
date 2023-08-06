@@ -1,5 +1,5 @@
-PLCreX - Analysis of IEC 61131-3 Program Organization Units
-===========================================================
+PLCreX - Analysis of IEC 61131-3 Programmable Logic Controllers
+===============================================================
 
 About PLCreX
 ------------

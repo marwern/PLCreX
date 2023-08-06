@@ -34,7 +34,7 @@ from plcrex import __app_name__, __version__
 from rich.console import Console
 
 console = Console()
-app = typer.Typer(add_completion=False)
+app = typer.Typer(context_settings={"help_option_names": ["--help"]}, add_completion=False, rich_markup_mode="rich")
 colorama.init()
 
 # decorator to print name header before every output
@@ -42,30 +42,31 @@ def header():
     #print(colored(pyfiglet.figlet_format("PLCreX", font="ANSI Shadow", width=600), 'green'))
     #"Patorjk's Cheese" font by patorjk (patorjk@gmail.com) and x98.
     #ANSI Shadow.flf is not part of pyfiglet v0.7.6
-    print(colored("""
-     ██████╗ ██╗      ██████╗██████╗ ███████╗██╗  ██╗
-     ██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝╚██╗██╔╝
-     ██████╔╝██║     ██║     ██████╔╝█████╗   ╚███╔╝
-     ██╔═══╝ ██║     ██║     ██╔══██╗██╔══╝   ██╔██╗
-     ██║     ███████╗╚██████╗██║  ██║███████╗██╔╝ ██╗
-     ╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝""", 'green'))
-@app.command("iec-checker")
+    #print(colored("...", 'green'))
+    print(typer.style("""
+ ██████╗ ██╗      ██████╗██████╗ ███████╗██╗  ██╗
+ ██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝╚██╗██╔╝
+ ██████╔╝██║     ██║     ██████╔╝█████╗   ╚███╔╝
+ ██╔═══╝ ██║     ██║     ██╔══██╗██╔══╝   ██╔██╗
+ ██║     ███████╗╚██████╗██║  ██║███████╗██╔╝ ██╗
+ ╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝""", fg=typer.colors.BRIGHT_YELLOW, bold=True))
+
+@app.command("iec-checker", epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
 def iec_checker(
-        src: Path,
-        exe: Path,
+        source: Path= typer.Argument(help="source path"),
+        exe: Path= typer.Argument(help="iec_checker_Windows_x86_64_v0.4.exe path"),
         verbose: bool = typer.Option(False, help="print full log"),
         help_: bool = typer.Option(False, "--help_iec_checker", help="call iec-checker help")):
-    #header()
-    if src.is_file():
+    if source.is_file():
         if exe.is_file():
-            if src.suffix == '.st' or src.suffix == '.xml':
+            if source.suffix == '.st' or source.suffix == '.xml':
                 # call iec-checker with ONE supported OPTIONS (only a subset is covered)
                 if help_:
-                    _iec_checker.execution(src, exe, '--help')
+                    _iec_checker.execution(source, exe, '--help')
                 elif not verbose:
-                    _iec_checker.execution(src, exe, '--quiet')
+                    _iec_checker.execution(source, exe, '--quiet')
                 elif verbose:
-                    _iec_checker.execution(src, exe, '--verbose')
+                    _iec_checker.execution(source, exe, '--verbose')
                 typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
             else:
                 raise RuntimeError("no ST/xml file found")
@@ -73,83 +74,90 @@ def iec_checker(
             raise RuntimeError(rf"no .exe found at {exe}")
     raise typer.Exit()
 
-@app.command("test-case-gen")
-def ds2ts(formula: str):
-    #header()
-    _ds2ts.create(formula)
+@app.command("test-case-gen", epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
+def ds2ts(formula: str = typer.Argument(help="condition \"(,),&,|,!,==,!=\""),
+          constr: str = typer.Option("", help="constraints \"(c1)&(c2)&(..)\""),
+          full: bool = typer.Option(True, help="find all solutions")):
+    _ds2ts.create(formula, constr, full)
     typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))				  
 
-@app.command("fbd-to-st")
+@app.command("fbd-to-st", epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
 def fbd2st(
-        src: Path,
-        export: Path,
+        source: Path= typer.Argument(help="source path"),
+        export: Path= typer.Argument(help="export path"),
+        filename: str= typer.Argument(help="filename without file extension"),
         bwd: bool = typer.Option(False, help="use backward translation"),
-        formal: bool = typer.Option(False, help="formal parameter list")
+        formal: bool = typer.Option(False, help="formal parameter list"),
 ):
-    #header()
-    if src.is_file():
-        if src.suffix == '.xml':
+    if source.is_file():
+        if source.suffix == '.xml':
             dir_path  = Path(fr'{export}\PLCreX_outputs')
             # Ensure the directory exists
             os.makedirs(dir_path, exist_ok=True)
-
-            _fbd2st.translation(src, dir_path, bwd, formal, True, False)
+            _fbd2st.translation(source, dir_path, filename, bwd, formal)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")
     raise typer.Exit()
 
-@app.command("impact-analysis")
+@app.command("impact-analysis", epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
 def impact_anal(
-        src: Path,
-        export: Path):
-    if src.is_file():
-        if src.suffix == '.xml':
+        source: Path= typer.Argument(help="source path"),
+        export: Path= typer.Argument(help="export path"),
+        filename: str= typer.Argument(help="filename without file extension")):
+    if source.is_file():
+        if source.suffix == '.xml':
             dir_path  = Path(fr'{export}\PLCreX_outputs')
             # Ensure the directory exists
             os.makedirs(dir_path, exist_ok=True)
-            _fbd2st.translation(src, dir_path, True, False, False, True)
-            _fbd2ia.data_flow_analysis_st(Path(fr'{dir_path}\{Path(src).name}_{True}_{False}_{False}_{True}.st'), dir_path)
+
+            #FBD-to-ST
+            _fbd2st.translation(source, dir_path, filename, True, False)
+
+            #ST-to-I/O Dependency
+            #_fbd2ia.data_flow_analysis_st(Path(fr'{dir_path}\{Path(source).name}_{True}_{False}_{False}_{True}.st'),
+            #                              dir_path)
+            _fbd2ia.data_flow_analysis_st(Path(fr'{dir_path}\{filename}.st'), dir_path, filename)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no xml file found")
     raise typer.Exit()
 
-@app.command("st-parser")
+@app.command("st-parser", epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
 def st2ast(
-        src: Path,
-        export: Path,
+        source: Path= typer.Argument(help="source path"),
+        export: Path= typer.Argument(help="export path"),
+        filename: str= typer.Argument(help="filename without file extension"),
         txt: bool = typer.Option(True, help="tree export as *.txt"),
         dot: bool = typer.Option(True, help="tree export as *.dot"),
         beckhoff: bool = typer.Option(False, help="use Beckhoff TwinCAT ST grammar")):
-    #header()
-    if src.is_file():
-        if src.suffix == '.st':
+    if source.is_file():
+        if source.suffix == '.st':
             dir_path  = Path(fr'{export}\PLCreX_outputs')
             # Ensure the directory exists
             os.makedirs(dir_path, exist_ok=True)
 
-            _st2ast.translation(src, dir_path, txt, dot, beckhoff)
+            _st2ast.translation(source, dir_path, filename, txt, dot, beckhoff)
             typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError("no ST file found")
     raise typer.Exit()
 
 
-@app.command("xml-validator")
+@app.command("xml-validator", epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
 def xmlval(
-        src: Path,
+        source: Path= typer.Argument(help="source path"),
         v201: bool = typer.Option(False, help="use tc6_xml_v201.xsd")):
     #header()
-    if src.is_file():
-        if src.suffix == '.xml':
+    if source.is_file():
+        if source.suffix == '.xml':
             if v201:
                 # tc6_xml_v201.xsd (https: // plcopen.org / downloads / plcopen-xml-version-201-xsd-file-0)
-                _xmlval.validate(src, "tc6_xml_v201.xsd")
+                _xmlval.validate(source, "tc6_xml_v201.xsd")
                 typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
             else:
                 # tc6_xml_v10.xsd (Beremiz v1.2)
-                _xmlval.validate(src, "tc6_xml_v10.xsd")
+                _xmlval.validate(source, "tc6_xml_v10.xsd")
                 typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
         else:
             raise RuntimeError()
@@ -159,11 +167,9 @@ def xmlval(
 def version_callback(value: bool):
     header()
     if value:
-        #header()
         typer.echo(f"{__app_name__} R{__version__}")
         raise typer.Exit()
 
-@app.callback()
+@app.callback(epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
 def main(version: Optional[bool] = typer.Option(None, "--version", "-v", callback=version_callback, is_eager=True)):
-    #header()
     return
