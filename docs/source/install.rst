@@ -11,11 +11,11 @@ Prerequisites
 
 PLCreX Installation via PyPI
 ----------------------------
-Run the following command to get the latest PLCreX from PyPI.org [`.url <https://pypi.org/project/plcrex//>`_]
+Run the following command to get the latest PLCreX from PyPI.org [`.url <https://pypi.org/project/plcrex/>`_]
 
 .. code:: console
 
-    >pip install plcrex
+    pip install plcrex
 
 PLCreX Installation via Github
 ------------------------------
@@ -24,7 +24,7 @@ PLCreX Installation via Github
 
 .. code:: console
 
-    >install-windows.bat
+    install-windows.bat
 
 External tools called by PLCreX
 -------------------------------

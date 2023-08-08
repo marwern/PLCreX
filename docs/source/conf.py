@@ -48,9 +48,12 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx_rtd_theme',
     'myst_parser',
-    'rst2pdf.pdfbuilder'
+    'rst2pdf.pdfbuilder',
+    'sphinx_markdown_tables',
 ]
 
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'sphinx'
 
 #intersphinx_mapping = {
 #    'python': ('https://docs.python.org/3/', None),
@@ -61,8 +64,15 @@ extensions = [
 templates_path = ['_templates']
 
 # -- Options for HTML output
-html_theme = 'press' #sphinx_pdj_theme #press #sphinx_rtd_theme
+html_theme = 'sphinx_rtd_theme' #sphinx_pdj_theme #press #sphinx_rtd_theme
 
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation.
+#
+html_theme_options = {
+    'prev_next_buttons_location': 'both'
+}
 
 #needed for alabaster theme
 #html_theme_options = {

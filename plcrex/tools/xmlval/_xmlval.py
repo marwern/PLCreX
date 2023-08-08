@@ -20,6 +20,7 @@ from pathlib import Path
 import xmlschema
 import os
 import site
+import typer
 
 def validate(xml_file: Path, validation_file: str):
 
@@ -45,8 +46,8 @@ def validate(xml_file: Path, validation_file: str):
 
     # if plcrex is not installed via pip, use local dir
     if xsd_file =="":
+        typer.echo(typer.style("* * Developer Mode * *", fg=typer.colors.YELLOW, bold=True))
         with open(rel_path, 'rt') as file:
-            print("Developer path: ", rel_path)
             xsd_file = file.read()
             file.close()
 

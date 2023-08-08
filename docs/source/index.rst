@@ -1,6 +1,8 @@
 PLCreX - Analysis of IEC 61131-3 Programmable Logic Controllers
 ===============================================================
 
+.. index:
+
 About PLCreX
 ------------
 
@@ -8,16 +10,38 @@ PLCreX is a modular command-line interface application tailored for IEC 61131-3 
 
 .. figure:: ../fig/overview.png
    :align: center
-   :width: 700px
 
+Usage
+-----
 
-Command-Line Interface
-----------------------
-PLCreX is used via command line.
+.. code-block:: console
 
-.. figure:: ../fig/cli_intro.png
-   :align: center
-   :width: 500px
+    (venv) C:\PLCreX>python -m plcrex --help
+
+.. code-block:: console
+
+     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
+     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
+     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
+     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
+     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
+     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
+
+     Usage: plcrex [OPTIONS] COMMAND [ARGS]...
+
+    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
+    │ --version                                                                                         │
+    │ --help             Show this message and exit.                                                    │
+    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ┌─ Commands ────────────────────────────────────────────────────────────────────────────────────────┐
+    │ fbd-to-st                                                                                         │
+    │ iec-checker                                                                                       │
+    │ impact-analysis                                                                                   │
+    │ st-parser                                                                                         │
+    │ test-case-gen                                                                                     │
+    │ xml-validator                                                                                     │
+    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
+
 
 
 ..

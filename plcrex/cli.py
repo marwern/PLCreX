@@ -16,11 +16,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 import typer
-#from typing_extensions import Annotated
 
 import os
-import pyfiglet
-from termcolor import colored
 import colorama
 from typing import Optional
 from plcrex.tools.fbd2ia import _fbd2ia
@@ -42,14 +39,22 @@ def header():
     #print(colored(pyfiglet.figlet_format("PLCreX", font="ANSI Shadow", width=600), 'green'))
     #"Patorjk's Cheese" font by patorjk (patorjk@gmail.com) and x98.
     #ANSI Shadow.flf is not part of pyfiglet v0.7.6
-    #print(colored("...", 'green'))
+    #changed manually: E -> e, R->r
+    #print(typer.style("""
+ #██████╗ ██╗      ██████╗██████╗ ███████╗██╗  ██╗
+ #██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝╚██╗██╔╝
+ #██████╔╝██║     ██║     ██████╔╝█████╗   ╚███╔╝
+ #██╔═══╝ ██║     ██║     ██╔══██╗██╔══╝   ██╔██╗
+ #██║     ███████╗╚██████╗██║  ██║███████╗██╔╝ ██╗
+ #╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝""", fg=typer.colors.BRIGHT_YELLOW, bold=True))
     print(typer.style("""
- ██████╗ ██╗      ██████╗██████╗ ███████╗██╗  ██╗
- ██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝╚██╗██╔╝
- ██████╔╝██║     ██║     ██████╔╝█████╗   ╚███╔╝
- ██╔═══╝ ██║     ██║     ██╔══██╗██╔══╝   ██╔██╗
- ██║     ███████╗╚██████╗██║  ██║███████╗██╔╝ ██╗
- ╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝""", fg=typer.colors.BRIGHT_YELLOW, bold=True))
+ ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
+ ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
+ ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
+ ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
+ ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
+ ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
+ """, fg=typer.colors.BRIGHT_YELLOW, bold=True))
 
 @app.command("iec-checker", epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
 def iec_checker(
@@ -171,5 +176,5 @@ def version_callback(value: bool):
         raise typer.Exit()
 
 @app.callback(epilog=fr"[yellow]PLCreX-{__version__}, plcrex.info@gmail.com[/yellow]")
-def main(version: Optional[bool] = typer.Option(None, "--version", "-v", callback=version_callback, is_eager=True)):
+def main(version: Optional[bool] = typer.Option(None, "--version", callback=version_callback, is_eager=True)):
     return
