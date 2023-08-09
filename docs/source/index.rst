@@ -11,6 +11,8 @@ PLCreX is a modular command-line interface application tailored for IEC 61131-3 
 .. figure:: ../fig/overview.png
    :align: center
 
+|
+
 Usage
 -----
 
@@ -18,31 +20,11 @@ Usage
 
     (venv) C:\PLCreX>python -m plcrex --help
 
-.. code-block:: console
+.. figure:: ../fig/cli_demo.png
+    :align: center
+    :width: 600px
 
-     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
-     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
-     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
-     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
-     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
-     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
-
-     Usage: plcrex [OPTIONS] COMMAND [ARGS]...
-
-    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ --version                                                                                         │
-    │ --help             Show this message and exit.                                                    │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ┌─ Commands ────────────────────────────────────────────────────────────────────────────────────────┐
-    │ fbd-to-st                                                                                         │
-    │ iec-checker                                                                                       │
-    │ impact-analysis                                                                                   │
-    │ st-parser                                                                                         │
-    │ test-case-gen                                                                                     │
-    │ xml-validator                                                                                     │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-
-
+|
 
 ..
     ..  toctree::

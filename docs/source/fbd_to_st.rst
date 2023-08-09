@@ -17,30 +17,14 @@ for example ``TONx(IN := A, PT := B);`` and a **non formal** representation, ``T
 
     (venv) C:\PLCreX>python -m plcrex fbd-to-st --help
 
-.. code-block:: console
+.. figure:: ../fig/fbd_to_st_demo.png
+    :align: center
+    :width: 600px
 
-     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
-     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
-     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
-     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
-     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
-     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
+|
 
-     Usage: plcrex fbd-to-st [OPTIONS] SOURCE EXPORT FILENAME
-
-    ┌─ Arguments ───────────────────────────────────────────────────────────────────────────────────────┐
-    │ *    source        PATH  source path [default: None] [required]                                   │
-    │ *    export        PATH  export path [default: None] [required]                                   │
-    │ *    filename      TEXT  filename without file extension [default: None] [required]               │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ --bwd       --no-bwd         use backward translation [default: no-bwd]                           │
-    │ --formal    --no-formal      formal parameter list [default: no-formal]                           │
-    │ --help                       Show this message and exit.                                          │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-
-POU
----
+POU ``TC005_PRG.xml``
+---------------------
 
 The following POU was manually implemented using Beremiz [`.url <https://github.com/beremiz/beremiz>`_].
 
@@ -48,6 +32,7 @@ The following POU was manually implemented using Beremiz [`.url <https://github.
     :align: center
     :width: 450px
 
+|
 
 Example 1: ``--no-formal`` ``--no-bwd``
 ---------------------------------------

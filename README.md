@@ -14,7 +14,7 @@ PLCreX - Analysis of IEC 61131-3 Programmable Logic Controllers
 
 <br />
 <div align="center">
-  <img src="./docs/fig/overview.png"> <!-- width=250 -->
+  <img src="./docs/fig/overview.png" width=650> <!-- width=250 -->
 
   <!-- <h3 align="center">PLCreX</h3> -->
 
@@ -43,10 +43,9 @@ Quick Start
 ===========
 <strong><a href="https://plcrex.readthedocs.io/en">Explore the docs »</a></strong>
 
-1. Download IEC-Checker via IEC-Checker's GitHub releases [[.url](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)]
-2. Install PLCreX 
-   * via PyPI: ``pip install plcrex``
-   * via PLCreX's GitHub repository: ``install-windows.bat``
+* Download IEC-Checker via IEC-Checker's GitHub releases [[.url](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)]
+* Install PLCreX via PyPI: ``pip install plcrex`` or
+* Install PLCreX via PLCreX's GitHub repository: ``install-windows.bat``
      * [optional] run local tests: ``coverage run -m pytest ./tests/ --verbose``
 
 Key Features
@@ -54,16 +53,9 @@ Key Features
 
 <strong><a href="https://plcrex.readthedocs.io/en">Explore the docs »</a></strong>
 
-``(venv) C:\Tools\PLCreX>python -m plcrex --help``
+Usage: ``(venv) C:\Tools\PLCreX>python -m plcrex --help``
 
-    ██████╗  ██╗       ██████╗  ████╗   █████╗  ██╗  ██╗
-    ██╔══██╗ ██║      ██╔════╝ ██╔═██╗ ██╔══██╗ ╚██╗██╔╝
-    ██████╔╝ ██║      ██║      ██║ ╚═╝ ██████╔╝  ╚███╔╝
-    ██╔═══╝  ██║      ██║      ██║     ██╔═══╝   ██╔██╗
-    ██║      ███████╗ ╚██████╗ ██║     ╚█████╗  ██╔╝ ██╗
-    ╚═╝      ╚══════╝  ╚═════╝ ╚═╝      ╚════╝  ╚═╝  ╚═╝
-
-    Usage: plcrex [OPTIONS] COMMAND ...
+<img src="./docs/fig/cli_demo.png" width=650> <!-- width=250 -->
 
 | Feature             | Usage                                                      | Version |
 |---------------------|------------------------------------------------------------|---------|
@@ -78,7 +70,7 @@ Key Features
 
 License
 =======
-This project is licensed under the GPLv3 License - see the LICENSE.md file for details
+This project is licensed under the GPLv3 License - see the LICENSE file for details
 
 Acknowledgments
 ===============

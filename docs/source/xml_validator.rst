@@ -12,25 +12,11 @@ The PLCopen XML-Validator feature uses ``tc6_xml_v201.xsd`` and ``tc6_xml_v10.xs
 
     (venv) C:\PLCreX>python -m plcrex xml-validator --help
 
-.. code-block:: console
+.. figure:: ../fig/xml_validator_demo.png
+    :align: center
+    :width: 600px
 
-     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
-     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
-     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
-     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
-     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
-     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
-
-     Usage: plcrex xml-validator [OPTIONS] SOURCE
-
-    ┌─ Arguments ───────────────────────────────────────────────────────────────────────────────────────┐
-    │ *    source      PATH  source path [default: None] [required]                                     │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ --v201    --no-v201      use tc6_xml_v201.xsd [default: no-v201]                                  │
-    │ --help                   Show this message and exit.                                              │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-
+|
 
 Example 1: ``--v201`` (PASSED)
 ------------------------------
@@ -39,7 +25,7 @@ Example 1: ``--v201`` (PASSED)
 
 .. code-block:: console
 
-    (venv) C:\Python\plcrex_project>python -m plcrex xml-checker --v201 ".\tests\plcopen_examples\TC001.xml"
+    (venv) C:\PLCreX>python -m plcrex xml-checker --v201 ".\tests\plcopen_examples\TC001.xml"
 
 
 **Results**
@@ -56,7 +42,7 @@ Example 2: ``--v201`` (FAILED)
 
 .. code-block:: console
 
-    (venv) C:\Python\plcrex_project>python -m plcrex xml-checker --v201 ".\tests\plcopen_examples\TC001_failed.xml"
+    (venv) C:\PLCreX>python -m plcrex xml-checker --v201 ".\tests\plcopen_examples\TC001_failed.xml"
 
 
 **Results**

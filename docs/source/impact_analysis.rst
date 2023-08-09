@@ -11,29 +11,14 @@ The I/O-Impact Analysis feature identifies the dependencies between POU outputs 
 
     (venv) C:\PLCreX>python -m plcrex impact-analysis --help
 
-.. code-block:: console
+.. figure:: ../fig/impact_analysis_demo.png
+    :align: center
+    :width: 600px
 
-     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
-     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
-     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
-     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
-     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
-     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
+|
 
-     Usage: plcrex impact-analysis [OPTIONS] SOURCE EXPORT FILENAME
-
-    ┌─ Arguments ───────────────────────────────────────────────────────────────────────────────────────┐
-    │ *    source        PATH  source path [default: None] [required]                                   │
-    │ *    export        PATH  export path [default: None] [required]                                   │
-    │ *    filename      TEXT  filename without file extension [default: None] [required]               │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ --help          Show this message and exit.                                                       │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-
-
-POU
----
+POU ``TC006_FBD.xml``
+---------------------
 
 The following POU was manually implemented using Beremiz [`.url <https://github.com/beremiz/beremiz>`_].
 
@@ -41,6 +26,7 @@ The following POU was manually implemented using Beremiz [`.url <https://github.
     :align: center
     :width: 450px
 
+|
 
 Example 1
 ---------
@@ -74,3 +60,5 @@ Example 1
 .. figure:: ../fig/TC006_result.png
     :align: center
     :width: 300px
+
+|

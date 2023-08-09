@@ -11,25 +11,11 @@ The Equivalence and Test Case Generator feature is designed to streamline the so
 
     (venv) C:\PLCreX>python -m plcrex test-case-gen --help
 
-.. code-block:: console
+.. figure:: ../fig/test_case_gen_demo.png
+    :align: center
+    :width: 600px
 
-     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
-     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
-     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
-     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
-     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
-     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
-
-     Usage: plcrex test-case-gen [OPTIONS] FORMULA
-
-    ┌─ Arguments ───────────────────────────────────────────────────────────────────────────────────────┐
-    │ *    formula      TEXT  condition "(,),&,|,!,==,!=" [default: None] [required]                    │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ --constr                 TEXT  constraints "(c1)&(c2)&(..)"                                       │
-    │ --full      --no-full          find all solutions [default: full]                                 │
-    │ --help                         Show this message and exit.                                        │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
+|
 
 Example 1: ``--full`` ``"a|b|c"``
 ---------------------------------

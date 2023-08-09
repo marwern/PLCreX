@@ -99,7 +99,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 pdf_documents = [(master_doc, u'plcrex-doc', u'PLCreX', author),]
-
+#pdf_stylesheets = ['autumn','kerning','a4-landscape']
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

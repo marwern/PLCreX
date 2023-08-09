@@ -20,32 +20,14 @@ resulting syntax tree visually or as plain text and reuse it for subsequent anal
 
     (venv) C:\PLCreX>python -m plcrex st-parser --help
 
-.. code-block:: console
+.. figure:: ../fig/st_parser_demo.png
+    :align: center
+    :width: 600px
 
-     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
-     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
-     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
-     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
-     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
-     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
+|
 
-     Usage: plcrex st-parser [OPTIONS] SOURCE EXPORT FILENAME
-
-    ┌─ Arguments ───────────────────────────────────────────────────────────────────────────────────────┐
-    │ *    source        PATH  source path [default: None] [required]                                   │
-    │ *    export        PATH  export path [default: None] [required]                                   │
-    │ *    filename      TEXT  filename without file extension [default: None] [required]               │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ --txt         --no-txt           tree export as *.txt [default: txt]                              │
-    │ --dot         --no-dot           tree export as *.dot [default: dot]                              │
-    │ --beckhoff    --no-beckhoff      use Beckhoff TwinCAT ST grammar [default: no-beckhoff]           │
-    │ --help                           Show this message and exit.                                      │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-
-
-POU
----
+POU ``TC081.st``
+----------------
 
 .. code-block:: console
 
@@ -84,7 +66,7 @@ Example 1
 
 .. code-block:: console
 
-    (venv) C:\Python\plcrex_project>python -m plcrex st-parser ".\tests\st_examples\TC081.st" ".\exports" "01"
+    (venv) C:\PLCreX>python -m plcrex st-parser ".\tests\st_examples\TC081.st" ".\exports" "01"
 
 **Results**
 
@@ -125,3 +107,5 @@ Example 1
 .. figure:: ../fig/TC081_AST.png
     :align: center
     :width: 600px
+
+|

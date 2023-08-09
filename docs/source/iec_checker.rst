@@ -6,6 +6,7 @@ IEC-Checker
 The IEC-Checker is an external tool for static code analysis of IEC 61131-3 POUs and called via PLCreX. Among other things, it checks the following issues [`.url <https://github.com/jubnzv/iec-checker>`_]:
 
 * PLCopen Guidelines
+
     * CP1: Access to a member shall be by name
     * CP2: All code shall be used in the application
     * CP3: All variables shall be initialized before being used
@@ -33,29 +34,14 @@ The IEC-Checker is an external tool for static code analysis of IEC 61131-3 POUs
 
     (venv) C:\PLCreX>python -m plcrex iec-checker --help
 
-.. code-block:: console
+.. figure:: ../fig/iec_checker_demo.png
+    :align: center
+    :width: 600px
 
-     ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
-     ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
-     ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
-     ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
-     ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
-     ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
+|
 
-     Usage: plcrex iec-checker [OPTIONS] SOURCE EXE
-
-    ┌─ Arguments ───────────────────────────────────────────────────────────────────────────────────────┐
-    │ *    source      PATH  source path [default: None] [required]                                     │
-    │ *    exe         PATH  iec_checker_Windows_x86_64_v0.4.exe path [default: None] [required]        │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ┌─ Options ─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ --verbose             --no-verbose      print full log [default: no-verbose]                      │
-    │ --help_iec_checker                      call iec-checker help                                     │
-    │ --help                                  Show this message and exit.                               │
-    └───────────────────────────────────────────────────────────────────────────────────────────────────┘
-
-POU
----
+POU ``TC083.st``
+----------------
 
 .. code-block:: console
 
@@ -82,7 +68,7 @@ Example 1
 
 **Results**
 
- .. code-block:: console
+.. code-block:: console
 
     ...
     Running check for program TC083
