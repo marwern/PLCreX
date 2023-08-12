@@ -46,8 +46,8 @@ Quick Start
 * Download IEC-Checker via IEC-Checker's GitHub releases [[.url](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)]
 * Install PLCreX via PyPI: ``pip install plcrex`` or
 * Install PLCreX via PLCreX's GitHub repository: ``install-windows.bat``
-     * [optional] run local tests: ``coverage run -m pytest ./tests/ --verbose``
-     * activate virtual environment (venv): ``run.bat``
+     * [optional] Run local tests: ``coverage run -m pytest ./tests/ --verbose``
+     * Activate virtual environment (venv): ``run.bat``
 
 Key Features
 ============

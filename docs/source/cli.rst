@@ -25,7 +25,7 @@ Installed via GitHub
 
 .. code:: console
 
-    run.bat
+    C:\PLCreX>run.bat
 
 2. Run the following command to call PLCreX's help
 

@@ -15,7 +15,7 @@ Run the following command to get the latest PLCreX from PyPI.org [`.url <https:/
 
 .. code:: console
 
-    pip install plcrex
+    C:\PLCreX>pip install plcrex
 
 PLCreX Installation via GitHub
 ------------------------------
@@ -24,7 +24,7 @@ PLCreX Installation via GitHub
 
 .. code:: console
 
-    install-windows.bat
+    C:\PLCreX>install-windows.bat
 
 External tools called by PLCreX
 -------------------------------
