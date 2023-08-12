@@ -5,6 +5,7 @@ coverage-badge==v1.1.0
 colorama==0.4.5
 dicttoxml2==2.1.0
 lark==1.1.7
+pip==23.2.1
 pydot==1.4.2
 pyfiglet==0.7.6
 pytest==7.2.0

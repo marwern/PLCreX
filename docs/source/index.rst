@@ -13,18 +13,6 @@ PLCreX is a modular command-line interface application tailored for IEC 61131-3 
 
 |
 
-Usage
------
-
-.. code-block:: console
-
-    (venv) C:\PLCreX>python -m plcrex --help
-
-.. figure:: ../fig/cli_demo.png
-    :align: center
-    :width: 600px
-
-|
 
 ..
     ..  toctree::
@@ -46,6 +34,7 @@ Usage
     :caption: Usage and Examples
     :hidden:
    
+    cli
     fbd_to_st
     iec_checker
     impact_analysis

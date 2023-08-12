@@ -59,8 +59,8 @@ POU ``TC081.st``
     END_FUNCTION_BLOCK
 
 
-Example 1
----------
+Example 1 ``--no-beckhoff``
+---------------------------
 
 **Command**
 
@@ -105,6 +105,63 @@ Example 1
     ...
 
 .. figure:: ../fig/TC081_AST.png
+    :align: center
+    :width: 600px
+
+|
+
+Example 2 ``--beckhoff``
+---------------------------
+
+**Command**
+
+.. code-block:: console
+
+    (venv) C:\PLCreX>python -m plcrex st-parser --beckhoff ".\tests\st_examples\TC081.st" ".\exports" "02"
+
+**Results**
+
+``02.dot``
+
+.. code-block:: console
+
+    digraph G {
+    rankdir=LR;
+    0 [label="Token('FUNCTION_BLOCK', 'FUNCTION_BLOCK')"];
+    1 [label="Token('IDENTIFIER', 'TC081')"];
+    2 [label="Token('IDENTIFIER', 'IN1')"];
+    3 [fillcolor="#b9d2eb", label=variable_name, style=filled];
+    3 -> 2;
+    4 [fillcolor="#8e96ea", label=var1, style=filled];
+    4 -> 3;
+    5 [fillcolor="#dea4f6", label=var1_list, style=filled];
+    5 -> 4;
+    ...
+
+``02.txt``
+
+.. code-block:: console
+
+    iec_source
+      function_block_type_declaration
+        FUNCTION_BLOCK
+        TC081
+        input_declarations
+          var1_init_decl
+            var1_list
+              var1
+                variable_name	IN1
+            simple_spec_init
+              simple_specification	INT
+          var1_init_decl
+            var1_list
+              var1
+                variable_name	IN2
+            simple_spec_init
+              simple_specification	INT
+    ...
+
+.. figure:: ../fig/TC081_AST3.png
     :align: center
     :width: 600px
 

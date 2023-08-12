@@ -17,7 +17,7 @@ Run the following command to get the latest PLCreX from PyPI.org [`.url <https:/
 
     pip install plcrex
 
-PLCreX Installation via Github
+PLCreX Installation via GitHub
 ------------------------------
 1. Download or clone PLCreX's GitHub repository [`.url <https://github.com/marwern/PLCreX>`_]
 2. Run the following batch script to automatically create a virtual environment (venv) and install dependencies

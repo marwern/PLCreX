@@ -47,6 +47,7 @@ Quick Start
 * Install PLCreX via PyPI: ``pip install plcrex`` or
 * Install PLCreX via PLCreX's GitHub repository: ``install-windows.bat``
      * [optional] run local tests: ``coverage run -m pytest ./tests/ --verbose``
+     * activate virtual environment (venv): ``run.bat``
 
 Key Features
 ============
