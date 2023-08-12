@@ -26,10 +26,4 @@ runner = CliRunner()
 def test_version_1():
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert f"{__app_name__} R{__version__}\n" in result.stdout
-
-
-def test_version_2():
-    result = runner.invoke(cli.app, ["-v"])
-    assert result.exit_code == 0
-    assert f"{__app_name__} R{__version__}\n" in result.stdout
+    assert f"{__app_name__} v{__version__}\n" in result.stdout

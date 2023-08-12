@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plcrex"
-version = "1.1.0-rc"
+version = "1.1.0"
 requires-python = ">=3.11"
 authors = [
   { name="Marcel Werner", email="plcrex.info@gmail.com" },
@@ -25,6 +25,7 @@ dependencies = [
   "colorama==0.4.5",
   "dicttoxml2==2.1.0",
   "lark==1.1.7",
+  "pip==23.2.1",
   "pydot==1.4.2",
   "pyfiglet==0.7.6",
   "pytest==7.2.0",
