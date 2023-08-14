@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plcrex"
-version = "1.1.0"
+version = "1.1.0-3"
 requires-python = ">=3.11"
 authors = [
   { name="Marcel Werner", email="plcrex.info@gmail.com" },
 ]
-description = "PLCreX - A modular IEC 61131-3 PLC analysis CLI application"
+description = "PLCreX - Analysis of IEC 61131-3 Programmable Logic Controllers and more"
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3.11",
@@ -25,7 +25,6 @@ dependencies = [
   "colorama==0.4.5",
   "dicttoxml2==2.1.0",
   "lark==1.1.7",
-  "pip==23.2.1",
   "pydot==1.4.2",
   "pyfiglet==0.7.6",
   "pytest==7.2.0",

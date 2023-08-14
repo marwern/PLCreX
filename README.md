@@ -14,7 +14,7 @@ PLCreX - Analysis of IEC 61131-3 Programmable Logic Controllers
 
 <br />
 <div align="center">
-  <img src="./docs/fig/overview.png" width=650> <!-- width=250 -->
+  <img src="https://github.com/marwern/PLCreX/assets/92115516/3645a682-6bc8-45d1-aeb6-39cd7ded3b63" width=650> <!-- width=250 -->
 
   <!-- <h3 align="center">PLCreX</h3> -->
 
@@ -56,7 +56,7 @@ Key Features
 
 Usage: ``(venv) C:\Tools\PLCreX>python -m plcrex --help``
 
-<img src="./docs/fig/cli_demo.png" width=650> <!-- width=250 -->
+<img src="https://github.com/marwern/PLCreX/assets/92115516/55946c88-a062-4e03-b1f1-5c2cea07d58e" width=650> <!-- width=250 -->
 
 | Feature             | Usage                                                      | Version |
 |---------------------|------------------------------------------------------------|---------|
