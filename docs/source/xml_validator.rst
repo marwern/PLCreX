@@ -10,7 +10,7 @@ The PLCopen XML-Validator feature uses ``tc6_xml_v201.xsd`` and ``tc6_xml_v10.xs
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex xml-validator --help
+    python -m plcrex xml-validator --help
 
 .. figure:: ../fig/xml_validator_demo.png
     :align: center
@@ -25,7 +25,7 @@ Example 1: ``--v201`` (PASSED)
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex xml-checker --v201 ".\tests\plcopen_examples\TC001.xml"
+    python -m plcrex xml-validator --v201 ".\tests\plcopen_examples\TC001.xml"
 
 
 **Results**
@@ -42,7 +42,7 @@ Example 2: ``--v201`` (FAILED)
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex xml-checker --v201 ".\tests\plcopen_examples\TC001_failed.xml"
+    python -m plcrex xml-validator --v201 ".\tests\plcopen_examples\TC001_failed.xml"
 
 
 **Results**

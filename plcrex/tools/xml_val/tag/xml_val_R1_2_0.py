@@ -16,23 +16,23 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from typer.testing import CliRunner
-
-from plcrex import cli
-
-runner = CliRunner()
-
-def test_help():
-    result = runner.invoke(cli.app, ["impact-analysis", "--help"])
-    assert result.exit_code == 0
+from pathlib import Path
+from plcrex.add import *
+import xmlschema
+import os
 
 
-def test_wrong_file():
-    result = runner.invoke(cli.app, ["impact-analysis", r".\tests\other_examples\TC001_wrong_file.txt", ".", "test_wrong_file"])
-    assert result.exit_code == 1
+def get_version():
+    return os.path.basename(__file__)[-9:-3]
 
-#test_bwd_noformal_io_analysis
-def test_bwd_noformal_io_analysis():
-    result = runner.invoke(cli.app, ["impact-analysis", r".\tests\plcopen_examples\TC006_FBD.xml", ".", "test_bwd_noformal_io_analysis"])
-    assert result.exit_code == 0
-    assert f"Success!" in result.stdout
+
+def validate(xml_file: Path, validation_file: str):
+    xsd_file = get_file(fr'plcrex\data\tc6\{validation_file}')
+
+    # create validation scheme
+    scheme = xmlschema.XMLSchema(xsd_file)
+
+    # validate PLCopen xml file
+    scheme.validate(xml_file)
+
+    return

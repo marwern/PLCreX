@@ -16,8 +16,19 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.fbd2st.lib import fbd2st_R1_3_0
+from plcrex.tools.fbd2st.tag.fbd2st_R1_4_0 import *
+from plcrex.add import *
 from pathlib import Path
+import os
 
-def translation(src: Path, dir_path: Path, filename: str, backward: bool,formal: bool):
-	fbd2st_R1_3_0.translation(src, dir_path, filename, backward, formal)
+def cli(source:Path, export:Path, filename:str, bwd:bool, formal:bool):
+    print_header(os.path.basename(__file__)[1:-3], get_version())
+    if source.is_file() and source.suffix == '.xml':
+        dir_path  = Path(fr'{export}\PLCreX_outputs')
+        # Ensure the directory exists
+        os.makedirs(dir_path, exist_ok=True)
+        translation(source, dir_path, filename, bwd, formal)
+    else:
+        raise RuntimeError("no xml file found")
+    print_runtime()
+    return

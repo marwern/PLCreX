@@ -1,0 +1,1111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2023-03-10T10:37:17"/>
+  <contentHeader name="Unnamed" modificationDateTime="2023-03-15T15:56:42">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="0" y="0"/>
+      </fbd>
+      <ld>
+        <scaling x="0" y="0"/>
+      </ld>
+      <sfc>
+        <scaling x="0" y="0"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="Wind_Direction_Indicator" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="IN1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="IN2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="IN3">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="OUT1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="OUT2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="OUT3">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="OUT4">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </outputVars>
+        </interface>
+        <body>
+          <FBD>
+            <outVariable localId="10" executionOrderId="0" height="22" width="23" negated="false">
+              <position x="1033" y="108"/>
+              <connectionPointIn>
+                <relPosition x="0" y="11"/>
+                <connection refLocalId="22" formalParameter="OUT">
+                  <position x="1033" y="119"/>
+                  <position x="948" y="119"/>
+                  <position x="948" y="118"/>
+                  <position x="846" y="118"/>
+                </connection>
+              </connectionPointIn>
+              <expression>OUT1</expression>
+            </outVariable>
+            <inVariable localId="20" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="243" y="70"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <block localId="8" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="462" y="109"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="1" formalParameter="OUT">
+                      <position x="462" y="139"/>
+                      <position x="411" y="139"/>
+                      <position x="411" y="81"/>
+                      <position x="376" y="81"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="9" formalParameter="OUT">
+                      <position x="462" y="159"/>
+                      <position x="376" y="159"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="11" formalParameter="OUT">
+                      <position x="462" y="179"/>
+                      <position x="411" y="179"/>
+                      <position x="411" y="235"/>
+                      <position x="376" y="235"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="1" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="324" y="51"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="20">
+                      <position x="324" y="81"/>
+                      <position x="274" y="81"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="2" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="243" y="149"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="4" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="243" y="223"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="9" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="324" y="129"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="2">
+                      <position x="324" y="159"/>
+                      <position x="286" y="159"/>
+                      <position x="286" y="160"/>
+                      <position x="274" y="160"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="11" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="324" y="205"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="4">
+                      <position x="324" y="235"/>
+                      <position x="286" y="235"/>
+                      <position x="286" y="234"/>
+                      <position x="274" y="234"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="22" typeName="OR" executionOrderId="0" height="80" width="52">
+              <position x="794" y="88"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="55" formalParameter="OUT">
+                      <position x="794" y="118"/>
+                      <position x="590" y="118"/>
+                      <position x="590" y="2328"/>
+                      <position x="507" y="2328"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="8" formalParameter="OUT">
+                      <position x="794" y="138"/>
+                      <position x="662" y="138"/>
+                      <position x="662" y="139"/>
+                      <position x="514" y="139"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="7" formalParameter="OUT">
+                      <position x="794" y="158"/>
+                      <position x="652" y="158"/>
+                      <position x="652" y="415"/>
+                      <position x="511" y="415"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="3" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="321" y="327"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="14">
+                      <position x="321" y="357"/>
+                      <position x="271" y="357"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="5" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="240" y="425"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="6" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="240" y="499"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="7" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="459" y="385"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="3" formalParameter="OUT">
+                      <position x="459" y="415"/>
+                      <position x="408" y="415"/>
+                      <position x="408" y="357"/>
+                      <position x="373" y="357"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="12" formalParameter="OUT">
+                      <position x="459" y="435"/>
+                      <position x="373" y="435"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="6">
+                      <position x="459" y="455"/>
+                      <position x="416" y="455"/>
+                      <position x="416" y="510"/>
+                      <position x="271" y="510"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="12" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="321" y="405"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="5">
+                      <position x="321" y="435"/>
+                      <position x="283" y="435"/>
+                      <position x="283" y="436"/>
+                      <position x="271" y="436"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="14" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="240" y="346"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <inVariable localId="16" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="238" y="710"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="17" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="238" y="784"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="18" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="457" y="670"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="23">
+                      <position x="457" y="700"/>
+                      <position x="424" y="700"/>
+                      <position x="424" y="642"/>
+                      <position x="269" y="642"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="19" formalParameter="OUT">
+                      <position x="457" y="720"/>
+                      <position x="371" y="720"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="17">
+                      <position x="457" y="740"/>
+                      <position x="424" y="740"/>
+                      <position x="424" y="795"/>
+                      <position x="269" y="795"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="19" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="319" y="690"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="16">
+                      <position x="319" y="720"/>
+                      <position x="281" y="720"/>
+                      <position x="281" y="721"/>
+                      <position x="269" y="721"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="23" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="238" y="631"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <inVariable localId="25" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="238" y="1019"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="26" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="238" y="1093"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="27" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="457" y="979"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="30">
+                      <position x="457" y="1009"/>
+                      <position x="363" y="1009"/>
+                      <position x="363" y="951"/>
+                      <position x="269" y="951"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="25">
+                      <position x="457" y="1029"/>
+                      <position x="363" y="1029"/>
+                      <position x="363" y="1030"/>
+                      <position x="269" y="1030"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="26">
+                      <position x="457" y="1049"/>
+                      <position x="363" y="1049"/>
+                      <position x="363" y="1104"/>
+                      <position x="269" y="1104"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="30" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="238" y="940"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <block localId="31" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="318" y="1237"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="37">
+                      <position x="318" y="1267"/>
+                      <position x="268" y="1267"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="32" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="237" y="1335"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="33" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="237" y="1409"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="34" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="456" y="1295"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="31" formalParameter="OUT">
+                      <position x="456" y="1325"/>
+                      <position x="405" y="1325"/>
+                      <position x="405" y="1267"/>
+                      <position x="370" y="1267"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="32">
+                      <position x="456" y="1345"/>
+                      <position x="362" y="1345"/>
+                      <position x="362" y="1346"/>
+                      <position x="268" y="1346"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="33">
+                      <position x="456" y="1365"/>
+                      <position x="362" y="1365"/>
+                      <position x="362" y="1420"/>
+                      <position x="268" y="1420"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="37" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="237" y="1256"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <block localId="38" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="313" y="1552"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="44">
+                      <position x="313" y="1582"/>
+                      <position x="263" y="1582"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="39" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="232" y="1650"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="40" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="232" y="1724"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="41" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="451" y="1610"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="38" formalParameter="OUT">
+                      <position x="451" y="1640"/>
+                      <position x="400" y="1640"/>
+                      <position x="400" y="1582"/>
+                      <position x="365" y="1582"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="39">
+                      <position x="451" y="1660"/>
+                      <position x="357" y="1660"/>
+                      <position x="357" y="1661"/>
+                      <position x="263" y="1661"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="43" formalParameter="OUT">
+                      <position x="451" y="1680"/>
+                      <position x="400" y="1680"/>
+                      <position x="400" y="1736"/>
+                      <position x="365" y="1736"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="43" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="313" y="1706"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="40">
+                      <position x="313" y="1736"/>
+                      <position x="275" y="1736"/>
+                      <position x="275" y="1735"/>
+                      <position x="263" y="1735"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="44" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="232" y="1571"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <inVariable localId="46" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="234" y="1976"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="47" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="234" y="2050"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="48" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="453" y="1936"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="51">
+                      <position x="453" y="1966"/>
+                      <position x="359" y="1966"/>
+                      <position x="359" y="1908"/>
+                      <position x="265" y="1908"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="46">
+                      <position x="453" y="1986"/>
+                      <position x="359" y="1986"/>
+                      <position x="359" y="1987"/>
+                      <position x="265" y="1987"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="50" formalParameter="OUT">
+                      <position x="453" y="2006"/>
+                      <position x="402" y="2006"/>
+                      <position x="402" y="2062"/>
+                      <position x="367" y="2062"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="50" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="315" y="2032"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="47">
+                      <position x="315" y="2062"/>
+                      <position x="277" y="2062"/>
+                      <position x="277" y="2061"/>
+                      <position x="265" y="2061"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="51" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="234" y="1897"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <inVariable localId="53" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="236" y="2338"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN2</expression>
+            </inVariable>
+            <inVariable localId="54" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="236" y="2412"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN3</expression>
+            </inVariable>
+            <block localId="55" typeName="AND" executionOrderId="0" height="80" width="52">
+              <position x="455" y="2298"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="58">
+                      <position x="455" y="2328"/>
+                      <position x="422" y="2328"/>
+                      <position x="422" y="2270"/>
+                      <position x="267" y="2270"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="56" formalParameter="OUT">
+                      <position x="455" y="2348"/>
+                      <position x="369" y="2348"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="57" formalParameter="OUT">
+                      <position x="455" y="2368"/>
+                      <position x="404" y="2368"/>
+                      <position x="404" y="2424"/>
+                      <position x="369" y="2424"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="56" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="317" y="2318"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="53">
+                      <position x="317" y="2348"/>
+                      <position x="279" y="2348"/>
+                      <position x="279" y="2349"/>
+                      <position x="267" y="2349"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="57" typeName="NOT" executionOrderId="0" height="41" width="52">
+              <position x="317" y="2394"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="54">
+                      <position x="317" y="2424"/>
+                      <position x="279" y="2424"/>
+                      <position x="279" y="2423"/>
+                      <position x="267" y="2423"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="58" executionOrderId="0" height="22" width="31" negated="false">
+              <position x="236" y="2259"/>
+              <connectionPointOut>
+                <relPosition x="31" y="11"/>
+              </connectionPointOut>
+              <expression>IN1</expression>
+            </inVariable>
+            <outVariable localId="13" executionOrderId="0" height="22" width="36" negated="false">
+              <position x="1023" y="669"/>
+              <connectionPointIn>
+                <relPosition x="0" y="11"/>
+                <connection refLocalId="15" formalParameter="OUT">
+                  <position x="1023" y="680"/>
+                  <position x="868" y="680"/>
+                </connection>
+              </connectionPointIn>
+              <expression>OUT2</expression>
+            </outVariable>
+            <block localId="15" typeName="OR" executionOrderId="0" height="80" width="52">
+              <position x="816" y="650"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="7" formalParameter="OUT">
+                      <position x="816" y="680"/>
+                      <position x="661" y="680"/>
+                      <position x="661" y="415"/>
+                      <position x="511" y="415"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="18" formalParameter="OUT">
+                      <position x="816" y="700"/>
+                      <position x="509" y="700"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="27" formalParameter="OUT">
+                      <position x="816" y="720"/>
+                      <position x="660" y="720"/>
+                      <position x="660" y="1009"/>
+                      <position x="509" y="1009"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <outVariable localId="21" executionOrderId="0" height="22" width="36" negated="false">
+              <position x="1042" y="1294"/>
+              <connectionPointIn>
+                <relPosition x="0" y="11"/>
+                <connection refLocalId="24" formalParameter="OUT">
+                  <position x="1042" y="1305"/>
+                  <position x="875" y="1305"/>
+                </connection>
+              </connectionPointIn>
+              <expression>OUT3</expression>
+            </outVariable>
+            <block localId="24" typeName="OR" executionOrderId="0" height="80" width="52">
+              <position x="823" y="1275"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="27" formalParameter="OUT">
+                      <position x="823" y="1305"/>
+                      <position x="663" y="1305"/>
+                      <position x="663" y="1009"/>
+                      <position x="509" y="1009"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="34" formalParameter="OUT">
+                      <position x="823" y="1325"/>
+                      <position x="508" y="1325"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="41" formalParameter="OUT">
+                      <position x="823" y="1345"/>
+                      <position x="660" y="1345"/>
+                      <position x="660" y="1640"/>
+                      <position x="503" y="1640"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <outVariable localId="28" executionOrderId="0" height="22" width="36" negated="false">
+              <position x="995" y="1935"/>
+              <connectionPointIn>
+                <relPosition x="0" y="11"/>
+                <connection refLocalId="29" formalParameter="OUT">
+                  <position x="995" y="1946"/>
+                  <position x="857" y="1946"/>
+                </connection>
+              </connectionPointIn>
+              <expression>OUT4</expression>
+            </outVariable>
+            <block localId="29" typeName="OR" executionOrderId="0" height="80" width="52">
+              <position x="805" y="1916"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="41" formalParameter="OUT">
+                      <position x="805" y="1946"/>
+                      <position x="656" y="1946"/>
+                      <position x="656" y="1640"/>
+                      <position x="503" y="1640"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="48" formalParameter="OUT">
+                      <position x="805" y="1966"/>
+                      <position x="505" y="1966"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN3">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="55" formalParameter="OUT">
+                      <position x="805" y="1986"/>
+                      <position x="658" y="1986"/>
+                      <position x="658" y="2328"/>
+                      <position x="507" y="2328"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="52" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+          </FBD>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[https://www.gds2.de/fileadmin/umwelttechnik/umwelttechnik/skripte/steuerungstechnik_ut_2017.pdf, 2.15]]></xhtml:p>
+        </documentation>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="config">
+        <resource name="resource1"/>
+      </configuration>
+    </configurations>
+  </instances>
+</project>

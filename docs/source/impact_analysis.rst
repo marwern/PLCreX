@@ -9,7 +9,7 @@ The I/O-Impact Analysis feature identifies the dependencies between POU outputs 
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex impact-analysis --help
+    python -m plcrex impact-analysis --help
 
 .. figure:: ../fig/impact_analysis_demo.png
     :align: center
@@ -35,7 +35,7 @@ Example 1
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex impact-analysis ".\tests\plcopen_examples\TC006_FBD.xml" ".\exports" "01"
+    python -m plcrex impact-analysis ".\tests\plcopen_examples\TC006_FBD.xml" ".\exports" "01"
 
 **Results**
 

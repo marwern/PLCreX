@@ -16,8 +16,15 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.fbd2ia.lib import fbd2ia_R1_3_1
 from pathlib import Path
+from subprocess import run
+import os
 
-def data_flow_analysis_st(src: Path, dir_path: Path, filename: str):
-	fbd2ia_R1_3_1.data_flow_analysis_st(src, dir_path, filename)
+
+def get_version():
+    return os.path.basename(__file__)[-9:-3]
+
+
+def execution(src: Path, exe: Path, option: str, dest: Path):
+    run([rf'{exe}', src, option], stdout=open(dest, 'w'))
+    return

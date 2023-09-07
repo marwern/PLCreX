@@ -29,6 +29,6 @@ def test_help():
 
 
 def test_ds2ts_001():
-    result = runner.invoke(cli.app, ["test-case-gen", "a&b"])
+    result = runner.invoke(cli.app, ["test-case-gen", "a&b", ".", "dsts001"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout

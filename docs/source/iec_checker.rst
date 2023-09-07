@@ -24,7 +24,7 @@ The IEC-Checker is an external tool for static code analysis of IEC 61131-3 POUs
 * Detection of unused variables
 
 .. note::
-    IEC Checker can only work with IEC 61131-3 ST supported by the matiec compiler [`.url <https://github.com/beremiz/matiec>`_].
+    IEC-Checker can only work with IEC 61131-3 ST supported by the matiec compiler [`.url <https://github.com/beremiz/matiec>`_].
     Most likely, it will fail on the source code containing non-standard language extensions.
 
 
@@ -32,7 +32,7 @@ The IEC-Checker is an external tool for static code analysis of IEC 61131-3 POUs
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex iec-checker --help
+    python -m plcrex iec-checker --help
 
 .. figure:: ../fig/iec_checker_demo.png
     :align: center
@@ -64,7 +64,7 @@ Example 1
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex iec-checker --verbose ".\tests\st_examples\TC083.st" "./bin/iec_checker_Windows_x86_64_v0.4.exe"
+    python -m plcrex iec-checker --verbose ".\tests\st_examples\TC083.st" "./bin/iec_checker_Windows_x86_64_v0.4.exe" ".\exports" "01"
 
 **Results**
 

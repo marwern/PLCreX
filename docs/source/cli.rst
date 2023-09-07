@@ -16,7 +16,7 @@ Installed via PyPI
 
 .. code:: console
 
-    C:\PLCreX>python -m plcrex --help
+    python -m plcrex --help
 
 Installed via GitHub
 --------------------
@@ -25,10 +25,10 @@ Installed via GitHub
 
 .. code:: console
 
-    C:\PLCreX>run.bat
+    run.bat
 
 2. Run the following command to call PLCreX's help
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex --help
+    python -m plcrex --help

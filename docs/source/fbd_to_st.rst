@@ -15,7 +15,7 @@ for example ``TONx(IN := A, PT := B);`` and a **non formal** representation, ``T
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex fbd-to-st --help
+    python -m plcrex fbd-to-st --help
 
 .. figure:: ../fig/fbd_to_st_demo.png
     :align: center
@@ -41,7 +41,7 @@ Example 1: ``--no-formal`` ``--no-bwd``
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex fbd-to-st --no-formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "01"
+    python -m plcrex fbd-to-st --no-formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "01"
 
 **Results**
 
@@ -63,7 +63,7 @@ Example 2: ``--no-formal`` ``--bwd``
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex fbd-to-st --no-formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "02"
+    python -m plcrex fbd-to-st --no-formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "02"
 
 **Results**
 
@@ -83,7 +83,7 @@ Example 3: ``--formal`` ``--no-bwd``
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex fbd-to-st --formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "03"
+    python -m plcrex fbd-to-st --formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "03"
 
 **Results**
 
@@ -106,7 +106,7 @@ Example 4: ``--formal`` ``--bwd``
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex fbd-to-st --formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "04"
+    python -m plcrex fbd-to-st --formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "04"
 
 **Results**
 

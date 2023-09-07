@@ -18,7 +18,7 @@ resulting syntax tree visually or as plain text and reuse it for subsequent anal
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex st-parser --help
+    python -m plcrex st-parser --help
 
 .. figure:: ../fig/st_parser_demo.png
     :align: center
@@ -66,7 +66,7 @@ Example 1 ``--no-beckhoff``
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex st-parser ".\tests\st_examples\TC081.st" ".\exports" "01"
+    python -m plcrex st-parser ".\tests\st_examples\TC081.st" ".\exports" "01"
 
 **Results**
 
@@ -117,7 +117,7 @@ Example 2 ``--beckhoff``
 
 .. code-block:: console
 
-    (venv) C:\PLCreX>python -m plcrex st-parser --beckhoff ".\tests\st_examples\TC081.st" ".\exports" "02"
+    python -m plcrex st-parser --beckhoff ".\tests\st_examples\TC081.st" ".\exports" "02"
 
 **Results**
 

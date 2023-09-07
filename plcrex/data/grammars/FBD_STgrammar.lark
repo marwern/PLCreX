@@ -1,0 +1,240 @@
+//
+// This file is part of PLCreX (https://github.com/marwern/PLCreX).
+//
+// Copyright (c) 2022-2023 Marcel Werner.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, version 3.
+//
+// This program is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program. If not, see <http://www.gnu.org/licenses/>.
+//
+
+
+// ********************************************************************************
+// Start & Supported Software modules
+// ********************************************************************************
+start: program
+	| functionblock
+	| function
+    | _expr
+
+
+// ********************************************************************************
+// Interface/Variable Declaration List
+// ********************************************************************************
+idcl: var_input var_output? var_in_out? -> idcl
+	| var_input var_in_out? var_output? -> idcl
+	| var_output var_input? var_in_out? -> idcl
+	| var_output var_in_out? var_input? -> idcl
+	| var_in_out var_input? var_output? -> idcl
+	| var_in_out var_output? var_input? -> idcl
+
+vdcl: var_local -> vdcl
+
+dcllist: declaration*//~0..30
+
+declaration: variable ":" datatype (":=" _expr )? ";"
+
+var_input: "VAR_INPUT" dcllist "END_VAR"
+
+var_local: "VAR" dcllist "END_VAR"
+
+var_output: "VAR_OUTPUT" dcllist "END_VAR"
+
+var_in_out: "VAR_IN_OUT" dcllist "END_VAR"
+	| "VAR_EXTERNAL" dcllist "END_VAR"
+
+
+// ********************************************************************************
+// POU Declaration List
+// ********************************************************************************
+pou: NAME -> name
+
+program: "PROGRAM" pou idcl? vdcl? statlist? "END_PROGRAM" //-> module
+functionblock: "FUNCTION_BLOCK" pou idcl? vdcl? statlist? "END_FUNCTION_BLOCK" //-> module
+function: "FUNCTION" pou (":" datatype)? idcl? vdcl? statlist? "END_FUNCTION" //-> module
+
+
+// ********************************************************************************
+// Datatypes
+// ********************************************************************************
+datatype: TYPE_BOOL | TYPE_INT | TYPE_DINT | TYPE_UINT | TYPE_REAL | TYPE_TIME | array | macro_name
+
+TYPE_BOOL: "BOOL"
+TYPE_INT: "INT"
+TYPE_DINT: "DINT"
+TYPE_UINT: "UINT"
+TYPE_REAL: "REAL"
+TYPE_TIME: "TIME"
+array: "ARRAY" "[1" ".." INT "]" "OF" datatype
+macro_name: NAME
+
+
+// ********************************************************************************
+// Arithmetic operators
+// ********************************************************************************
+multiply_with: "MUL("_expr("," _expr)*")"
+divide_by: "DIV("_expr("," _expr)*")"
+modulo: _expr "MOD" _expr
+adding: "ADD("_expr ("," _expr)*")"
+subtracting: "SUB("_expr("," _expr)*")"
+
+
+// ********************************************************************************
+// Functions/User-POUs
+// ********************************************************************************
+macro: NAME "(" macro_parameter  ("," macro_parameter)* (")")? (")." macro_out)? (";")? //vorher: ");"
+    |NAME "(" _expr ("," _expr)* (")")? (")." macro_out)? (");")? //~0..30
+macro_out: NAME
+macro_parameter: NAME ":=" _expr
+
+
+// ********************************************************************************
+// Boolean operators
+// ********************************************************************************
+not: "NOT" "(" _expr ")"
+and: "AND("_expr ","_expr (","_expr)*")"
+xor: "XOR("_expr","_expr")"
+or: "OR(" _expr ","_expr (","_expr)* ")"
+
+
+// ********************************************************************************
+// Numeric operators
+// ********************************************************************************
+less_or_equal: _expr "<=" _expr
+greater_or_equal: _expr ">=" _expr
+less_than: _expr "<" _expr
+greater_than: _expr ">" _expr
+
+
+// ********************************************************************************
+// Equality
+// ********************************************************************************
+equality: "EQ("_expr","_expr")" //_expr "=" _expr
+inequality: _expr "<>" _expr
+
+
+// ********************************************************************************
+// General expressions
+// ********************************************************************************
+_expr: equality
+	| variable ("[" INT "]")?
+	| multiply_with
+	| divide_by
+	| modulo
+	| adding
+	| subtracting
+	| "(" _expr ")"
+	| constant
+	| not
+	| and
+	| xor
+	| or
+	| sel
+	| inequality
+	| less_or_equal
+	| greater_or_equal
+	| less_than
+	| greater_than
+	| FALSE
+	| TRUE
+    | macro
+
+minus_expression.3: "-" _expr
+
+
+// ********************************************************************************
+// Statementlist
+// ********************************************************************************
+constant: NUMBER | MS_DURATION
+constant_int: INT
+
+statlist: statement*//~0..100
+
+statement:immediate_assignment | if_statement	| case_statement | macro | for_statement | while_statement	| repeat_statement | exit_statement | return_statement //| nothing_statement
+
+
+// ********************************************************************************
+// Assignments
+// ********************************************************************************
+immediate_assignment: variable("["constant_int"]")? ":=" _expr ";"
+	| variable("["constant_int"]")? ":=" minus_expression ";"
+
+
+// ********************************************************************************
+// selection statement
+// ********************************************************************************
+if_statement: "IF" _expr "THEN" statlist ( "ELSE" statlist )? "END_IF" ";"
+| "IF" _expr "THEN" statlist elsif_statement ( "ELSE" statlist )? "END_IF" ";"
+
+elsif_statement: "ELSIF" _expr "THEN" statlist? (elsif_statement)*//~0..30
+
+sel: "SEL(" expr_if "," expr_t "," expr_f ")"
+expr_if: _expr
+expr_t: _expr
+expr_f: _expr
+
+//case_statement: "CASE" _expr "OF" case_element case_element~0..10 ( "ELSE" statlist )? "END_CASE" ";"
+case_statement: "CASE" _expr "OF" case_element case_element* ( "ELSE" statlist )? "END_CASE" ";"
+
+
+case_element: case_list ":" statlist?
+
+case_list: case_list_element ( "," case_list_element )*//~0..30
+
+case_list_element: subrange
+                 | constant_int
+                 | dotted_name
+
+subrange: constant_int ":" constant_int
+dotted_name: constant_int ".." constant_int
+
+
+// ********************************************************************************
+// iteration statements
+// ********************************************************************************
+for_statement: "FOR" variable ":=" _expr "TO" _expr ( "BY" _expr )? "DO" statlist "END_FOR" ";"
+
+while_statement: "WHILE" _expr "DO" statlist "END_WHILE" ";"
+
+repeat_statement: "REPEAT" statlist "UNTIL" _expr "END_REPEAT" ";"
+
+exit_statement: "EXIT" ";"
+
+return_statement: "RETURN" ";"
+
+
+// ********************************************************************************
+// Additional Terminals and rules
+// ********************************************************************************
+MS_DURATION: "T#"NUMBER"s"
+FALSE: "FALSE"
+TRUE: "TRUE"
+DDEL1: "("
+DDEL2: ")"
+variable: NAME          //| true.3 | false
+    | NAME"."macro_out
+//nothing_statement: NOTHING
+NOTHING: ";"
+
+
+// ********************************************************************************
+// Lark statements
+// ********************************************************************************
+MULTI_LINE_COMMENT: /\(\*.*?\*\)/s
+SINGLE_LINE_COMMENT: /\s*/ "//" /[^\n]/*
+
+%ignore WS
+%ignore MULTI_LINE_COMMENT
+%ignore SINGLE_LINE_COMMENT
+%import common.NUMBER
+%import common.INT
+%import common.WS
+NAME: /(?!(SEL|XOR|AND|ADD|SUB|MUL|OR|EQ|NEQ\b))[a-zA-Z_]\w*/ // /[a-zA-Z_]\w*/

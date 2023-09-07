@@ -29,7 +29,7 @@ def test_help():
 
 
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\other_examples\TC001_wrong_file.txt", ".", "test_wrong_file"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\other_examples\TC001_wrong_file.txt", ".", "fbd2st1"])
     assert result.exit_code == 1
 
 
@@ -37,73 +37,86 @@ def test_wrong_file():
 
 # test_nobwd_noformal1
 def test_nobwd_noformal1():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "test_nobwd_noformal1"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "fbd2st2"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
+
 
 # test_nobwd_noformal2
 def test_nobwd_noformal2():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_FB.xml", ".", "test_nobwd_noformal2"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_FB.xml", ".", "fbd2st3"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
+
 
 # test_nobwd_noformal3
 def test_nobwd_noformal3():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_FUN.xml", ".", "test_nobwd_noformal3"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_FUN.xml", ".", "fbd2st4"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
+
 
 # test_nobwd_noformal4
 def test_nobwd_noformal4():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "test_nobwd_noformal4"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "fbd2st5"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
-#test_nobwd_formal1
+
+# test_nobwd_formal1
 def test_nobwd_formal1():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "test_nobwd_formal1", "--formal"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "fbd2st6", "--formal"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
-#test_nobwd_formal2
+
+# test_nobwd_formal2
 def test_nobwd_formal2():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "test_nobwd_formal2", "--formal"])
+    result = runner.invoke(cli.app,
+                           ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "fbd2st7", "--formal"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
+
 
 # formal + st2ast not supported by st2ast
 
-#test_bwd_noformal1
+# test_bwd_noformal1
 def test_bwd_noformal1():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "test_bwd_noformal1", "--bwd"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "fbd2st8", "--bwd"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
-#test_bwd_noformal2
+
+# test_bwd_noformal2
 def test_bwd_noformal2():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "test_bwd_noformal2", "--bwd"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "fbd2st9", "--bwd"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
-#test_bwd_formal1
+
+# test_bwd_formal1
 def test_bwd_formal1():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "test_bwd_formal1", "--bwd", "--formal"])
+    result = runner.invoke(cli.app,
+                           ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "fbd2st10", "--bwd", "--formal"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
-#test_bwd_formal2
+
+# test_bwd_formal2
 def test_bwd_formal2():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "test_bwd_formal2", "--bwd", "--formal"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC005_PRG.xml", ".", "fbd2st11", "--bwd",
+                                     "--formal"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
-#test_bwd_noformal_st2ast
+
+# test_bwd_noformal_st2ast
 def test_bwd_noformal_st2ast():
-    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "test_bwd_noformal_st2ast", "--bwd"])
+    result = runner.invoke(cli.app, ["fbd-to-st", r".\tests\plcopen_examples\TC004.xml", ".", "fbd2st12", "--bwd"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
     result = runner.invoke(cli.app,
-                           ["st-parser", r".\PLCreX_outputs\test_bwd_noformal_st2ast.st", ".", "test_bwd_noformal_st2ast"])
+                           ["st-parser", r".\PLCreX_outputs\fbd2st12.st", ".", "fbd2st13"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout

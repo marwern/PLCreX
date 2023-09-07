@@ -29,39 +29,39 @@ def test_help():
 
 
 def test_help_iec_checker():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", "--help_iec_checker"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", "--help_iec_checker", ".", "iec_checker1"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_verbose_st():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", "--verbose"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", "--verbose", ".", "iec_checker2"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_quiet_st():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", r".\bin\iec_checker_Windows_x86_64_v0.4.exe"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\st_examples\TC001.st", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", ".", "iec_checker3"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_wrong_file():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\other_examples\TC001_wrong_file.txt", r".\bin\iec_checker_Windows_x86_64_v0.4.exe"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\other_examples\TC001_wrong_file.txt", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", ".", "iec_checker4"])
     assert result.exit_code == 1
 
 
 def test_verbose_xml():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", "--verbose"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", "--verbose", ".", "iec_checker5"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 
 def test_quiet_xml():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", r".\bin\iec_checker_Windows_x86_64_v0.4.exe"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", r".\bin\iec_checker_Windows_x86_64_v0.4.exe", ".", "iec_checker6"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
 
 def test_wrong_exe():
-    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", r".\bin\_.exe"])
+    result = runner.invoke(cli.app, ["iec-checker", r".\tests\plcopen_examples\TC001.xml", r".\bin\_.exe", ".", "iec_checker7"])
     assert result.exit_code == 1

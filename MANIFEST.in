@@ -5,6 +5,7 @@ prune venv
 prune PLCreX_outputs
 include plcrex/data/grammars/*.lark
 include plcrex/data/tc6/*.xsd
-include plcrex/tools/ds2ts/lib/*.pyd
-include plcrex/tools/fbd2ia/lib/*.pyd
-include plcrex/tools/fbd2st/lib/*.pyd
+include plcrex/tools/ds2ts/tag/*.pyd
+include plcrex/tools/st2ia/tag/*.pyd
+include plcrex/tools/fbd2st/tag/*.pyd
+include plcrex/tools/st2x/tag/*.pyd
