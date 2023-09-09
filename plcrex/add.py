@@ -1,7 +1,7 @@
 #
 # This file is part of PLCreX (https://github.com/marwern/PLCreX).
 #
-# Copyright (c) 2022-2023 Marcel Werner.
+# Copyright (c) 2022-2023 Marcel C. Werner.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ def print_header(script_name:str, version:str):
     print("--------------------------------------------------")
     print(f"Script:\t\t{script_name}")
     print(f"Version:\t{version}")
-    print("Author:\t\tMarcel Werner")
+    print("Author:\t\tMarcel C. Werner")
     print(f"Start:\t\t{current_time} {datetime.date.today()}")
     print("--------------------------------------------------")
 

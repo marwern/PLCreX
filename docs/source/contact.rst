@@ -3,4 +3,4 @@ Contact
 
 .. contact:
 
-Marcel Werner, plcrex.info@gmail.com
+Marcel C. Werner, plcrex.info@gmail.com

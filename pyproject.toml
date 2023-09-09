@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plcrex"
-version = "1.2.0-rc1"
+version = "1.2.0"
 requires-python = ">=3.11"
 authors = [
-  { name="Marcel Werner", email="plcrex.info@gmail.com" },
+  { name="Marcel C. Werner", email="plcrex.info@gmail.com" },
 ]
 description = "PLCreX - Approaches towards the analysis and reuse capabilities of IEC 61131-3 Programmable Logic Controllers"
 readme = "README.md"

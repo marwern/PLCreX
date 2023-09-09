@@ -3,7 +3,7 @@ FBD-to-ST Compiler
 
 .. fbd_to_st:
 
-The FBD-to-ST Compiler translates IEC 61131-3 FBDs stored in PLCopen XML format into ST POUs. In this context, PLCreX supports the translation in different formats, which are shown in the following picture. In general, PLCreX distinguishes between a **formal** representation of the parameter list of instantiated POUs,
+The FBD-to-ST Compiler translates IEC 61131-3 FBDs stored in PLCopen XML format into ST POUs. In this context, PLCreX supports the translation in different formats. In general, PLCreX distinguishes between a **formal** representation of the parameter list of instantiated POUs,
 for example ``TONx(IN := A, PT := B);`` and a **non formal** representation, ``TONx(A,B);``. Furthermore, we distinguish between a **forward** translation strategy and a **backward** translation strategy.
 
 .. warning::
@@ -45,6 +45,8 @@ Example 1: ``--no-formal`` ``--no-bwd``
 
 **Results**
 
+``01.st``
+
 .. code-block:: console
 
         ...
@@ -67,6 +69,8 @@ Example 2: ``--no-formal`` ``--bwd``
 
 **Results**
 
+``02.st``
+
 .. code-block:: console
 
         ...
@@ -86,6 +90,8 @@ Example 3: ``--formal`` ``--no-bwd``
     python -m plcrex fbd-to-st --formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "03"
 
 **Results**
+
+``03.st``
 
 .. code-block:: console
 
@@ -109,6 +115,8 @@ Example 4: ``--formal`` ``--bwd``
     python -m plcrex fbd-to-st --formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "04"
 
 **Results**
+
+``04.st``
 
 .. code-block:: console
 

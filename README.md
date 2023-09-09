@@ -14,7 +14,7 @@ PLCreX - Approaches towards the analysis and reuse capabilities of IEC 61131-3 P
 
 <br />
 <div align="center">
-  <img src="https://github.com/marwern/PLCreX/assets/92115516/69dc84cc-21ff-4881-9f82-62c642bf37ad" width=650> <!-- width=400 -->
+  <img src="https://github.com/marwern/PLCreX/assets/92115516/8532dd0e-577a-487a-985d-8e07cc042bbc" width=650> <!-- width=400 -->
 
   <!-- <h3 align="center">PLCreX</h3> -->
 
@@ -24,7 +24,7 @@ PLCreX - Approaches towards the analysis and reuse capabilities of IEC 61131-3 P
     <br />
     <a href="https://pypi.org/project/plcrex/">Releases</a>
     ·
-    <a href="https://plcrex.readthedocs.io/">Documentation</a>
+    <a href="https://plcrex.readthedocs.io/en">Documentation</a>
     ·
     <a href="#quick-start">Quick Start</a>
     ·
@@ -41,7 +41,7 @@ PLCreX - Approaches towards the analysis and reuse capabilities of IEC 61131-3 P
 
 Quick Start
 ===========
-<strong><a href="https://plcrex.readthedocs.io/">Explore the docs »</a></strong>
+<strong><a href="https://plcrex.readthedocs.io/en">Explore the docs »</a></strong>
 
 * Download IEC-Checker ``v0.4`` via IEC-Checker's GitHub releases [[.url](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)]
 * Download NuSMV symbolic model checker ``v2.6.0`` via NuSMV's homepage [[.url](https://nusmv.fbk.eu/)]
@@ -53,7 +53,7 @@ Quick Start
 Key Features
 ============
 
-<strong><a href="https://plcrex.readthedocs.io/">Explore the docs »</a></strong>
+<strong><a href="https://plcrex.readthedocs.io/en">Explore the docs »</a></strong>
 
 Usage: ``python -m plcrex --help``
 

@@ -3,8 +3,12 @@ FBD-Optimizer
 
 .. fbd_optimizer:
 
-The FBD-Optimizer represents a feature for identifying and optimizing potentially optimizable submodels of real-world dataflow models, where the behavior of the instantiated function blocks is unknown and can be treated as a black box. The optimization approach involves configuration with respect
+The FBD-Optimizer represents a feature for identifying and optimizing potentially optimizable submodels of real-world dataflow models, where the behavior of the instantiated function blocks is unknown and can be treated as a black box. The optimization approach is shown in figure below and involves configuration with respect
 to Halstead’s metrics N (number of edges) ``--edge-opt``, N1 (number of operators) ``--op-opt``, and N2 (variable accesses) ``--var-opt``.
+
+.. figure:: ../fig/fbd_optimizer_designflow_HL.png
+    :align: center
+    :width: 400px
 
 **Usage**
 
@@ -51,6 +55,8 @@ Example 1: ``--edge-opt``
 
 **Results**
 
+``01.st``
+
 .. code-block:: console
 
         ...
@@ -70,6 +76,8 @@ Example 2: ``--op-opt``
 
 **Results**
 
+``02.st``
+
 .. code-block:: console
 
         ...
@@ -88,6 +96,8 @@ Example 3: ``--var-opt``
     python -m plcrex fbd-optimizer --var-opt "tests/real_world_FBDs/Pollutant_Indicator_WITH_ERROR.xml" "bin/NuSMV.exe" ".\exports" "03"
 
 **Results**
+
+``03.st``
 
 .. code-block:: console
 

@@ -28,6 +28,8 @@ Example 1: ``--full`` ``"a|b|c"``
 
 **Results**
 
+``01.log``
+
 .. code-block:: console
 
     Original formula:       a|b|c
@@ -50,6 +52,8 @@ Example 2: ``--no-full`` ``"a|b|c"``
 
 **Results**
 
+``02.log``
+
 .. code-block:: console
 
     Original formula:       a|b|c
@@ -69,6 +73,8 @@ Example 3: ``--full`` ``--constr="a==False"`` ``"a|b|c"``
     python -m plcrex test-case-gen --full --constr="a==False" "a|b|c" ".\exports" "03"
 
 **Results**
+
+``03.log``
 
 .. code-block:: console
 
@@ -91,6 +97,8 @@ Example 4: ``--full`` ``--constr="a==c"`` ``"(a & b) | (c == (d & e))"``
     python -m plcrex test-case-gen --full --constr="a==c" "(a & b) | (c == (d & e))" ".\exports" "04"
 
 **Results**
+
+``04.log``
 
 .. code-block:: console
 

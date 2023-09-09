@@ -68,6 +68,8 @@ Example 1
 
 **Results**
 
+``01.log``
+
 .. code-block:: console
 
     ...

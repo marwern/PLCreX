@@ -4,7 +4,7 @@ ST-Parser
 .. st-parser:
 
 The ST-Parser includes an executable grammar for IEC 61131-3 ST POUs as well as the possibility to save the
-resulting syntax tree visually or as plain text and reuse it for subsequent analysis. The embedded grammar covers the following constructs:
+resulting syntax tree visually or as plain text and reuse it for subsequent analysis. The embedded default grammar covers the following constructs and the ``--beckhoff`` grammar contains almost all ST constructs:
 
 * IEC 61131-3 POU-Types: ``Program``, ``Functionblock``, ``Function``
 * Sections (each available only once): ``VAR_INPUT``, ``VAR``, ``VAR_OUTPUT``, ``VAR_IN_OUT``, ``VAR_EXTERNAL``
