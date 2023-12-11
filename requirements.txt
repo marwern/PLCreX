@@ -6,7 +6,6 @@ colorama==0.4.5
 dicttoxml2==2.1.0
 lark==1.1.7
 pydot==1.4.2
-pyfiglet==0.7.6
 pytest==7.2.0
 rich==13.5.1
 termcolor==2.3.0
