@@ -23,8 +23,8 @@ from plcrex.tools.fbd2st import _fbd2st
 from plcrex.tools.ds2ts import _ds2ts
 from plcrex.tools.st2ast import _st2ast
 from plcrex.tools.st2x import _st2x
-from plcrex.tools.xml_val import _xml_val
-from plcrex.tools.iec_checker import _iec_checker
+from plcrex.tools.xmlval import _xml_val
+from plcrex.tools.iecchecker import _iec_checker
 from plcrex.add import *
 from pathlib import Path
 from plcrex import __app_name__, __version__
@@ -44,7 +44,7 @@ def iec_checker(
         verbose: bool = typer.Option(False, help="print full log"),
         help_: bool = typer.Option(False, "--help_iec_checker", help="call iec-checker help")
 ):
-    """IEC-Checker\t\t*.st → iec_checker → *.log"""
+    """IEC-Checker\t\t*.st → iecchecker → *.log"""
     _iec_checker.cli(source, exe, verbose, export, filename, help_)
     typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
     raise typer.Exit()
@@ -125,7 +125,7 @@ def xml_val(
         source: Path = typer.Argument(help="source path"),
         v201: bool = typer.Option(False, help="use tc6_xml_v201.xsd")
 ):
-    """XML-Validator\t\t*.xml → xml_val → stdout"""
+    """XML-Validator\t\t*.xml → xmlval → stdout"""
     _xml_val.cli(source, v201)
     typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
     raise typer.Exit()
