@@ -14,7 +14,7 @@ PLCreX - Simplification, Transformation, Analysis, and Validation of IEC 61131-3
 
 <br />
 <div align="center">
-  <img src="https://github.com/marwern/PLCreX/assets/92115516/8532dd0e-577a-487a-985d-8e07cc042bbc" width=650> <!-- width=400 -->
+  <img src="https://github.com/marwern/PLCreX/assets/92115516/f144929b-b6d5-4cc5-8041-365b53c9e529" width=650> <!-- width=400 -->
 
   <!-- <h3 align="center">PLCreX</h3> -->
 
@@ -59,15 +59,15 @@ Usage: ``python -m plcrex --help``
 
 <img src="https://github.com/marwern/PLCreX/assets/92115516/d8780836-7345-49e2-a62e-2f9584392e5e" width=650> <!-- width=250 -->
 
-| Tool                | Usage                                                         | Script      | Version  | Design flow                           |
-|---------------------|---------------------------------------------------------------|-------------|----------|---------------------------------------|
-| FBD-Optimizer       | ``plcrex fbd-optimizer [OPTIONS] SOURCE EXE EXPORT FILENAME`` | st2x        | 2.2.0    | *.xml → fbd2st → *.st → st2x → *.st   |
-| FBD-to-ST Compiler  | ``plcrex fbd-to-st [OPTIONS] SOURCE EXPORT FILENAME``         | fbd2st      | 1.4.0    | *.xml → fbd2st → *.st                 |
-| IEC-Checker         | ``plcrex iec-checker [OPTIONS] SOURCE EXE EXPORT FILENAME``   | iec_checker | 1.2.0    | *.st → iec_checker → *.log            |
-| I/O-Impact Analysis | ``plcrex impact-analysis [OPTIONS] SOURCE EXPORT FILENAME``   | st2ia       | 1.4.1    | *.xml → fbd2st → *.st → st2ia → *.dot |
-| ST-Parser           | ``plcrex st-parser [OPTIONS] SOURCE EXPORT FILENAME``         | st2ast      | 1.2.0    | *.st → st2ast → *.dot/*.txt           |
-| Test-Case-Generator | ``plcrex test-case-gen [OPTIONS] FORMULA EXPORT FILENAME``    | ds2ts       | 2.1.2    | FORMULA:str → ds2ts → *.log           |
-| XML-Validator       | ``plcrex xml-validator [OPTIONS] SOURCE``                     | xml_val     | 1.2.0    | *.xml → xml_val → stdout              |
+| Tool                | Usage                                                         | Script      | Version | Design flow                           |
+|---------------------|---------------------------------------------------------------|-------------|---------|---------------------------------------|
+| FBD-Optimizer       | ``plcrex fbd-optimizer [OPTIONS] SOURCE EXE EXPORT FILENAME`` | st2x        | 2.3.0   | *.xml → fbd2st → *.st → st2x → *.st   |
+| FBD-to-ST Compiler  | ``plcrex fbd-to-st [OPTIONS] SOURCE EXPORT FILENAME``         | fbd2st      | 1.4.0   | *.xml → fbd2st → *.st                 |
+| IEC-Checker         | ``plcrex iec-checker [OPTIONS] SOURCE EXE EXPORT FILENAME``   | iec_checker | 1.2.0   | *.st → iec_checker → *.log            |
+| I/O-Impact Analysis | ``plcrex impact-analysis [OPTIONS] SOURCE EXPORT FILENAME``   | st2ia       | 1.4.1   | *.xml → fbd2st → *.st → st2ia → *.dot |
+| ST-Parser           | ``plcrex st-parser [OPTIONS] SOURCE EXPORT FILENAME``         | st2ast      | 1.2.0   | *.st → st2ast → *.dot/*.txt           |
+| Test-Case-Generator | ``plcrex test-case-gen [OPTIONS] FORMULA EXPORT FILENAME``    | ds2ts       | 2.1.2   | FORMULA:str → ds2ts → *.log           |
+| XML-Validator       | ``plcrex xml-validator [OPTIONS] SOURCE``                     | xml_val     | 1.2.0   | *.xml → xml_val → stdout              |
 
 > **_NOTE:_**  Use the "--help" option to see feature details
 
