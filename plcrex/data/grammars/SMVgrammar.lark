@@ -99,7 +99,7 @@ macro_parameter: NAME ":=" _expr
 // ********************************************************************************
 // Boolean operators
 // ********************************************************************************
-not: "!"_expr
+nott: "!"_expr
 and: "("_expr ("&"_expr)* ")"
 xor: "(" _expr ")xor("_expr ")"
 or: "("_expr ("|"_expr)* ")"
@@ -130,9 +130,9 @@ _expr: equality
 	| modulo
 	| adding
 	| subtracting
-	| "(" _expr ")"
+	//| "(" _expr ")" //commented due to stability 11/10/2023
 	| constant
-	| not
+	| nott
 	| and
 	| xor
 	| or
@@ -144,9 +144,12 @@ _expr: equality
 	| greater_or_equal
 	| less_than
 	| greater_than
-	//| FALSE
-	//| TRUE
+	| false
+	| true
     | macro
+
+false: FALSE
+true: TRUE
 
 minus_expression.3: "-" _expr
 
@@ -231,7 +234,7 @@ return_statement: "RETURN" ";"
 // Additional Terminals and rules
 // ********************************************************************************
 MS_DURATION: "T#"NUMBER"s"
-//FALSE: "FALSE"
+FALSE: "FALSE"
 TRUE: "TRUE"
 DDEL1: "("
 DDEL2: ")"

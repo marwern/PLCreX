@@ -99,7 +99,7 @@ macro_parameter: NAME ":=" _expr
 // ********************************************************************************
 // Boolean operators
 // ********************************************************************************
-not: "Not" "("? _expr ")"?
+nott: "Not" "("? _expr ")"?
 and: "And("_expr(","_expr)*")"
 xor: "Xor("_expr","_expr")"
 or: "Or(" _expr (","_expr)* ")"
@@ -133,7 +133,7 @@ _expr: equality
 	| subtracting
 	//| "(" _expr ")" //commented 20/03/2023, 22:19 due to unstable reconstruct in step 10
 	| constant
-	| not
+	| nott
 	| and
 	| xor
 	| or
@@ -143,9 +143,12 @@ _expr: equality
 	| greater_or_equal
 	| less_than
 	| greater_than
-	| FALSE
-	| TRUE
+	| false
+	| true
     | macro
+
+false: FALSE
+true: TRUE
 
 minus_expression.3: "-" _expr
 
@@ -215,8 +218,8 @@ return_statement: "RETURN" ";"
 // Additional Terminals and rules
 // ********************************************************************************
 MS_DURATION: "T#"NUMBER"s"
-FALSE: "FALSE"
-TRUE: "TRUE"
+FALSE: "False"
+TRUE: "True"
 DDEL1: "("
 DDEL2: ")"
 variable: NAME          //| true.3 | false
@@ -237,4 +240,4 @@ SINGLE_LINE_COMMENT: /\s*/ "//" /[^\n]/*
 %import common.NUMBER
 %import common.INT
 %import common.WS
-NAME: /(?!(If|Xor|And|Add|Sub|Mul|Or\b))[a-zA-Z_]\w*/ // /[a-zA-Z_]\w*/
+NAME: /(?!(True|False|TRUE|FALSE|If|Xor|And|Add|Sub|Mul|Or\b))[a-zA-Z_]\w*/ // /[a-zA-Z_]\w*/

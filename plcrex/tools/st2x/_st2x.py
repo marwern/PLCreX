@@ -17,7 +17,7 @@
 #
 
 from plcrex.tools.fbd2st import _fbd2st
-from plcrex.tools.st2x.tag.st2x_R2_2_0 import *
+from plcrex.tools.st2x.tag.st2x_R2_3_0 import *
 from plcrex.add import *
 from pathlib import Path
 import os
@@ -36,7 +36,7 @@ def cli(source: Path, export: Path, filename: str, exe: Path, edge_opt: bool, va
         # 2. ST-to-X Translation
         translation(Path(fr'{dir_path}\{filename}.st'),
                     dir_path, filename, exe,
-                    edge_opt, var_opt, op_opt, True)
+                    edge_opt, var_opt, op_opt, edge_opt or var_opt or op_opt, "")
 
     else:
         raise RuntimeError("no xml file found")

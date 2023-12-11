@@ -99,7 +99,7 @@ macro_parameter: NAME ":=" _expr
 // ********************************************************************************
 // Boolean operators
 // ********************************************************************************
-not: "NOT" "(" _expr ")"
+nott: "NOT" "(" _expr ")"
 and: "AND("_expr ","_expr (","_expr)*")"
 xor: "XOR("_expr","_expr")"
 or: "OR(" _expr ","_expr (","_expr)* ")"
@@ -133,7 +133,7 @@ _expr: equality
 	| subtracting
 	| "(" _expr ")"
 	| constant
-	| not
+	| nott
 	| and
 	| xor
 	| or
@@ -143,9 +143,12 @@ _expr: equality
 	| greater_or_equal
 	| less_than
 	| greater_than
-	| FALSE
-	| TRUE
+	| false
+	| true
     | macro
+
+false: FALSE
+true: TRUE
 
 minus_expression.3: "-" _expr
 
@@ -237,4 +240,4 @@ SINGLE_LINE_COMMENT: /\s*/ "//" /[^\n]/*
 %import common.NUMBER
 %import common.INT
 %import common.WS
-NAME: /(?!(SEL|XOR|AND|ADD|SUB|MUL|OR|EQ|NEQ\b))[a-zA-Z_]\w*/ // /[a-zA-Z_]\w*/
+NAME: /(?!(True|False|TRUE|FALSE|SEL|XOR|AND|ADD|SUB|MUL|OR|EQ|NEQ\b))[a-zA-Z_]\w*/ // /[a-zA-Z_]\w*/
