@@ -114,7 +114,7 @@ def fbd_opt(
         var_opt: bool = typer.Option(False, help="optimize variables"),
         op_opt: bool = typer.Option(False, help="optimize operators")
 ):
-    """FBD-Optimizer\t\t*.xml → fbd2st → *.st → st2x → *.st"""
+    """FBD-Optimizer\t\t*.xml → fbd2st → *.st → st2x → *.st/*.sctx"""
     _st2x.cli(source, export, filename, exe, edge_opt, var_opt, op_opt)
     typer.echo("\n" + typer.style("Success!", fg=typer.colors.GREEN, bold=True))
     raise typer.Exit()

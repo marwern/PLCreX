@@ -18,8 +18,13 @@
 
 import os
 import sys
-import tomllib
+#import tomllib #need Python 3.11
 import time
+
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib
 
 with open("../../pyproject.toml", "rb") as f:
     _META = tomllib.load(f)

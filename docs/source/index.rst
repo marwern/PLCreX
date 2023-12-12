@@ -1,5 +1,5 @@
-PLCreX - Approaches towards the analysis and reuse capabilities of IEC 61131-3 Programmable Logic Controllers
-=============================================================================================================
+PLCreX - Simplification, Transformation, Analysis, and Validation of IEC 61131-3 Programmable Logic Controllers
+===============================================================================================================
 
 .. index:
 
@@ -8,7 +8,7 @@ About PLCreX
 
 PLCreX is a modular command-line interface application tailored for IEC 61131-3 Programmable Logic Controllers (PLCs) and beyond. It's designed with a focus on issues such as review, redesign, reuse, and reliability, among others. This project is driven by our ongoing research and we're committed to progressively integrating new features. PLCreX serves as a comprehensive suite of analysis and reuse capabilities for existing IEC 61131-3 Program Organization Units (POUs) implemented in Function Block Diagrams (FBDs) or Structured Text (ST).
 
-.. figure:: ../fig/overview_v3.png
+.. figure:: ../fig/overview_v3.svg
    :align: center
 
 |

@@ -6,7 +6,7 @@ Installation
 Prerequisites
 -------------
 
-* Python v3.11 [`.url <https://www.python.org/downloads/>`_]
+* Python v3.9 [`.url <https://www.python.org/downloads/>`_]
 * Operating System: Windows
 
 PLCreX Installation via PyPI
