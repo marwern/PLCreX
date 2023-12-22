@@ -100,7 +100,7 @@ PLCreX and its dependencies are licensed as follows:
 
 | Tool        | Version  | License   |
 |-------------|----------|-----------|
-| PLCreX      | 1.3.0-RC | GPLv3     |
+| PLCreX      | 1.3.0 | GPLv3     |
 | IEC-Checker | 0.4      | LGPL v3.0 |
 | NuSMV       | 2.6.0    | LGPL v2.1 |
 
