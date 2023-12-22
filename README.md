@@ -48,8 +48,9 @@ Quick Start
 * Download NuSMV symbolic model checker ``v2.6.0`` via NuSMV's homepage [[.url](https://nusmv.fbk.eu/)]
 * Install PLCreX via PyPI: ``pip install plcrex`` or
 * Install PLCreX via PLCreX's GitHub repository: ``install-windows.bat``
-     * [optional] Run local tests: ``coverage run -m pytest ./tests/ --verbose``
      * Activate virtual environment (venv): ``run.bat``
+     * [optional] Run local tests: ``coverage run -m pytest ./tests/ --verbose``
+
 
 Key Features
 ============
