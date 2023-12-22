@@ -16,17 +16,14 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.ds2ts.tag.ds2ts_R2_1_2 import *
+from plcrex.tools.ds2ts.tag.ds2ts_R3_1_0 import *
 from pathlib import Path
 from plcrex.add import *
 import os
 
-def cli(formula:str, constr:str, full:bool, export:Path, filename:str):
+
+def cli(formula:str, sc:bool, dc:bool, mcdc:bool, mcc:bool):
     print_header(os.path.basename(__file__)[1:-3], get_version())
-    dir_path = Path(fr'{export}\PLCreX_outputs')
-    # Ensure the directory exists
-    os.makedirs(dir_path, exist_ok=True)
-    dest = Path(fr'{dir_path}\{filename}.log')
-    create(formula, constr, full, dest, "default")
+    create(formula, sc, dc, mcdc, mcc)
     print_runtime()
     return

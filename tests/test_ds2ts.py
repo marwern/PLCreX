@@ -29,6 +29,21 @@ def test_help():
 
 
 def test_ds2ts_001():
-    result = runner.invoke(cli.app, ["test-case-gen", "a&b", ".", "dsts001"])
+    result = runner.invoke(cli.app, ["test-case-gen", "a&b"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+def test_ds2ts_002():
+    result = runner.invoke(cli.app, ["test-case-gen", "--sc", "a&b"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+def test_ds2ts_003():
+    result = runner.invoke(cli.app, ["test-case-gen", "--mcdc", "a&b"])
+    assert result.exit_code == 0
+    assert f"Success!" in result.stdout
+
+def test_ds2ts_004():
+    result = runner.invoke(cli.app, ["test-case-gen", "--mcc", "a&b"])
     assert result.exit_code == 0
     assert f"Success!" in result.stdout
