@@ -46,7 +46,6 @@ Quick Start
 * Download Python ``v3.9`` [[.url](https://www.python.org/downloads/release/python-390/)]
 * Download IEC-Checker ``v0.4`` via IEC-Checker's GitHub releases [[.url](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)]
 * Download NuSMV symbolic model checker ``v2.6.0`` via NuSMV's homepage [[.url](https://nusmv.fbk.eu/)]
-* Download PyEDA ``v0.28.0`` [[.url](https://pyeda.readthedocs.io/en/latest/install.html)]
 * Install PLCreX via PyPI: ``pip install plcrex`` or
 * Install PLCreX via PLCreX's GitHub repository: ``install-windows.bat``
      * [optional] Run local tests: ``coverage run -m pytest ./tests/ --verbose``
