@@ -34,9 +34,29 @@ The IEC-Checker is an external tool for static code analysis of IEC 61131-3 POUs
 
     python -m plcrex iec-checker --help
 
-.. figure:: ../fig/iec_checker_demo.png
-    :align: center
-    :width: 600px
+.. code:: console
+
+         Usage: plcrex iec-checker [OPTIONS] SOURCE EXE EXPORT FILENAME
+
+         IEC-Checker             *.st → iecchecker → *.log
+
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source        PATH  source path [default: None] [required]                                                                                          │
+        │ *    exe           PATH  iec_checker_Windows_x86_64_v0.4.exe path [default: None] [required]                                                             │
+        │ *    export        PATH  export path [default: None] [required]                                                                                          │
+        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ --verbose             --no-verbose      print full log [default: no-verbose]                                                                             │
+        │ --help_iec_checker                      call iec-checker help                                                                                            │
+        │ --help                                  Show this message and exit.                                                                                      │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+..
+    .. figure:: ../fig/iec_checker_demo.png
+        :align: center
+        :width: 600px
 
 |
 

@@ -20,9 +20,30 @@ resulting syntax tree visually or as plain text and reuse it for subsequent anal
 
     python -m plcrex st-parser --help
 
-.. figure:: ../fig/st_parser_demo.png
-    :align: center
-    :width: 600px
+
+.. code:: console
+
+         Usage: plcrex st-parser [OPTIONS] SOURCE EXPORT FILENAME
+
+         ST-Parser               *.st → st2ast → *.dot/*.txt
+
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source        PATH  source path [default: None] [required]                                                                                          │
+        │ *    export        PATH  export path [default: None] [required]                                                                                          │
+        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ --txt         --no-txt           tree export as *.txt [default: txt]                                                                                     │
+        │ --dot         --no-dot           tree export as *.dot [default: dot]                                                                                     │
+        │ --beckhoff    --no-beckhoff      use Beckhoff TwinCAT ST grammar [default: no-beckhoff]                                                                  │
+        │ --help                           Show this message and exit.                                                                                             │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+..
+    .. figure:: ../fig/st_parser_demo.png
+        :align: center
+        :width: 600px
 
 |
 

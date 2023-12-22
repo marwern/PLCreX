@@ -11,9 +11,27 @@ The I/O-Impact Analysis feature identifies the dependencies between POU outputs 
 
     python -m plcrex impact-analysis --help
 
-.. figure:: ../fig/impact_analysis_demo.png
-    :align: center
-    :width: 600px
+
+.. code:: console
+
+         Usage: plcrex impact-analysis [OPTIONS] SOURCE EXPORT FILENAME
+
+         I/O-Impact Analysis     *.xml → fbd2st → *.st → st2ia → *.dot
+
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source        PATH  source path [default: None] [required]                                                                                          │
+        │ *    export        PATH  export path [default: None] [required]                                                                                          │
+        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ --help          Show this message and exit.                                                                                                              │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+..
+    .. figure:: ../fig/impact_analysis_demo.png
+        :align: center
+        :width: 600px
 
 |
 

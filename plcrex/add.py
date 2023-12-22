@@ -73,24 +73,13 @@ def print_runtime():
     print(f"Runtime: %s seconds" % format((time.time() - start_time), ".3f"))
 
 # decorator to print name header before every output
-def print_plcrex_header():
-    #print(colored(pyfiglet.figlet_format("PLCreX", font="ANSI Shadow", width=600), 'green'))
-    #"Patorjk's Cheese" font by patorjk (patorjk@gmail.com) and x98.
-    #ANSI Shadow.flf is not part of pyfiglet v0.7.6
-    #changed manually: E -> e, R->r
-    #print(typer.style("""
- #██████╗ ██╗      ██████╗██████╗ ███████╗██╗  ██╗
- #██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝╚██╗██╔╝
- #██████╔╝██║     ██║     ██████╔╝█████╗   ╚███╔╝
- #██╔═══╝ ██║     ██║     ██╔══██╗██╔══╝   ██╔██╗
- #██║     ███████╗╚██████╗██║  ██║███████╗██╔╝ ██╗
- #╚═╝     ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝""", fg=typer.colors.BRIGHT_YELLOW, bold=True))
-    print(typer.style("""
- ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
- ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
- ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
- ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
- ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
- ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
- """, fg=typer.colors.BRIGHT_YELLOW, bold=True))
-    return
+#def print_plcrex_header():
+#    print(typer.style("""
+# ██████╗  ██╗       ██████╗  █████╗   █████╗  ██╗  ██╗
+# ██╔══██╗ ██║      ██╔════╝ ██╔══██╗ ██╔══██╗ ╚██╗██╔╝
+# ██████╔╝ ██║      ██║      ██║  ╚═╝ ██████╔╝  ╚███╔╝
+# ██╔═══╝  ██║      ██║      ██║      ██╔═══╝   ██╔██╗
+# ██║      ███████╗ ╚██████╗ ██║      ╚█████╗  ██╔╝ ██╗
+# ╚═╝      ╚══════╝  ╚═════╝ ╚═╝       ╚════╝  ╚═╝  ╚═╝
+# """, fg=typer.colors.BRIGHT_YELLOW, bold=True))
+#v    return

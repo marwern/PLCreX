@@ -8,6 +8,7 @@ Prerequisites
 
 * Python v3.9 [`.url <https://www.python.org/downloads/>`_]
 * Operating System: Windows
+* PyEDA v0.28.0 [`.url <https://pyeda.readthedocs.io/en/latest/install.html>`_]
 
 PLCreX Installation via PyPI
 ----------------------------

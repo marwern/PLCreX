@@ -16,9 +16,30 @@ to Halstead’s metrics N (number of edges) ``--edge-opt``, N1 (number of operat
 
     python -m plcrex fbd-optimizer --help
 
-.. figure:: ../fig/fbd_optimizer_demo.png
-    :align: center
-    :width: 600px
+
+.. code:: console
+
+         Usage: plcrex fbd-optimizer [OPTIONS] SOURCE EXE EXPORT FILENAME
+
+         FBD-Optimizer           *.xml → fbd2st → *.st → st2x → *.st/*.sctx
+
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source        PATH  source path [default: None] [required]                                                                                          │
+        │ *    exe           PATH  NuSMV.exe path [default: None] [required]                                                                                       │
+        │ *    export        PATH  export path [default: None] [required]                                                                                          │
+        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ --edge-opt    --no-edge-opt      optimize edges [default: no-edge-opt]                                                                                   │
+        │ --var-opt     --no-var-opt       optimize variables [default: no-var-opt]                                                                                │
+        │ --op-opt      --no-op-opt        optimize operators [default: no-op-opt]                                                                                 │
+        │ --help                           Show this message and exit.                                                                                             │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+..
+    .. figure:: ../fig/fbd_optimizer_demo.png
+        :align: center
+        :width: 600px
 
 |
 

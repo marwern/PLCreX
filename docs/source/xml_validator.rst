@@ -12,9 +12,25 @@ The PLCopen XML-Validator feature uses ``tc6_xml_v201.xsd`` and ``tc6_xml_v10.xs
 
     python -m plcrex xml-validator --help
 
-.. figure:: ../fig/xml_validator_demo.png
-    :align: center
-    :width: 600px
+.. code:: console
+
+         Usage: plcrex xml-validator [OPTIONS] SOURCE
+
+         XML-Validator           *.xml → xmlval → stdout
+
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source      PATH  source path [default: None] [required]                                                                                            │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ --v201    --no-v201      use tc6_xml_v201.xsd [default: no-v201]                                                                                         │
+        │ --help                   Show this message and exit.                                                                                                     │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+..
+    .. figure:: ../fig/xml_validator_demo.png
+        :align: center
+        :width: 600px
 
 |
 

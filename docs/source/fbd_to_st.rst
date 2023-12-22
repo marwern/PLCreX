@@ -17,9 +17,29 @@ for example ``TONx(IN := A, PT := B);`` and a **non formal** representation, ``T
 
     python -m plcrex fbd-to-st --help
 
-.. figure:: ../fig/fbd_to_st_demo.png
-    :align: center
-    :width: 600px
+
+.. code:: console
+
+         Usage: plcrex fbd-to-st [OPTIONS] SOURCE EXPORT FILENAME
+
+         FBD-to-ST Compiler      *.xml → fbd2st → *.st
+
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source        PATH  source path [default: None] [required]                                                                                          │
+        │ *    export        PATH  export path [default: None] [required]                                                                                          │
+        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+        │ --bwd       --no-bwd         use backward translation [default: no-bwd]                                                                                  │
+        │ --formal    --no-formal      formal parameter list [default: no-formal]                                                                                  │
+        │ --help                       Show this message and exit.                                                                                                 │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+..
+    .. figure:: ../fig/fbd_to_st_demo.png
+        :align: center
+        :width: 600px
 
 |
 

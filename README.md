@@ -46,9 +46,7 @@ Quick Start
 * Download Python ``v3.9`` [[.url](https://www.python.org/downloads/release/python-390/)]
 * Download IEC-Checker ``v0.4`` via IEC-Checker's GitHub releases [[.url](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)]
 * Download NuSMV symbolic model checker ``v2.6.0`` via NuSMV's homepage [[.url](https://nusmv.fbk.eu/)]
-* Download Windows wheel distribution of PyEDA ``v0.28.0``
-  * I highly recommend Christophe Gohlke’s pythonlibs page [[.url](https://www.lfd.uci.edu/~gohlke/pythonlibs/)] 
-  * You may need to install the Visual Studio 2012 Redistributable [[.url](https://www.microsoft.com/en-us/download/details.aspx?id=30679)]
+* Download PyEDA ``v0.28.0`` [[.url](https://pyeda.readthedocs.io/en/latest/install.html)]
 * Install PLCreX via PyPI: ``pip install plcrex`` or
 * Install PLCreX via PLCreX's GitHub repository: ``install-windows.bat``
      * [optional] Run local tests: ``coverage run -m pytest ./tests/ --verbose``
@@ -89,11 +87,11 @@ Usage: ``python -m plcrex --help``
 |---------------------|---------------------------------------------------------------|-------------|---------|----------------------------------------------|
 | FBD-Optimizer       | ``plcrex fbd-optimizer [OPTIONS] SOURCE EXE EXPORT FILENAME`` | st2x        | 2.3.0   | *.xml → fbd2st → *.st → st2x → *.st / *.sctx |
 | FBD-to-ST Compiler  | ``plcrex fbd-to-st [OPTIONS] SOURCE EXPORT FILENAME``         | fbd2st      | 1.4.0   | *.xml → fbd2st → *.st                        |
-| IEC-Checker         | ``plcrex iec-checker [OPTIONS] SOURCE EXE EXPORT FILENAME``   | iec_checker | 1.2.0   | *.st → iec_checker → *.log                   |
+| IEC-Checker         | ``plcrex iec-checker [OPTIONS] SOURCE EXE EXPORT FILENAME``   | iecchecker | 1.2.0   | *.st → iecchecker → *.log                   |
 | I/O-Impact Analysis | ``plcrex impact-analysis [OPTIONS] SOURCE EXPORT FILENAME``   | st2ia       | 1.4.1   | *.xml → fbd2st → *.st → st2ia → *.dot        |
 | ST-Parser           | ``plcrex st-parser [OPTIONS] SOURCE EXPORT FILENAME``         | st2ast      | 1.2.0   | *.st → st2ast → *.dot / *.txt                |
 | Test-Case-Generator | ``plcrex test-case-gen [OPTIONS] FORMULA EXPORT FILENAME``    | ds2ts       | 3.1.0  | FORMULA:str → ds2ts → stdout                 |
-| XML-Validator       | ``plcrex xml-validator [OPTIONS] SOURCE``                     | xml_val     | 1.2.0   | *.xml → xml_val → stdout                     |
+| XML-Validator       | ``plcrex xml-validator [OPTIONS] SOURCE``                     | xmlval     | 1.2.0   | *.xml → xmlval → stdout                     |
 
 > **_NOTE:_**  Use the "--help" option to see feature details
 
