@@ -17,7 +17,7 @@
 #
 
 from plcrex.add import *
-from plcrex.tools.iecchecker.tag.iec_checker_R1_2_0 import *
+from plcrex.tools.iecchecker.tag.iec_checker_R1_2_1 import *
 from pathlib import Path
 import os
 

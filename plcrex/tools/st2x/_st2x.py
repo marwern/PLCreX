@@ -17,7 +17,7 @@
 #
 
 from plcrex.tools.fbd2st import _fbd2st
-from plcrex.tools.st2x.tag.st2x_R2_3_0 import *
+from plcrex.tools.st2x.tag.st2x_R2_3_1 import *
 from plcrex.add import *
 from pathlib import Path
 import os

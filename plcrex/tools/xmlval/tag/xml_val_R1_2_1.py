@@ -23,7 +23,7 @@ import os
 
 
 def get_version():
-    return os.path.basename(__file__)[-9:-3]
+    return os.path.basename(__file__)#[-9:-3]
 
 
 def validate(xml_file: Path, validation_file: str):

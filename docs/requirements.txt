@@ -1,6 +1,13 @@
-sphinx==6.2.1
-sphinx_rtd_theme==1.2.2
-sphinx_markdown_tables==0.0.17
 myst-parser==2.0.0
 sphinx-press-theme==0.8.0
-rst2pdf==0.100
+rst2pdf==0.101
+Sphinx==7.2.6
+sphinx-markdown-tables==0.0.17
+sphinx-rtd-theme==2.0.0
+sphinxcontrib-applehelp==1.0.7
+sphinxcontrib-devhelp==1.0.5
+sphinxcontrib-htmlhelp==2.0.4
+sphinxcontrib-jquery==4.1
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.6
+sphinxcontrib-serializinghtml==1.1.9

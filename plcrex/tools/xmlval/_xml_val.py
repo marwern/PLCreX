@@ -16,7 +16,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.xmlval.tag.xml_val_R1_2_0 import *
+from plcrex.tools.xmlval.tag.xml_val_R1_2_1 import *
 from pathlib import Path
 from plcrex.add import *
 

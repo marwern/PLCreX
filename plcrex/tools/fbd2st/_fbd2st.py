@@ -16,7 +16,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.fbd2st.tag.fbd2st_R1_4_0 import *
+from plcrex.tools.fbd2st.tag.fbd2st_R1_4_1 import *
 from plcrex.add import *
 from pathlib import Path
 import os

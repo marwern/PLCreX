@@ -16,7 +16,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from plcrex.tools.st2ast.tag.st2ast_R1_2_0 import *
+from plcrex.tools.st2ast.tag.st2ast_R1_2_1 import *
 from pathlib import Path
 import os
 
