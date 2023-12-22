@@ -3,61 +3,75 @@ Test-Case-Generator
 
 .. test_case_gen:
 
-This feature automatically creates test cases based on a Boolean expression. Specifically, the user can choose between test cases intended to get ``statement coverage``, ``decision coverage``, ``modified condition/decision coverage``, or ``multiple condition coverage``.
+This feature automatically creates test cases based on a Boolean expression. Specifically, the user can choose between test cases intended to achieve ``statement coverage``, ``decision coverage``, ``modified condition/decision coverage``, or ``multiple condition coverage``.
 
+Types of Code Coverage
+-----------------------
 
-**Types of code coverage**
+The different types of coverage are listed below and defined as follows [`A Practical Tutorial on Modified Condition/
+Decision Coverage <https://shemesh.larc.nasa.gov/fm/papers/Hayhurst-2001-tm210876-MCDC.pdf>`_]:
 
-The differences of different types of coverage are listed below [`Rapita Systems Ltd. 2023 <https://www.rapitasystems.com/mcdc-coverage>`_].
+* Statement Coverage (SC)
+    Each executable statement in a program is called at least once.
+
+* Decision Coverage (DC)
+    Decision coverage requires two test cases: one for a ``true`` outcome and one for a ``false`` outcome.
+
+* Modified Condition/Decision Coverage (MCDC)
+    Every condition is independently proved to affect the outcome of the decision. The independence requirement ensures that the effect of each condition is tested with respect to the other conditions.
+
+* Multiple Condition Coverage (MCC)
+    MCC requires test cases that ensure that every possible combination of inputs to a decision is executed at least once.
 
 .. list-table::
-   :widths: 50 5 5 5 5
+   :widths: 25 5 5 5 5
    :header-rows: 1
 
    * - Coverage criteria
-     - Statement coverage
-     - Decision coverage
-     - MC/DC coverage
-     - Multiple condition coverage
-   * - Every statement in the program has been invoked at least once
+     - SC
+     - DC
+     - MCDC
+     - MCC
+   * - | Every statement in the program
+       | has been invoked at least once
      - x
-     -
-     -
-     -
-   * - Every point of entry and exit in the program has been invoked at least once
-     -
-     - x
-     - x
-     - x
-   * - Every control statement (i.e., branchpoint) in the program has taken all possible outcomes (i.e., branches) at least once
+     - x [1]_
+     - x [1]_
+     - x [1]_
+   * - | Every decision in the program has
+       | taken all possible outcomes at least
+       | once
      -
      - x
      - x
      - x
-   * - Every non-constant Boolean expression in the program has evaluated to both a True and False result
-     -
-     - x
-     - x
-     - x
-   * - Every non-constant condition in a Boolean expression in the program has evaluated to both a True and False result
+   * - | Every condition in a decision in the
+       | program has taken all possible
+       | outcomes at least once
      -
      -
      - x
      - x
-   * - Every non-constant condition in a Boolean expression in the program has been shown to independently affect that expression's outcome
-     -
-     -
-     - x
-     - x
-   * - Every combination of condition outcomes within a decision has been invoked at least once
+   * - | Every combination of condition
+       | outcomes within a decision has
+       | been invoked at least once
      -
      -
      -
      - x
+   * - Number of test cases
+     - 1
+     - 2
+     - n+1
+     - n²
 
-
+.. figure:: ../fig/coverage_comparison.png
+        :align: center
+        :width: 800px
 
 **Operators**
+
+The following operators are supported:
 
 .. list-table::
    :widths: 25 25
@@ -252,3 +266,5 @@ Example 4: ``--mcc`` ``"(a & b) | (c <=> (d & e))"``
     0 1 1 1 1 : 1           > test case 31
     1 1 1 1 1 : 1           > test case 32
     ...
+
+.. [1] based on a given Boolean expression as a statement
