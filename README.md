@@ -47,8 +47,8 @@ Quick Start
 * Download IEC-Checker ``v0.4`` via IEC-Checker's GitHub releases [[.url](https://github.com/jubnzv/iec-checker/releases/tag/v0.4)]
 * Download NuSMV symbolic model checker ``v2.6.0`` via NuSMV's homepage [[.url](https://nusmv.fbk.eu/)]
 * Download Windows wheel distribution of PyEDA ``v0.28.0``
-* * I highly recommend Christophe Gohlke’s pythonlibs page [[.url](https://www.lfd.uci.edu/~gohlke/pythonlibs/)] 
-* * You may need to install the Visual Studio 2012 Redistributable [[.url](https://www.microsoft.com/en-us/download/details.aspx?id=30679)]
+  * I highly recommend Christophe Gohlke’s pythonlibs page [[.url](https://www.lfd.uci.edu/~gohlke/pythonlibs/)] 
+  * You may need to install the Visual Studio 2012 Redistributable [[.url](https://www.microsoft.com/en-us/download/details.aspx?id=30679)]
 * Install PLCreX via PyPI: ``pip install plcrex`` or
 * Install PLCreX via PLCreX's GitHub repository: ``install-windows.bat``
      * [optional] Run local tests: ``coverage run -m pytest ./tests/ --verbose``
@@ -58,8 +58,6 @@ Key Features
 ============
 
 ```
-(venv) C:\PLCreX>python -m plcrex --help
-
  Usage: plcrex [OPTIONS] COMMAND [ARGS]...
 
 ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -85,9 +83,7 @@ Key Features
 
 Usage: ``python -m plcrex --help``
 
-<!---
-<img src="https://github.com/marwern/PLCreX/assets/92115516/1afecd73-a1b0-4c84-98e5-53086f684483" width=650> <!-- width=250 -->
--->
+<!--- <img src="https://github.com/marwern/PLCreX/assets/92115516/1afecd73-a1b0-4c84-98e5-53086f684483" width=650> --->
 
 | Tool                | Usage                                                         | Script      | Version | Design flow                                  |
 |---------------------|---------------------------------------------------------------|-------------|---------|----------------------------------------------|
