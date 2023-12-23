@@ -3,8 +3,8 @@ FBD-Optimizer
 
 .. fbd_optimizer:
 
-The FBD-Optimizer represents a feature for identifying and optimizing potentially optimizable submodels of real-world dataflow models, where the behavior of the instantiated function blocks is unknown and can be treated as a black box. The optimization approach is shown in figure below and involves configuration with respect
-to Halstead’s metrics N (number of edges) ``--edge-opt``, N1 (number of operators) ``--op-opt``, and N2 (variable accesses) ``--var-opt``.
+The FBD-Optimizer represents a feature for optimizing FBDs, where the behavior of instantiated function blocks can be unknown. The optimization approach is shown in figure below and involves configuration with respect
+to Halstead’s metrics N (number of edges) ``--edge-opt``, N1 (number of operators) ``--op-opt``, and N2 (variable accesses) ``--var-opt``. Furthermore, this feature translates FBDs into synchronous SCCharts for reuse in model-based design of reactive systems and formal verification [1]_.
 
 .. figure:: ../fig/fbd_optimizer_designflow_HL.png
     :align: center
@@ -115,6 +115,13 @@ Example 1: ``--no-edge-opt``, ``--no-var-opt``, ``--no-op-opt``
      OUT3=(IN1&IN2&IN3)
      seq}}
 
+.. figure:: ../fig/no_opt_example.png
+        :align: center
+        :width: 300px
+
+
+|
+
 
 Example 2: ``--edge-opt``
 --------------------------
@@ -174,3 +181,13 @@ Example 2: ``--edge-opt``
      seq
      OUT3=(IN1&IN2&IN3)
      seq}}
+
+.. figure:: ../fig/edge_opt_example.png
+        :align: center
+        :width: 300px
+
+
+|
+
+
+.. [1] M.C. Werner and K. Schneider, *Formal Methods-based Optimization of Dataflow Models with Translation to Synchronous Models*, Forum on Specification and Design Languages (FDL), 2023
