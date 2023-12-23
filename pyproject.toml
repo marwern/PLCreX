@@ -9,7 +9,7 @@ requires-python = ">=3.9"
 authors = [
   { name="Marcel C. Werner", email="plcrex.info@gmail.com" },
 ]
-description = "PLCreX - Approaches towards the analysis and reuse capabilities of IEC 61131-3 Programmable Logic Controllers"
+description = "PLCreX - Simplification, Transformation, Analysis, and Validation of IEC 61131-3 Programmable Logic Controllers"
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3.9",

@@ -59,11 +59,11 @@ Decision Coverage <https://shemesh.larc.nasa.gov/fm/papers/Hayhurst-2001-tm21087
      -
      -
      - x
-   * - Number of test cases
+   * - Number of test cases [1]_
      - 1
      - 2
      - n+1
-     - n²
+     - n^2
 
 .. figure:: ../fig/coverage_comparison.png
         :align: center
@@ -267,4 +267,4 @@ Example 4: ``--mcc`` ``"(a & b) | (c <=> (d & e))"``
     1 1 1 1 1 : 1           > test case 32
     ...
 
-.. [1] based on a given Boolean expression as a statement
+.. [1] in this context, because a Boolean expression represents a statement
