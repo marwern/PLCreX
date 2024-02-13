@@ -1,0 +1,7 @@
+FUNCTION_BLOCK TC02//_functionBlock
+  VAR
+    x0 : INT;
+  END_VAR
+
+  x0 := 0;
+END_FUNCTION_BLOCK

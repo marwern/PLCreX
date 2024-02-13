@@ -213,8 +213,8 @@ TRUE: "TRUE"
 DDEL1: "("
 DDEL2: ")"
 variable: NAME //| true.3 | false
-nothing_statement: NOTHING
-NOTHING: ";"
+//nothing_statement: NOTHING
+//NOTHING: ";"
 
 
 // ********************************************************************************

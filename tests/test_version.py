@@ -29,7 +29,7 @@ def test_version_1():
     assert fr"""
 PLCreX-{__version__}, plcrex.info@gmail.com
 
-Copyright (c) 2022-2023 Marcel C. Werner.
+Copyright (c) 2022-2024 Marcel C. Werner.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

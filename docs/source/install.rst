@@ -8,6 +8,7 @@ Prerequisites
 
 * Python v3.9 [`.url <https://www.python.org/downloads/>`_]
 * Operating System: Windows
+* Microsoft Build Tools 2015 [`.url <https://www.microsoft.com/de-de/download/details.aspx?id=48159>`_]
 
 PLCreX Installation via PyPI
 ----------------------------
@@ -32,3 +33,5 @@ External tools called by PLCreX
     - Download v0.4 via GitHub [`.url <https://github.com/jubnzv/iec-checker/releases/tag/v0.4/>`_]
 2. NuSMV - Symbolic Model Checker
     - Download v2.6.0 via NuSMV's homepage [`.url <https://nusmv.fbk.eu//>`_]
+3. Kicodia
+    - Download v122798884 via KIELER's download page [`.url <https://rtsys.informatik.uni-kiel.de/~kieler/files/nightly/sccharts/cli/>`_]

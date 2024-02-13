@@ -3,6 +3,7 @@ click==8.1.6
 colorama==0.4.5
 coverage==6.5.0
 coverage-badge==1.1.0
+dd==0.5.7
 dicttoxml2==2.1.0
 elementpath==3.0.2
 exceptiongroup==1.2.0

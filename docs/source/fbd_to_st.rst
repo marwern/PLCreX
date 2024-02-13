@@ -20,20 +20,19 @@ for example ``TONx(IN := A, PT := B);`` and a **non formal** representation, ``T
 
 .. code:: console
 
-         Usage: plcrex fbd-to-st [OPTIONS] SOURCE EXPORT FILENAME
+         Usage: plcrex fbd-to-st [OPTIONS] SOURCE EXPORT
 
-         FBD-to-ST Compiler      *.xml → fbd2st → *.st
+         FBD-to-ST Compiler                      *.xml → *.st
 
-        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ *    source        PATH  source path [default: None] [required]                                                                                          │
-        │ *    export        PATH  export path [default: None] [required]                                                                                          │
-        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ --bwd       --no-bwd         use backward translation [default: no-bwd]                                                                                  │
-        │ --formal    --no-formal      formal parameter list [default: no-formal]                                                                                  │
-        │ --help                       Show this message and exit.                                                                                                 │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source      PATH  source path [default: None] [required]                                │
+        │ *    export      PATH  export path [default: None] [required]                                │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────╮
+        │ --bwd       --no-bwd         use backward translation [default: no-bwd]                      │
+        │ --formal    --no-formal      formal parameter list [default: no-formal]                      │
+        │ --help                       Show this message and exit.                                     │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
 ..
@@ -61,7 +60,7 @@ Example 1: ``--no-formal`` ``--no-bwd``
 
 .. code-block:: console
 
-    python -m plcrex fbd-to-st --no-formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "01"
+    python -m plcrex fbd-to-st --no-formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports\01"
 
 **Results**
 
@@ -85,7 +84,7 @@ Example 2: ``--no-formal`` ``--bwd``
 
 .. code-block:: console
 
-    python -m plcrex fbd-to-st --no-formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "02"
+    python -m plcrex fbd-to-st --no-formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports\02"
 
 **Results**
 
@@ -107,7 +106,7 @@ Example 3: ``--formal`` ``--no-bwd``
 
 .. code-block:: console
 
-    python -m plcrex fbd-to-st --formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "03"
+    python -m plcrex fbd-to-st --formal --no-bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports\03"
 
 **Results**
 
@@ -132,7 +131,7 @@ Example 4: ``--formal`` ``--bwd``
 
 .. code-block:: console
 
-    python -m plcrex fbd-to-st --formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports" "04"
+    python -m plcrex fbd-to-st --formal --bwd ".\tests\plcopen_examples\TC005_PRG.xml" ".\exports\04"
 
 **Results**
 

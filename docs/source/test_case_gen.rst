@@ -89,6 +89,12 @@ The following operators are supported:
      - negation
    * - <=>
      - equality
+   * - 1
+     - true
+   * - 0
+     - false
+   * - a?b:c
+     - if-then-else
 
 
 
@@ -102,18 +108,19 @@ The following operators are supported:
 
          Usage: plcrex test-case-gen [OPTIONS] FORMULA
 
-         Test-Case-Generator     FORMULA:str → ds2ts → stdout
+         Test-Case-Generator                     stdin → stdout
 
-        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ *    formula      TEXT  condition "(,),&,|,^,~,<=>" [default: None] [required]                                                                           │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ --sc      --no-sc        print statement coverage test case [default: no-sc]                                                                             │
-        │ --dc      --no-dc        print decision coverage test cases [default: no-dc]                                                                             │
-        │ --mcdc    --no-mcdc      print modified condition/decision coverage test cases [default: no-mcdc]                                                        │
-        │ --mcc     --no-mcc       print multiple condition coverage test cases [default: no-mcc]                                                                  │
-        │ --help                   Show this message and exit.                                                                                                     │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────╮
+        │ *    formula      TEXT  condition "(,),&,|,^,~,<=>,0,1,?:" [default: None] [required]        │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────╮
+        │ --sc      --no-sc        print statement coverage test case [default: no-sc]                 │
+        │ --dc      --no-dc        print decision coverage test cases [default: no-dc]                 │
+        │ --mcdc    --no-mcdc      print modified condition/decision coverage test cases               │
+        │                          [default: no-mcdc]                                                  │
+        │ --mcc     --no-mcc       print multiple condition coverage test cases [default: no-mcc]      │
+        │ --help                   Show this message and exit.                                         │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
 ..

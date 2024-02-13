@@ -32,25 +32,24 @@ The IEC-Checker is an external tool for static code analysis of IEC 61131-3 POUs
 
 .. code-block:: console
 
-    python -m plcrex iec-checker --help
+    python -m plcrex iec-check --help
 
 .. code:: console
 
-         Usage: plcrex iec-checker [OPTIONS] SOURCE EXE EXPORT FILENAME
+         Usage: plcrex iec-check [OPTIONS] SOURCE EXE EXPORT
 
-         IEC-Checker             *.st → iecchecker → *.log
+         IEC-Checker                             *.st → *.log
 
-        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ *    source        PATH  source path [default: None] [required]                                                                                          │
-        │ *    exe           PATH  iec_checker_Windows_x86_64_v0.4.exe path [default: None] [required]                                                             │
-        │ *    export        PATH  export path [default: None] [required]                                                                                          │
-        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ --verbose             --no-verbose      print full log [default: no-verbose]                                                                             │
-        │ --help_iec_checker                      call iec-checker help                                                                                            │
-        │ --help                                  Show this message and exit.                                                                                      │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source      PATH  source path [default: None] [required]                                │
+        │ *    exe         PATH  iec_checker_Windows_x86_64_v0.4.exe path [default: None] [required]   │
+        │ *    export      PATH  export path [default: None] [required]                                │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────╮
+        │ --verbose             --no-verbose      print full log [default: no-verbose]                 │
+        │ --help_iec_checker                      call iec-check help                                  │
+        │ --help                                  Show this message and exit.                          │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
 ..
@@ -84,7 +83,7 @@ Example 1
 
 .. code-block:: console
 
-    python -m plcrex iec-checker --verbose ".\tests\st_examples\TC083.st" "./bin/iec_checker_Windows_x86_64_v0.4.exe" ".\exports" "01"
+    python -m plcrex iec-check --verbose ".\tests\st_examples\TC083.st" "./bin/iec_checker_Windows_x86_64_v0.4.exe" ".\exports\01"
 
 **Results**
 

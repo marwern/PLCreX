@@ -1,0 +1,195 @@
+// ********************************************************************************
+// POU Declaration List
+// ********************************************************************************
+?start: "_LINEBREAK_" type pou (idcl | vdcl | statlist)* end_type -> module
+pou: NAME "_LINEBREAK_" -> name
+
+type: TYPE
+TYPE: "PROGRAM" | "FUNCTION_BLOCK"
+
+end_type: END_TYPE "_LINEBREAK_"
+END_TYPE: "END_PROGRAM" | "END_FUNCTION_BLOCK"
+
+
+// ********************************************************************************
+// Interface/Variable Declaration List
+// ********************************************************************************
+idcl: (var_input | var_output | var_in_out)* -> idcl
+
+vdcl: var_local -> vdcl
+
+dcllist: declaration*
+
+declaration:
+    | variable ":" datatype ";" "_LINEBREAK_"
+    | variable ":" datatype ":=" _expr ";" "_LINEBREAK_"
+
+var_input: "VAR_INPUT" "_LINEBREAK_" dcllist "END_VAR" "_LINEBREAK_"
+
+var_output: "VAR_OUTPUT" "_LINEBREAK_" dcllist "END_VAR" "_LINEBREAK_"
+
+var_in_out: "VAR_IN_OUT" "_LINEBREAK_" dcllist "END_VAR" "_LINEBREAK_"
+
+var_local: "VAR" "_LINEBREAK_" dcllist "END_VAR" "_LINEBREAK_"
+
+
+// ********************************************************************************
+// Datatypes
+// ********************************************************************************
+datatype: TYPE_BOOL | TYPE_INT | TYPE_REAL | TYPE_TIME | array | macro_name
+
+TYPE_BOOL: "BOOL"
+TYPE_INT: "INT"
+TYPE_REAL: "REAL"
+TYPE_TIME: "TIME"
+array: "ARRAY" "[1.." constant_int "] OF" datatype
+macro_name: MACRO_NAME
+
+
+// ********************************************************************************
+// Functions/User-POUs
+// ********************************************************************************
+macro:
+    | MACRO_NAME "." macro_out
+    | MACRO_NAME "(" macro_assignment ("," macro_assignment)* ");"
+    | MACRO_NAME "(" _expr ("," _expr )* ");"
+macro_out: MACRO_NAME
+
+
+// ********************************************************************************
+// Arithmetic operators
+// ********************************************************************************
+multiply_with: _expr "*" _expr | "MUL(" _expr "," _expr ")"
+divide_by: _expr "/" _expr | "DIV(" _expr "," _expr ")"
+modulo: _expr "MOD" _expr | "MOD(" _expr "," _expr ")"
+adding: _expr "+" _expr | "ADD(" _expr "," _expr ")"
+subtracting: _expr "-" _expr | "SUB(" _expr "," _expr ")"
+expt: "EXPT(" _expr "," _expr ")"
+unaryminus: "-" _expr
+
+
+// ********************************************************************************
+// Boolean operators
+// ********************************************************************************
+not_op: "NOT" _expr
+and_op: _expr "AND" _expr | "AND(" _expr "," _expr ")"
+xor_op: _expr "XOR" _expr | "XOR(" _expr "," _expr ")"
+or_op: _expr "OR" _expr | "OR(" _expr "," _expr ")"
+
+
+// ********************************************************************************
+// Numeric operators
+// ********************************************************************************
+less_or_equal.1: _expr "<=" _expr
+greater_or_equal.1: _expr ">=" _expr
+less_than: _expr "<" _expr
+greater_than: _expr ">" _expr
+
+
+// ********************************************************************************
+// Equality
+// ********************************************************************************
+equality.1: _expr "=" _expr | "EQ(" _expr "," _expr ")"
+//EQ:/[=]/
+inequality.1: _expr "<>" _expr | "NE(" _expr "," _expr ")"
+
+
+// ********************************************************************************
+// General expressions
+// ********************************************************************************
+_expr:
+    | equality
+	| variable ("[" constant_int "]")*
+	| multiply_with
+	| divide_by
+	| modulo
+	| adding
+	| subtracting
+	| "(" _expr ")"
+    | expt
+	| constant
+	| constant_time
+	| not_op
+	| and_op
+	| xor_op
+	| or_op
+	| inequality
+	| less_or_equal
+	| greater_or_equal
+	| less_than
+	| greater_than
+	| false
+	| true
+    | unaryminus
+    | if_statement_short
+
+false: FALSE
+FALSE: "FALSE"
+true: TRUE
+TRUE: "TRUE"
+
+
+// ********************************************************************************
+// Statementlist
+// ********************************************************************************
+constant_time.2: "t#" MS_DURATION "s"
+constant.1: UINT | REAL
+constant_int.1: UINT
+UINT: /[0-9]+/
+REAL: /[0-9][.]?[0-9]*/
+MS_DURATION: UINT
+//NUMBER: /[+-]?[0-9]+/
+
+statlist: statement*
+
+statement:
+    | immediate_assignment "_LINEBREAK_"
+    | if_statement "_LINEBREAK_"
+    | while_statement "_LINEBREAK_"
+    | repeat_statement "_LINEBREAK_"
+    | macro "_LINEBREAK_"
+    | macro_assignment
+
+
+// ********************************************************************************
+// Assignments
+// ********************************************************************************
+immediate_assignment: variable("["constant_int"]")* ":=" _expr ";"
+
+macro_assignment: variable ":=" _expr
+
+
+// ********************************************************************************
+// selection statement
+// ********************************************************************************
+if_statement: "IF" _expr "THEN" "_LINEBREAK_" statlist "ELSE" "_LINEBREAK_" statlist "END_IF;"
+if_statement_short: "SEL(" _expr "," _expr "," _expr ");"
+
+
+
+// ********************************************************************************
+// iteration statements
+// ********************************************************************************
+while_statement: "WHILE" _expr "DO" "_LINEBREAK_" statlist "END_WHILE;"
+
+repeat_statement: "REPEAT" "_LINEBREAK_" statlist "UNTIL" _expr "_LINEBREAK_" "END_REPEAT;"
+
+
+// ********************************************************************************
+// Additional Terminals and_op rules
+// ********************************************************************************
+variable: NAME
+
+
+// ********************************************************************************
+// Lark statements
+// ********************************************************************************
+MULTI_LINE_COMMENT: /\(\*.*?\*\)/s
+SINGLE_LINE_COMMENT: /\s*/ "//" /[^\n]/*
+
+%ignore WS
+%ignore MULTI_LINE_COMMENT
+%ignore SINGLE_LINE_COMMENT
+%import common.WS
+NAME: /[_]?(?!(TRUE|FALSE|BOOL|INT|REAL|ARRAY\b))[a-zA-Z0-9_]\w*/
+MACRO_NAME: /[_]?(?!(BOOL|INT|REAL|ARRAY\b))[a-zA-Z_]\w*/

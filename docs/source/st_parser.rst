@@ -23,21 +23,20 @@ resulting syntax tree visually or as plain text and reuse it for subsequent anal
 
 .. code:: console
 
-         Usage: plcrex st-parser [OPTIONS] SOURCE EXPORT FILENAME
+         Usage: plcrex st-parser [OPTIONS] SOURCE EXPORT
 
-         ST-Parser               *.st → st2ast → *.dot/*.txt
+         ST-Parser                               *.st → *.dot/*.txt
 
-        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ *    source        PATH  source path [default: None] [required]                                                                                          │
-        │ *    export        PATH  export path [default: None] [required]                                                                                          │
-        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ --txt         --no-txt           tree export as *.txt [default: txt]                                                                                     │
-        │ --dot         --no-dot           tree export as *.dot [default: dot]                                                                                     │
-        │ --beckhoff    --no-beckhoff      use Beckhoff TwinCAT ST grammar [default: no-beckhoff]                                                                  │
-        │ --help                           Show this message and exit.                                                                                             │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source      PATH  source path [default: None] [required]                                │
+        │ *    export      PATH  export path [default: None] [required]                                │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────╮
+        │ --txt         --no-txt           tree export as *.txt [default: txt]                         │
+        │ --dot         --no-dot           tree export as *.dot [default: dot]                         │
+        │ --beckhoff    --no-beckhoff      use Beckhoff TwinCAT ST grammar [default: no-beckhoff]      │
+        │ --help                           Show this message and exit.                                 │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
 ..
@@ -87,7 +86,7 @@ Example 1 ``--no-beckhoff``
 
 .. code-block:: console
 
-    python -m plcrex st-parser ".\tests\st_examples\TC081.st" ".\exports" "01"
+    python -m plcrex st-parser ".\tests\st_examples\TC081.st" ".\exports\01"
 
 **Results**
 
@@ -138,7 +137,7 @@ Example 2 ``--beckhoff``
 
 .. code-block:: console
 
-    python -m plcrex st-parser --beckhoff ".\tests\st_examples\TC081.st" ".\exports" "02"
+    python -m plcrex st-parser --beckhoff ".\tests\st_examples\TC081.st" ".\exports\02"
 
 **Results**
 

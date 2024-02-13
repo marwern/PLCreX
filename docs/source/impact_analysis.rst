@@ -14,18 +14,17 @@ The I/O-Impact Analysis feature identifies the dependencies between POU outputs 
 
 .. code:: console
 
-         Usage: plcrex impact-analysis [OPTIONS] SOURCE EXPORT FILENAME
+         Usage: plcrex impact-analysis [OPTIONS] SOURCE EXPORT
 
-         I/O-Impact Analysis     *.xml → fbd2st → *.st → st2ia → *.dot
+         I/O-Impact Analysis                     *.xml → *.dot
 
-        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ *    source        PATH  source path [default: None] [required]                                                                                          │
-        │ *    export        PATH  export path [default: None] [required]                                                                                          │
-        │ *    filename      TEXT  filename without file extension [default: None] [required]                                                                      │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-        │ --help          Show this message and exit.                                                                                                              │
-        ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────╮
+        │ *    source      PATH  source path [default: None] [required]                                │
+        │ *    export      PATH  export path [default: None] [required]                                │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+        ╭─ Options ────────────────────────────────────────────────────────────────────────────────────╮
+        │ --help          Show this message and exit.                                                  │
+        ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
 ..
@@ -53,7 +52,7 @@ Example 1
 
 .. code-block:: console
 
-    python -m plcrex impact-analysis ".\tests\plcopen_examples\TC006_FBD.xml" ".\exports" "01"
+    python -m plcrex impact-analysis ".\tests\plcopen_examples\TC006_FBD.xml" ".\exports\01"
 
 **Results**
 
