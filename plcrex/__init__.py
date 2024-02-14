@@ -17,6 +17,6 @@
 #
 
 __app_name__ = "plcrex"
-__version__ = "1.3.0"
+__version__ = "2.0.0"
 __owner__ = "Marcel C. Werner"
 __copyright__ = "2022-2024, " + __owner__
