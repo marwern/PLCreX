@@ -121,11 +121,11 @@ Models
 
 The translations of the models are based on PLCreX's intermediate model ``*.pim``:
 
-| Package           | Description                         | Version   |
-|-------------------|-------------------------------------|-----------|
-| ``st``            | Structured Text                     | 1.0.0     |
-| ``qrz``           | Quartz Model                        | 1.0.0     |
-| ``scl``           | Sequentially Constructive Language  | 1.0.0     |
+| Package           | Description                         | Version |
+|-------------------|-------------------------------------|---------|
+| ``st``            | Structured Text                     | 1.0.2  |
+| ``qrz``           | Quartz Model                        | 1.0.1   |
+| ``scl``           | Sequentially Constructive Language  | 1.0.2   |
 
 
 Licenses

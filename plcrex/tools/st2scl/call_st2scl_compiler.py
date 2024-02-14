@@ -31,5 +31,5 @@ def cli(
         ST2SCL.__version__,
         ST2SCL.__author__
     )
-    ST2SCL("debug").run(source, export, kicodia, mode)
+    ST2SCL().run(source, export, kicodia, mode)
     print_footer()

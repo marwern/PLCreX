@@ -118,8 +118,8 @@ def get_file(rel_path: str):
             with open(abs_file_path, 'rt') as file:
                 f = file.read()
                 #logging.warning(f"Ignoring data from local developer package! > {rel_path}")
-                #typer.echo(typer.style(f"WARNING: Ignoring data from local developer package! > {rel_path}",
-                #                       fg=typer.colors.YELLOW, bold=True))
+                typer.echo(typer.style(f"WARNING: Ignoring data from local developer package! > {rel_path}",
+                                       fg=typer.colors.YELLOW, bold=True))
                 #file.close()
             return f
      
@@ -128,9 +128,9 @@ def get_file(rel_path: str):
         with open(rel_path, 'rt') as file:
             f = file.read()
             #logging.warning(f"Ignoring data from global site-package! > {rel_path}")
-            #typer.echo(
-            #    typer.style(f"WARNING: Ignoring data from global site-package! > {rel_path}", fg=typer.colors.YELLOW,
-             #               bold=True))
+            typer.echo(
+                typer.style(f"WARNING: Ignoring data from global site-package! > {rel_path}", fg=typer.colors.YELLOW,
+                            bold=True))
             #file.close()
         return f
 
